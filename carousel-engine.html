@@ -1,0 +1,564 @@
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: transparent;
+  }
+
+  .carousel-wrapper {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .top-indicator-panel {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .book-counter {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #70757a;
+  }
+
+  .indicator-dots {
+    display: flex;
+    gap: 6px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 4px 0;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #dadce0;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .dot.active {
+    background-color: #946a31;
+  }
+
+  .carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 10px;
+  }
+
+  .nav-arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #5f6368;
+    padding: 5px;
+    transition: color 0.2s, transform 0.2s;
+    user-select: none;
+    z-index: 10;
+  }
+
+  .nav-arrow:hover {
+    color: #1a73e8;
+    transform: scale(1.1);
+  }
+
+  .carousel-content {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+    padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 26% minmax(0, 74%); 
+    gap: 24px;
+    align-items: start;
+  }
+
+  .image-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none;
+  }
+
+  .carousel-image.active {
+    display: block;
+  }
+
+  .text-panel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .description-text {
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .description-text.active {
+    display: grid;
+    grid-template-columns: 50% minmax(0, 50%);
+    gap: 24px;
+  }
+
+  .details-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .details-column h2 {
+    margin-top: 0;
+    color: #202124;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+
+  .author-name {
+    color: #5f6368;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #202124;
+    margin-bottom: 6px;
+    margin-top: 0;
+  }
+
+  .details-column p {
+    color: #5f6368;
+    line-height: 1.45;
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: 16px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .purchase-column {
+    border-left: 1px solid #eaeaea;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+  }
+
+  .purchase-category {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .category-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #5f6368;
+  }
+
+  .store-grid-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .store-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    background: #f8f9fa;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    color: #3c4043;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+
+  .store-link:hover {
+    background: #f1f3f4;
+    border-color: #bdc1c6;
+  }
+
+  .brand-left-zone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .brand-logo-img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .brand-text-block {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .brand-main-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #202124;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .brand-sub-action {
+    font-size: 0.68rem;
+    color: #70757a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 1px;
+  }
+
+  .icon-arrow {
+    font-size: 0.75rem;
+    color: #bdc1c6;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-left: 4px;
+  }
+
+  .disclaimer-banner {
+    font-size: 0.72rem;
+    color: #70757a;
+    text-align: center;
+    background: #f8f9fa;
+    padding: 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  .thumbnail-slider-window {
+    width: 100%;
+    overflow-x: auto; 
+    padding: 6px 4px 10px 4px;
+    box-sizing: border-box;
+    scrollbar-width: thin; 
+    scrollbar-color: #946a31 #232930;
+  }
+
+  .thumbnail-slider-window::-webkit-scrollbar {
+    height: 6px;
+  }
+  .thumbnail-slider-window::-webkit-scrollbar-track {
+    background: #12161a;
+    border-radius: 10px;
+  }
+  .thumbnail-slider-window::-webkit-scrollbar-thumb {
+    background: #946a31;
+    border-radius: 10px;
+  }
+  .thumbnail-slider-window::-webkit-scrollbar-thumb:hover {
+    background: #b5833f;
+  }
+
+  .thumbnail-navigation-track {
+    display: flex;
+    gap: 10px;
+    width: max-content; 
+  }
+
+  .thumb-card {
+    width: 180px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #12161a; 
+    border: 2px solid #232930; 
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: border-color 0.2s, background-color 0.2s;
+  }
+
+  .thumb-card:hover {
+    background: #191f24;
+  }
+
+  .thumb-card.active {
+    border-color: #e5a93b !important; 
+    background: #1c232a;
+    box-shadow: 0 0 8px rgba(229, 169, 59, 0.3); 
+  }
+
+  .thumb-img {
+    width: 28px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 2px;
+    background: #232930;
+  }
+
+  .thumb-meta {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .thumb-title {
+    color: #f8f9fa;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .thumb-card.active .thumb-title {
+    color: #e5a93b;
+  }
+
+  .thumb-author {
+    color: #9aa0a6;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 1px;
+  }
+
+  @media (max-width: 850px) {
+    .carousel-content {
+      grid-template-columns: 100%;
+      gap: 20px;
+    }
+    .description-text.active {
+      grid-template-columns: 100%;
+      gap: 20px;
+    }
+    .purchase-column {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid #eaeaea;
+      padding-top: 16px;
+    }
+    .store-grid-row {
+      grid-template-columns: 1fr; 
+    }
+  }
+</style>
+
+<div class="carousel-wrapper">
+  <div class="top-indicator-panel">
+    <div class="book-counter" id="slide-counter">Loading...</div>
+    <div class="indicator-dots" id="dots-container"></div>
+  </div>
+
+  <div class="carousel-container">
+    <button class="nav-arrow prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+    <div class="carousel-content">
+      <div class="image-panel" id="main-image-viewport"></div>
+      <div class="text-panel" id="main-text-viewport"></div>
+    </div>
+    <button class="nav-arrow next-btn" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  <div class="thumbnail-slider-window" id="slider-window">
+    <div class="thumbnail-navigation-track" id="thumb-track"></div>
+  </div>
+</div>
+
+<script>
+  // ADJUSTMENT: The local hardcoded database array is removed.
+  // It now expects standard variable initialization from the main host file.
+  let currentSlide = 0;
+  let imgViewport, txtViewport, thumbTrack, sliderWindow, dotsContainer, counterText;
+
+  function initializeCarouselDOM() {
+    imgViewport = document.getElementById('main-image-viewport');
+    txtViewport = document.getElementById('main-text-viewport');
+    thumbTrack = document.getElementById('thumb-track');
+    sliderWindow = document.getElementById('slider-window');
+    dotsContainer = document.getElementById('dots-container');
+    counterText = document.getElementById('slide-counter');
+
+    imgViewport.innerHTML = '';
+    txtViewport.innerHTML = '';
+    thumbTrack.innerHTML = '';
+    dotsContainer.innerHTML = '';
+
+    // bookDatabase is mapped and populated globally by your Article Page script before execution
+    if (!window.bookDatabase || window.bookDatabase.length === 0) {
+      counterText.innerText = "No books configured for this page.";
+      return;
+    }
+
+    window.bookDatabase.forEach((book, idx) => {
+      const img = document.createElement('img');
+      img.className = `carousel-image ${idx === 0 ? 'active' : ''}`;
+      img.src = book.cover;
+      img.alt = book.title;
+      imgViewport.appendChild(img);
+
+      const dot = document.createElement('div');
+      dot.className = `dot ${idx === 0 ? 'active' : ''}`;
+      dotsContainer.appendChild(dot);
+
+      const textBlock = document.createElement('div');
+      textBlock.className = `description-text ${idx === 0 ? 'active' : ''}`;
+      textBlock.innerHTML = `
+        <div class="details-column">
+          <h2>${book.title}</h2>
+          <div class="author-name">${book.author}</div>
+          <h3 class="section-title">Objective Summary</h3>
+          <p>${book.summary}</p>
+          <h3 class="section-title">Why it matters</h3>
+          <p>${book.whyMatters}</p>
+        </div>
+        <div class="purchase-column">
+          <div class="purchase-category">
+            <span class="category-label">Physical Book</span>
+            <div class="store-grid-row">
+              <a href="${book.links.amazon || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon">
+                  <div class="brand-text-block"><span class="brand-main-title">Amazon</span><span class="brand-sub-action">View Link</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+              <a href="${book.links.bookshop || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://bookshop.org/favicon.ico" alt="Bookshop">
+                  <div class="brand-text-block"><span class="brand-main-title">Bookshop</span><span class="brand-sub-action">Independent</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="purchase-category">
+            <span class="category-label">Audiobook</span>
+            <div class="store-grid-row">
+              <a href="${book.links.audible || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://www.audible.com/favicon.ico" alt="Audible">
+                  <div class="brand-text-block"><span class="brand-main-title">Audible</span><span class="brand-sub-action">Listen Here</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+              <a href="${book.links.libro || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://libro.fm/favicon.ico" alt="Libro.fm">
+                  <div class="brand-text-block"><span class="brand-main-title">Libro.fm</span><span class="brand-sub-action">Local Stores</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="purchase-category">
+            <span class="category-label">Ebook</span>
+            <div class="store-grid-row">
+              <a href="${book.links.kindle || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Kindle">
+                  <div class="brand-text-block"><span class="brand-main-title">Kindle</span><span class="brand-sub-action">Digital Copy</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+              <a href="${book.links.kobo || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://www.kobo.com/favicon.ico" alt="Kobo">
+                  <div class="brand-text-block"><span class="brand-main-title">Kobo</span><span class="brand-sub-action">eReader</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="disclaimer-banner">Using links supports the channel at no extra cost to you!</div>
+        </div>
+      `;
+      txtViewport.appendChild(textBlock);
+
+      const thumb = document.createElement('div');
+      thumb.className = `thumb-card ${idx === 0 ? 'active' : ''}`;
+      thumb.onclick = () => jumpToSlide(idx);
+      thumb.innerHTML = `
+        <img class="thumb-img" src="${book.cover}" alt="Thumb ${idx + 1}">
+        <div class="thumb-meta">
+          <span class="thumb-title">${idx + 1}. ${book.title}</span>
+          <span class="thumb-author">${book.author}</span>
+        </div>
+      `;
+      thumbTrack.appendChild(thumb);
+    });
+
+    counterText.innerText = `Book 1 of ${window.bookDatabase.length}`;
+  }
+
+  function adjustThumbnailScrollPosition() {
+    const thumbs = document.querySelectorAll('.thumb-card');
+    if (thumbs.length === 0 || !sliderWindow) return;
+    const currentThumb = thumbs[currentSlide];
+    const windowWidth = sliderWindow.offsetWidth;
+    const targetOffset = currentThumb.offsetLeft - (windowWidth / 2) + (currentThumb.offsetWidth / 2);
+    sliderWindow.scrollTo({ left: targetOffset, behavior: 'smooth' });
+  }
+
+  function updateInterfaceElements() {
+    const images = document.querySelectorAll('.carousel-image');
+    const texts = document.querySelectorAll('.description-text');
+    const thumbs = document.querySelectorAll('.thumb-card');
+    const dots = document.querySelectorAll('.dot');
+
+    images.forEach((img, idx) => img.classList.toggle('active', idx === currentSlide));
+    texts.forEach((txt, idx) => txt.classList.toggle('active', idx === currentSlide));
+    thumbs.forEach((tmb, idx) => tmb.classList.toggle('active', idx === currentSlide));
+    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
+
+    counterText.innerText = `Book ${currentSlide + 1} of ${window.bookDatabase.length}`;
+    adjustThumbnailScrollPosition();
+  }
+
+  function changeSlide(direction) {
+    if (!window.bookDatabase) return;
+    currentSlide = (currentSlide + direction + window.bookDatabase.length) % window.bookDatabase.length;
+    updateInterfaceElements();
+  }
+
+  function jumpToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateInterfaceElements();
+  }
+
+  // Trigger engine build on file injection mount
+  initializeCarouselDOM();
+</script>
