@@ -1,0 +1,63 @@
+/* ==========================================================================
+   OUTER ELEMENT CONTRAST OVERRIDES (BIOSHOCK & STALKER)
+   ========================================================================== */
+
+/* --- 1. GLOBAL TEXT & DOT FIXES FOR DARK BACKGROUNDS --- */
+.theme-bioshock .book-counter,
+.theme-stalker .book-counter {
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Cuts through background details */
+}
+
+.theme-bioshock .dot,
+.theme-stalker .dot {
+  background-color: rgba(255, 255, 255, 0.25) !important; /* Makes inactive dots clearly visible */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+/* --- 2. BIOSHOCK SPECIFIC CONTRAST (Rapture Sea-Teal & Art Deco Gold) --- */
+.theme-bioshock {
+  /* Top text color */
+  .book-counter {
+    color: #49dec9 !important; /* Vivid Rapture neon teal to match the signs */
+  }
+
+  /* Active indicator dot */
+  .dot.active {
+    background-color: #e5a93b !important; /* Bright glowing gold */
+    box-shadow: 0 0 8px #e5a93b !important;
+  }
+
+  /* Thumbnail track subtle background glow to ground it */
+  .thumbnail-slider-window {
+    background: rgba(10, 25, 28, 0.6) !important; /* Translucent deep sea teal tint */
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid rgba(73, 222, 201, 0.15);
+  }
+}
+
+
+/* --- 3. S.T.A.L.K.E.R. SPECIFIC CONTRAST (Anomalous Amber & Radiation Yellow) --- */
+.theme-stalker {
+  /* Top text color */
+  .book-counter {
+    color: #e67e22 !important; /* High-visibility hazard amber/orange */
+  }
+
+  /* Active indicator dot */
+  .dot.active {
+    background-color: #f1c40f !important; /* Bright radioactive yellow */
+    box-shadow: 0 0 8px #f1c40f !important;
+  }
+
+  /* Thumbnail track framing for industrial bunker look */
+  .thumbnail-slider-window {
+    background: rgba(20, 22, 24, 0.85) !important; /* Solid dark industrial framing */
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #384148; /* Matches the bunker metal theme */
+  }
+}
