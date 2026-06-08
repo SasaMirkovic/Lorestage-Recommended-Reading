@@ -1,0 +1,93 @@
+<script src="https://cdn.jsdelivr.net/gh/SasaMirkovic/Lorestage-Recommended-Reading@main/books-database.js"></script>
+
+<script>
+  // 2. CHOOSE which books show on THIS page and write the unique context description
+  const pageConfiguration = [
+    {
+      id: "atlas-shrugged",
+      whyMatters: "This book is essential for understanding the plot of the first BioShock, as the game asks the crucial question every emotionally charged ideological work avoids: what happens the day after the book’s heroes achieve victory?"
+    },
+    {
+      id: "the-fountainhead",
+      whyMatters: "This book provides a clearer understanding of the “self-created man” archetype developed by Rand. Andrew Ryan’s burning of the forest mirrors Howard Roark’s destruction of the Cortlandt Homes project: both acts are framed as radical assertions of creative ownership against collectivist compromise."
+    },
+    {
+      id: "the-virtue-of-selfishness",
+      whyMatters: "Through it you will get to understand that the way Ayn Rand approaches the development of opposing views in her novels is not a question of literary style, but rather a perfect reflection of her core ideas. Not only does she change the meaning of the established terminology and myths to fit her narrative, but it becomes obvious why, from that perspective, her dissenters can’t be anything more than savages or morally corrupt, which Ryan reflects perfectly."
+    },
+    {
+      id: "anthem",
+      whyMatters: "Although not tied to the video game in any direct way, it perfectly depicts the boundaries of Ayn Rand’s thoughts. Unlike Zamyatin’s We, Orwell’s 1984 or Huxley’s Brave New World, the plot of Anthem fails to create a believable world due to a simple reason - an “anti-utopian” book, which criticizes egalitarianism, can’t be written by somebody who developed a closed ideological system, and envisioned a Utopia himself."
+    },
+    {
+      id: "bioshock-rapture",
+      whyMatters: "The book helps us understand Rapture’s history before the first game and goes to show that the authors didn’t envision a straw-man, but actually drew a figure of a metaphorical giant - Andrew Ryan - whose height only accentuated the fall."
+    },
+    {
+      id: "bioshock-and-philosophy",
+      whyMatters: "Through the book you’ll get additional perspectives on Rapture and Ryan. Personally, I found the essays either bland and overly cautious about criticism from objectivists, tied to the topics which seem superfluous, like feminism and Bioshock, or getting lost in the safest of them all - generic multiverse and determinism debates. Still, it is worth reading as different opinions will provide you with a view that is opposed to mine, like the idea that Andrew Ryan is actually a straw-man argument, with which I strongly disagree."
+    },
+    {
+      id: "descartes-error",
+      whyMatters: "What is especially important about this book is that it challenges the dualism of mind-body or reason-emotion. Damasio paints a picture of the complexity of human mind, and shows that emotions are inseparable from reason. This stands in contrast to the black and white notions developed by Ayn Rand in her ideological writings, and abstract understanding of reason separated from biological reality of human beings."
+    },
+    {
+      id: "thinking-fast-and-slow",
+      whyMatters: "Like with Damasio, Kahneman’s work shows us what human decision-making actually is, rather than how it is assumed to be in idealized models. It provides empirical grounding for understanding how biases, heuristics, automation, and moments of deliberate reasoning interact in shaping everyday behavior. In the context of BioShock, this framework helps explain how systems built on the assumption of purely rational actors inevitably produce distortions in practice, as real human beings operate through a mix of intuitive shortcuts and limited, effortful correction."
+    },
+    {
+      id: "noise",
+      whyMatters: "In contrast to the rigid assumptions shared by Rand or Ryan, this book again shows that scientific examination of human behaviour points toward something far more complex. It doesn’t discard rationality, but demonstrates that it cannot be treated as an abstract ideal."
+    },
+    {
+      id: "determined",
+      whyMatters: "The provocative premise of the book questions the central assumption of Ayn Rand and Andrew Ryan - that of free will. Although my understanding of human nature and social phenomena had largely been shaped by libertarian thought (to which Ayn Rand does not belong, as I explain in my BioShock video), Sapolsky, in addition to my lovely wife, made me think about the biology behind human behaviour, and question some of the assumptions I’ve been taking for granted."
+    },
+    {
+      id: "equal-is-unfair",
+      whyMatters: "The provocative premise of the book questions the central assumption of Ayn Rand and Andrew Ryan - that of free will. Although my understanding of human nature and social phenomena had largely been shaped by libertarian thought (to which Ayn Rand does not belong, as I explain in my BioShock video), Sapolsky, in addition to my lovely wife, made me think about the biology behind human behaviour, and question some of the assumptions I’ve been taking for granted."
+    },
+  ];
+
+  // 3. Process and map the data variables securely (with safety checks for missing data)
+  window.bookDatabase = pageConfiguration.map(config => {
+    const masterData = MASTER_BOOK_DIRECTORY[config.id];
+    if (!masterData) {
+      console.error(`Missing book data in database for ID: ${config.id}`);
+      return null;
+    }
+    return {
+      ...masterData,
+      whyMatters: config.whyMatters
+    };
+  }).filter(book => book !== null);
+</script>
+
+<div id="carousel-target"></div>
+
+<script>
+  // 5. Fetch and cleanly inject the visual layout engine
+  fetch('https://cdn.jsdelivr.net/gh/SasaMirkovic/Lorestage-Recommended-Reading@main/carousel-engine.html')
+    .then(response => response.text())
+    .then(htmlString => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlString, 'text/html');
+      
+      // Inject the style rules cleanly into the head
+      const style = doc.querySelector('style');
+      if (style) document.head.appendChild(style);
+      
+      // Inject the structural wrapper framework into your target div
+      const wrapper = doc.querySelector('.carousel-wrapper');
+      if (wrapper) document.getElementById('carousel-target').appendChild(wrapper);
+      
+      // Inject and execute the script logic safely
+      const script = doc.querySelector('script');
+      if (script) {
+        const newScript = document.createElement('script');
+        newScript.textContent = script.textContent;
+        document.body.appendChild(newScript);
+      }
+    })
+    .catch(err => console.error('Error loading carousel engine:', err));
+</script>
