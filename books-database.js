@@ -65,6 +65,204 @@ const MASTER_BOOK_DIRECTORY = {
       audible: "#", libro: "#", kindle: "#", kobo: "#" 
     }
   },
+  "descartes-error": {
+    title: "Descartes' Error",
+    author: "Antonio Damasio",
+    summary: "A book by Portuguese neurobiologist delves deeply into the structure of human mind, and its place within the whole of human organism. Starting with a fascinating story of Phineas Gage, Damasio guides us through his personal journey in uncovering the neurological foundations behind human action.",
+    cover: "https://m.media-amazon.com/images/I/81Iciyy0OyL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "thinking-fast-and-slow": {
+    title: "Thinking, Fast and Slow",
+    author: "Daniel Kahneman",
+    summary: "Based on decades of empirical research, Daniel Kahneman proposes a model of the mind composed of two interacting systems.. S1 as an intuitive, quick and automated way of making decisions, and S2 as a slow, analytical and deliberate process of understanding. Both systems are essential to human cognition, but each comes with trade-offs.",
+    cover: "https://m.media-amazon.com/images/I/61fdrEuPJwL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "noise": {
+    title: "Noise",
+    author: "Daniel Kahneman, Olivier Sibony, Cass R. Sunstein",
+    summary: "In contrast to the expectation that identical inputs should produce identical outcomes, this book focuses on variability in human judgment. The authors ask how different people, given the same information, can arrive at entirely different conclusions, or why the same person, under different circumstances yet facing the same facts, may reach different decisions. Rather than concentrating only on bias, the book explores the hidden problem of inconsistency that shapes much of human judgment.",
+    cover: "https://m.media-amazon.com/images/I/71u4lkQ-HDL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "determined": {
+    title: "Determined",
+    author: "Robert M. Sapolsky",
+    summary: "In Determined, Robert Sapolsky deconstructs arguments for free will, pointing to the ways in which biology and socialization shape the neural and environmental foundations of human behavior. Drawing from neuroscience, genetics, and psychology, he argues that our actions emerge from a complex chain of influences extending far beyond conscious choice.",
+    cover: "https://m.media-amazon.com/images/I/71hHatrSD3L._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "equal-is-unfair": {
+    title: "Equal is (Un)Fair",
+    author: "Don Watkins, Yaron Brook",
+    summary: "The book argues that the pursuit of equality through government intervention can undermine the principles of freedom and merit. They examine ways in which equality pursuing policies may instead produce distortions that lead to an increasingly unfair social environment.",
+    cover: "https://m.media-amazon.com/images/I/61cOzV2ISwL._SL1360_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "power-a-radical-view": {
+    title: "Power: A Radical View",
+    author: "Steven Lukes",
+    summary: "Lukes introduces the idea of a third dimension of power. In contrast to the first dimension, which focuses on observable decision-making, and the second, which deals with agenda setting, the author explores the level that shapes beliefs, preferences, and perceptions themselves, raising questions about ideology and the formation of human desires.",
+    cover: "https://m.media-amazon.com/images/I/61f5Gyr89BL._SL1273_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "nudge": {
+    title: "Nudge",
+    author: "Richard H. Thaler, Cass R. Sunstein",
+    summary: "Building on the ideas of behavioral economics, Thaler and Sunstein argue for a model of libertarian paternalism. Although sounding like an oxymoron, authors argue for a model of libertarian paternalism. Although the term may sound like an oxymoron, the authors attempt to show how small adjustments in choice architecture can help individuals navigate the heuristics and cognitive shortcuts that characterize human thinking.",
+    cover: "https://m.media-amazon.com/images/I/714hhkkcbCL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "ideology-and-utopia": {
+    title: "Ideology and Utopia",
+    author: "Karl Mannheim",
+    summary: "Mannheim’s essays in the field of sociology of knowledge, in which he argued that the term ideology must be broadened. In contrast to reducing ideology to deliberate obscuring of facts, Mannheim suggests that every worldview is shaped by the social and historical context in which it develops, and that understanding ideology requires taking these conditions into account.",
+    cover: "https://m.media-amazon.com/images/I/51up-6YNh6L._SL1360_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-wisdom-of-the-crowds": {
+    title: "The Wisdom of Crowds",
+    author: "James Surowiecki",
+    summary: "Surowiecki builds a counterargument to the idea of exceptional few in the field of decision making. Presenting 3 aspects of collective intelligence, cognition, collaboration and coordination, author pictures the hidden logic behind the success of market coordination or democratic elections, which produce knowledge that no single person holds.",
+    cover: "https://m.media-amazon.com/images/I/61Jds-wsOvL._SL1200_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "outliers": {
+    title: "Outliers",
+    author: "Malcolm Gladwell",
+    summary: "Dealing with the question of greatness, Gladwell provides an argument which takes into account individual talent, hard work and dedication, but frames it within broader social context as well as opportunities which had nothing to do with individual qualities. Neither fully focused on the individual, nor on context, Gladwell presents a complex symbiosis between the two.",
+    cover: "https://m.media-amazon.com/images/I/91lYcUJ8JsL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-logic-of-collective-action": {
+    title: "The Logic of Collective Action",
+    author: "Mancur Olson",
+    summary: "The author examines the problem of collective behavior, asking why individuals often fail to act in pursuit of shared interests. Challenging the assumption that common goals automatically produce cooperation, Olson explores problems such as free-riding and the conditions under which collective action becomes possible.",
+    cover: "https://m.media-amazon.com/images/I/51NZSWg69VL._SL1000_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-sociological-imagination": {
+    title: "The Sociological Imagination",
+    author: "Charles Wright Mills",
+    summary: "Bridging the gap between private and social, Mills argues for a different approach in sociology, which views challenges faced by individuals as a part of a broader social context. If a couple gets a divorce it truly is their private issue, but if 50% of all marriages end in divorce, it becomes evident that something larger than individual circumstances is at play.",
+    cover: "https://m.media-amazon.com/images/I/618lGF1oDFL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "oblomov": {
+    title: "Oblomov",
+    author: "Ivan Goncharov",
+    summary: "The story of Ilya Ilyich Oblomov, a man of considerable potentials, who remains unable to take any action in fear of life’s challenges. Through him Goncharov builds a portrait of the superfluous man, as we follow Ilya bear with “epic” tasks, such as the struggle of moving from his bed to a chair.",
+    cover: "https://m.media-amazon.com/images/I/71OCCN-6R6L._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "demons": {
+    title: "Demons",
+    author: "Fyodor Dostoyevsky",
+    summary: "In this novel Dostoyevsky paints a picture of the changes faced by a small community, induced by the appearance of educated youth, bearers of radical ideas on social questions. Influencing the deconstruction of traditional values, these “evil spirits” or “demons” set in motion a process that gradually consumes the whole community.",
+    cover: "https://m.media-amazon.com/images/I/91WLfmsWZ5L._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "notes-from-underground": {
+    title: "Notes from Underground",
+    author: "Fyodor Dostoyevsky",
+    summary: "Dealing with human consciousness, Dostoyevsky explores it through an unnamed protagonist living in isolation, unable or unwilling to reconcile himself with the society around him. Gradually consumed by his own thoughts and contradictions, he descends into an “underground” of existence.",
+    cover: "https://m.media-amazon.com/images/I/61hKIP5eo-L._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "utopia": {
+    title: "Utopia",
+    author: "Thomas More",
+    summary: "Political satire by Thomas More presents a story of an almost perfect society through the mouth of a traveler named Raphael. Reflecting on contemporary England and inspired by Platonic ideas, he offers an insight into a mysterious country built upon a radically different social order.",
+    cover: "https://m.media-amazon.com/images/I/81h4ZjzUhyL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "timaeus-and-critias": {
+    title: "Timaeus and Critias",
+    author: "Plato",
+    summary: "In these dialogues, Plato explores the origins and structure of the universe, from the ordering of the cosmos to the place of humanity within it. The work also contains his famous account of Atlantis, a powerful island civilization said to have been founded by descendants of Poseidon before eventually sinking beneath the sea.",
+    cover: "https://m.media-amazon.com/images/I/712-TLliWFL._SL1169_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "logans-run": {
+    title: "Logan's Run",
+    author: "William F. Nolan, George Clayton Johnson",
+    summary: "In this dystopian novel, people live seemingly happy lives, but with one condition: existence is capped at 21 years, after which individuals are taken to the “Sleepshop.” Logan, initially an enforcer of the system, becomes a runner trying to escape, as the human will to survive asserts itself.",
+    cover: "https://m.media-amazon.com/images/I/91SSeUBhMQL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
   "roadside-picnic": {
     title: "Roadside Picnic",
     author: "Arkady & Boris Strugatsky",
