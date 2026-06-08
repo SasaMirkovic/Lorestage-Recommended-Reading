@@ -76,6 +76,7 @@
     transform: scale(1.1);
   }
 
+  /* INTEGRATION: Enforced fixed height framework to eliminate jumping dimensions */
   .carousel-content {
     background: #ffffff;
     border-radius: 8px;
@@ -87,18 +88,23 @@
     grid-template-columns: 26% minmax(0, 74%); 
     gap: 24px;
     align-items: start;
+    height: 450px; 
+    overflow: hidden;
   }
 
+  /* INTEGRATION: Anchored image panel box framework boundaries */
   .image-panel {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 400px; 
+    width: 100%;
   }
 
+  /* INTEGRATION: contain scale ensures total cover visibility without shape warping */
   .carousel-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 400px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -109,9 +115,13 @@
     display: block;
   }
 
+  /* INTEGRATION: Height limitation matched with y-axis internal auto scrolling */
   .text-panel {
     width: 100%;
-    overflow: hidden;
+    height: 400px;
+    overflow-y: auto;
+    padding-right: 8px;
+    box-sizing: border-box;
   }
 
   .description-text {
@@ -363,10 +373,17 @@
     margin-top: 1px;
   }
 
+  /* INTEGRATION: Adjusted tablet/mobile stacking responsive rules to handle fixed frameworks */
   @media (max-width: 850px) {
     .carousel-content {
       grid-template-columns: 100%;
       gap: 20px;
+      height: auto; 
+      overflow: visible;
+    }
+    .text-panel {
+      height: auto;
+      overflow-y: visible;
     }
     .description-text.active {
       grid-template-columns: 100%;
@@ -405,8 +422,6 @@
 </div>
 
 <script>
-  // ADJUSTMENT: The local hardcoded database array is removed.
-  // It now expects standard variable initialization from the main host file.
   let currentSlide = 0;
   let imgViewport, txtViewport, thumbTrack, sliderWindow, dotsContainer, counterText;
 
@@ -423,7 +438,6 @@
     thumbTrack.innerHTML = '';
     dotsContainer.innerHTML = '';
 
-    // bookDatabase is mapped and populated globally by your Article Page script before execution
     if (!window.bookDatabase || window.bookDatabase.length === 0) {
       counterText.innerText = "No books configured for this page.";
       return;
@@ -559,6 +573,5 @@
     updateInterfaceElements();
   }
 
-  // Trigger engine build on file injection mount
   initializeCarouselDOM();
 </script>
