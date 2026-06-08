@@ -10,7 +10,7 @@ const MASTER_BOOK_DIRECTORY = {
       audible: "#", libro: "#", kindle: "#", kobo: "#" 
     }
   },
-   "the-fountainhead": {
+  "the-fountainhead": {
     title: "The Fountainhead",
     author: "Ayn Rand",
     summary: "First novel by Ayn Rand to achieve major success. It can be viewed as a spiritual precursor to Atlas Shrugged. What A Happy Death was to The Stranger, The Fountainhead is to Atlas Shrugged, but with an inversion: while Camus stripped his later work down stylistically, Rand expanded hers, adding greater scale and literary flair.",
@@ -21,7 +21,7 @@ const MASTER_BOOK_DIRECTORY = {
       audible: "#", libro: "#", kindle: "#", kobo: "#" 
     }
   },
-    "the-virtue-of-selfishness": {
+  "the-virtue-of-selfishness": {
     title: "The Virtue of Selfishness",
     author: "Ayn Rand",
     summary: "A collection of Ayn Rand’s essays, dealing with the basics of Objectivism, rational self-interest, collectivism, egoism, altruism, etc.",
@@ -32,7 +32,7 @@ const MASTER_BOOK_DIRECTORY = {
       audible: "#", libro: "#", kindle: "#", kobo: "#" 
     }
   },
-    "anthem": {
+  "anthem": {
     title: "Anthem",
     author: "Ayn Rand",
     summary: "A dystopian novel by Ayn Rand, set in an unspecified future. We see humanity in a kind of Dark Ages, in which reason, individuality and scientific research are either forbidden or strictly controlled. However, human nature shows itself through the protagonist, who starts conducting scientific research in secret.",
@@ -43,7 +43,7 @@ const MASTER_BOOK_DIRECTORY = {
       audible: "#", libro: "#", kindle: "#", kobo: "#" 
     }
   },
-   "bioshock-rapture": {
+  "bioshock-rapture": {
     title: "BioShock: Rapture",
     author: "John Shirley",
     summary: "This novel tells the story of Rapture, from its inception, to the beginning of its downfall. We follow Andrew Ryan, Bill McDonagh and other characters as they construct the wonder that is Rapture. Besides Ryan, McDonagh is in the spotlight, and we get to understand both the positive and negative sides of Andrew’s ideology. He values talent, hard work and dedication, offering opportunities to people like Bill who may never have received them elsewhere.",
@@ -265,9 +265,218 @@ const MASTER_BOOK_DIRECTORY = {
   },
   "roadside-picnic": {
     title: "Roadside Picnic",
-    author: "Arkady & Boris Strugatsky",
+    author: "Arkady and Boris Strugatsky",
     summary: "Most well-known novel by the Strugatsky brothers, which introduced the concept of the Zone and of stalkers. Its title refers to a metaphor developed by one of the novel’s scientists, Doctor Pilman, who reflects on humanity’s possible insignificance in the face of incomprehensible cosmic forces. When the cosmic void stares back at you, how long will it pass before you lose faith?",
     cover: "https://m.media-amazon.com/images/I/91hwMz5alkL._SL1500_.jpg",
     links: { amazon: "#", bookshop: "#", audible: "#", libro: "#", kindle: "#", kobo: "#" }
+  },
+  "the-doomed-city": {
+    title: "The Doomed City",
+    author: "Arkady and Boris Strugatsky",
+    summary: "Through this novel we follow the citizens of a mysterious city living as part of “the Experiment.” Never discovering the true purpose behind it all, the protagonists are trapped in a suffocating atmosphere as they desperately attempt to piece reality together.",
+    cover: "https://m.media-amazon.com/images/I/91Fczv0c2vL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-biosphere": {
+    title: "The Biosphere",
+    author: "Vladimir Vernadsky",
+    summary: "First collection of translated writings by Vladimir Vernadsky, containing translations of his writings in the field of biogeochemistry. Vernadsky developed the idea that life should be understood as a geological force, actively shaping the Earth’s geosphere and atmosphere through biological processes.",
+    cover: "https://m.media-amazon.com/images/I/61V4e2vxFDL._SL1360_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+   "the-noosphere": {
+    title: "The Noosphere",
+    author: "Vladimir Vernadsky",
+    summary: "Second collection of translated writings by Vladimir Vernadsky, expanding his exploration of how life shapes the Earth’s geosphere and atmosphere through the emergence of intelligence and human thought.",
+    cover: "https://m.media-amazon.com/images/I/610AiiBaKvL._SL1360_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-phenomenon-of-man": {
+    title: "The Phenomenon of Man",
+    author: "Pierre Teilhard de Chardin",
+    summary: "De Chardin discusses the concepts of the Noosphere and the Omega Point. Combining evolutionary development with Christian eschatology, he views the history of life as a branching process through which consciousness emerges, becomes self-aware, and eventually reunites within a higher form of collective consciousness - the Omega Point, or God.",
+    cover: "https://m.media-amazon.com/images/I/61ZozurYpvL._SL1360_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "homo-sovieticus": {
+    title: "Homo Sovieticus",
+    author: "Wladimir Velminski",
+    summary: "This book presents the fascinating ambition of mind control. Although not exclusively Soviet in origin, the author paints a picture of how these ideas developed within the USSR. Scientists, artists, and even circus trainers all played a role in a process that gradually shifted from scientific experimentation toward totalitarian ambition.",
+    cover: "https://m.media-amazon.com/images/I/71TPTu7DcJL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "beyond-planet-earth": {
+    title: "Beyond Planet Earth",
+    author: "Konstantin E. Tsiolkovsky",
+    summary: "A collection of philosophical writings by Konstantin Tsiolkovsky, one of the founding figures of Russian astronautics. Tsiolkovsky provides his ideas on the nature of matter, cosmos and consciousness, arguing from a monist and panpsychist position.",
+    cover: "https://m.media-amazon.com/images/I/61sef6H1PrL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "selected-works-tsiolkovsky": {
+    title: "Selected Works",
+    author: "Konstantin E. Tsiolkovsky",
+    summary: "Unlike Beyond Planet Earth, this volume contains more than just the philosophical works of Konstantin Tsiolkovsky. Through it, we gain not only a deeper insight into his understanding of astronautics, but also into the way he approached the world and thought in general.",
+    cover: "https://m.media-amazon.com/images/I/61iYVDxyFJL._SL1360_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-great-silence": {
+    title: "The Great Silence",
+    author: "Milan M. Chirkovich",
+    summary: "This book provides a comprehensive overview of the principal theories attempting to explain the Fermi Paradox, together with an evaluation of the strengths and weaknesses of each. Through it, you will become familiar with the current explanations for our apparent solitude in the Universe.",
+    cover: "https://m.media-amazon.com/images/I/61pQL8YN4iL._SL1360_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-astrobiological-landscape": {
+    title: "The Astrobiological Landscape",
+    author: "Milan M. Chirkovich",
+    summary: "Preceding, but closely tied to The Great Silence, Chirkovich provides an insight into the interdisciplinary field of astrobiology. This work presents a systematic overview of the philosophical and scientific questions involved in the search for cosmic life.",
+    cover: "https://m.media-amazon.com/images/I/31eZimK0bvL.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-black-swan": {
+    title: "The Black Swan",
+    author: "Nassim Nicholas Taleb",
+    summary: "The Black Swan offers an insight into the ways we deceive ourselves when confronted with randomness. The patterns we perceive, the explanations we construct, and the retrospective “obviousness” of events all reflect our need for secure and definite knowledge. Yet reality consistently exceeds, and disrupts, the stories we build about it.",
+    cover: "https://m.media-amazon.com/images/I/61NFGAAbwlL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "superintelligence": {
+    title: "Superintelligence",
+    author: "Nick Bostrom",
+    summary: "Superintelligence examines the challenges posed by machine intelligence as a form of superintelligence, raising questions about its power and our ability to control it. Is it possible to keep such a system in check once it surpasses human general intelligence and begins to grow beyond our control at an accelerating, potentially exponential rate?",
+    cover: "https://m.media-amazon.com/images/I/71UvMcdcE9L._SL1159_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-brothers-karamazov": {
+    title: "The Brothers Karamazov",
+    author: "Fyodor Dostoevsky",
+    summary: "The Brothers Karamazov follows the lives of three brothers and their father as Fyodor Dostoevsky explores the spiritual and moral tensions of a Russian society undergoing profound change under the influence of Western ideas. Through the brothers, we encounter a symbolic trinity of passion (Dmitri), reason (Ivan), and faith (Alyosha), each representing a different response to the crises of the modern age.",
+    cover: "https://m.media-amazon.com/images/I/81XwoNcQbwS._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "hyperion": {
+    title: "Hyperion",
+    author: "Dan Simmons",
+    summary: "As the entire galaxy drifts toward war, we follow a group of pilgrims in search of answers. Along the way, each companion recounts their own story, through which we learn about the Shrike, the Time Tombs, and the mysteries surrounding them. This is the first of four books that together form an integrated whole.",
+    cover: "https://m.media-amazon.com/images/I/81HdTYTJYqL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "monday-starts-on-saturday": {
+    title: "Monday Starts On Saturday",
+    author: "Arkady and Boris Strugatsky",
+    summary: "A story about a young programmer who stumbles upon the Scientific Research Institute of Sorcery and Wizardry, which mixes science, witchcraft and socialism. Full of humor and bureaucratic absurdity, its bright tone stands in contrast to Roadside Picnic.",
+    cover: "https://m.media-amazon.com/images/I/91n+GE3aUOL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-snail-on-the-slope": {
+    title: "The Snail on the Slope",
+    author: "Arkady and Boris Strugatsky",
+    summary: "Two parallel stories unfold, one in the bureaucratic city above, the other in the dangerous forest below. As the city works to control and expand into the forest, we are left questioning whether life can be properly lived in either of these two extremes.",
+    cover: "https://m.media-amazon.com/images/I/71aUgEMLmKL._SL1000_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "hard-to-be-a-god": {
+    title: "Hard to Be a God",
+    author: "Arkady and Boris Strugatsky",
+    summary: "Set on a distant planet where feudalism still exists, an Earth historian observes the society from within, noticing the sinister signs of a developing dictatorship, while being strictly forbidden from intervening.",
+    cover: "https://m.media-amazon.com/images/I/61mqyoHQ-pL._SL1000_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "doctor-zhivago": {
+    title: "Doctor Zhivago",
+    author: "Boris Pasternak",
+    summary: "Doctor Zhivago is set during the turbulent years of the Russian Revolution and Civil War. Its protagonist, a poet, physician, and reluctant witness to history, seeks refuge far from Moscow, only to find himself caught between the forces of the Whites and the Reds, while struggling with his enduring love for Lara.",
+    cover: "https://m.media-amazon.com/images/I/71BUj7cATPL._SL1200_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "hegel-in-a-wired-brain": {
+    title: "Hegel in A Wired Brain",
+    author: "Slavoy Zhizhek",
+    summary: "Zhizhek examines the implications of neuroscience, brain-computer interfaces, artificial intelligence, and digital consciousness for our understanding of the human mind. Contrary to the view that advances in technology will eventually reduce consciousness to computation, he argues that subjectivity is rooted in contradiction, incompleteness, and self-negation.",
+    cover: "https://m.media-amazon.com/images/I/81utZGYgUSL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
+  },
+  "the-unbearable-lightness-of-being": {
+    title: "The Unbearable Lightness of Being",
+    author: "Milan Kundera",
+    summary: "Set during the events of the Prague Spring, the novel follows a womanizer who falls deeply in love with a young woman named Tereza. Although he has chosen to live according to a philosophy of 'lightness', distancing himself from lasting attachments, including his former family, the powerful currents of love pull him toward a deeper connection.",
+    cover: "https://m.media-amazon.com/images/I/61tHVLFZpKL._SL1500_.jpg",
+    links: { 
+      amazon: "https://amazon.com/your-affiliate-link", 
+      bookshop: "https://bookshop.org/your-link", 
+      audible: "#", libro: "#", kindle: "#", kobo: "#" 
+    }
   }
 };
