@@ -1,5 +1,5 @@
 window.gameLibraries = {
-/* -- BIOSHOCK BOOKS -- */
+  /* -- BIOSHOCK BOOKS -- */
   "bioshock": [
     {
       id: "atlas-shrugged",
@@ -98,7 +98,7 @@ window.gameLibraries = {
       whyMatters: "Logan’s Run is often cited among the works that influenced Ken Levine’s vision of BioShock. Behind the appearance of an idyllic society, we find an authoritarian mousetrap, and Logan’s story helped shape the narrative focus on escape from controlled utopias and their hidden structures of control."
     }
   ],
-/* -- STALKER BOOKS -- */
+  /* -- STALKER BOOKS -- */
   "stalker": [
     {
       id: "roadside-picnic",
