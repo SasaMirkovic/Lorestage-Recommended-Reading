@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OUTER ELEMENT CONTRAST & THEME OVERRIDES (BIOSHOCK & STALKER)
+   OUTER ELEMENT CONTRAST & THEME OVERRIDES
    ========================================================================== */
 
 /* --- 1. GLOBAL TEXT & NAV ARROW FIXES --- */
@@ -58,28 +58,42 @@
   padding: 24px !important;
   
   /* FIXED UNIFORM HEIGHT STABILIZER */
-  min-height: 480px !important; /* Forces short books to match the tallest books layout */
-  height: auto !important;      /* Keeps behavior identical to your baseline file */
-  overflow: visible !important; 
+  height: 520px !important;         /* Locked uniform height so the box never jumps sizes */
+  box-sizing: border-box !important;/* Standardizes padding measurements inside the fixed box */
+  overflow: hidden !important;      /* Cleans and locks the primary display frame boundaries */
 }
 
 /* Panel Dimensions Normalization */
-.carousel-wrapper.bioshock .image-panel,
-.carousel-wrapper.bioshock .text-panel {
-  height: auto !important; 
-  overflow: visible !important; 
+.carousel-wrapper.bioshock .image-panel {
+  height: 100% !important;          /* Keeps your cover artwork filling the locked frame height */
 }
 
-/* Completely kill internal window tracking scrollbars */
-.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar,
-.carousel-wrapper.bioshock .carousel-content::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
+.carousel-wrapper.bioshock .text-panel {
+  height: 100% !important;          /* Constrains text panel to container height */
+  overflow-y: auto !important;      /* Unlocks vertical scrolling for summary/why-it-matters parts */
+  padding-right: 14px !important;   /* Creates breathing room for the internal text scroll */
+  box-sizing: border-box !important;
 }
-.carousel-wrapper.bioshock .text-panel,
-.carousel-wrapper.bioshock .carousel-content {
-  scrollbar-width: none !important; /* Firefox layout cleanup */
+
+/* THEMED RAPTURE MECHANICAL SCROLLBAR OVERRIDES */
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar {
+  display: block !important;        /* Shows the scrollbar on text sections with overflow */
+  width: 6px !important;
+}
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-track {
+  background: #021012 !important;   /* Deep sea gutter background track */
+  border-radius: 3px !important;
+}
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb {
+  background: #c39a4f !important;   /* Burnished bronze key slider */
+  border-radius: 3px !important;
+}
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb:hover {
+  background: #e5a93b !important;   /* Highlighted gold glow on track hover */
+}
+.carousel-wrapper.bioshock .text-panel {
+  scrollbar-width: thin !important;              /* Firefox track sizing support */
+  scrollbar-color: #c39a4f #021012 !important;   /* Firefox track color integration */
 }
 
 /* Typography & Meta Overrides */
@@ -185,7 +199,41 @@
   border-radius: 0px !important;
   
   /* UNIFORM HEIGHT STABILIZER FOR STALKER PANEL */
-  min-height: 480px !important;
+  height: 520px !important;         /* Matches BioShock profile box layout height */
+  box-sizing: border-box !important;
+  overflow: hidden !important;      
+}
+
+.carousel-wrapper.stalker .image-panel {
+  height: 100% !important;
+}
+
+.carousel-wrapper.stalker .text-panel {
+  height: 100% !important;
+  overflow-y: auto !important;      /* Unlocks internal vertical scrolling for Zone descriptions */
+  padding-right: 14px !important;
+  box-sizing: border-box !important;
+}
+
+/* INDUSTRIAL CONTAMINATED ZONE SCROLLBAR OVERRIDES */
+.carousel-wrapper.stalker .text-panel::-webkit-scrollbar {
+  display: block !important;
+  width: 6px !important;
+}
+.carousel-wrapper.stalker .text-panel::-webkit-scrollbar-track {
+  background: #11120f !important;   /* Rust-tinted dark track channel */
+  border-radius: 0px !important;
+}
+.carousel-wrapper.stalker .text-panel::-webkit-scrollbar-thumb {
+  background: #384148 !important;   /* Cold sheet steel control handle */
+  border-radius: 0px !important;
+}
+.carousel-wrapper.stalker .text-panel::-webkit-scrollbar-thumb:hover {
+  background: #e67e22 !important;   /* Flashes warning amber on mouse context hover */
+}
+.carousel-wrapper.stalker .text-panel {
+  scrollbar-width: thin !important;
+  scrollbar-color: #384148 #11120f !important;
 }
 
 /* Typography Overrides */
@@ -222,7 +270,7 @@
 
 /* Industrial Bottom Navigation Slider Window */
 .carousel-wrapper.stalker .thumbnail-slider-window {
-  background: rgba(20, 22, 24, 0.85) !important;
+  background: rgba(2, 13, 15, 0.85) !important;
   border: 1px solid #384148 !important;
   border-radius: 4px;
 }
