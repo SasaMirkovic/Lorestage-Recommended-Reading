@@ -97,10 +97,10 @@ window.gameLibraries = {
       id: "logans-run",
       whyMatters: "Logan’s Run is often cited among the works that influenced Ken Levine’s vision of BioShock. Behind the appearance of an idyllic society, we find an authoritarian mousetrap, and Logan’s story helped shape the narrative focus on escape from controlled utopias and their hidden structures of control."
     }
-  ]
+  ],
 
   "stalker": [
-   {
+    {
       id: "roadside-picnic",
       whyMatters: "One of the essential books for understanding the highly abstract narrative of S.T.A.L.K.E.R.. Its importance lies not only in the fundamental concepts it introduced, but in the existential atmosphere which shaped the game, as well as its persistent questions about meaning, knowledge, and understanding."
     },
