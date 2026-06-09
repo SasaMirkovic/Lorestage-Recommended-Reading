@@ -56,14 +56,17 @@
   outline-offset: -8px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.8) !important;
   padding: 24px !important;
-  height: auto !important; /* Forces the box to naturally expand to prevent text clipping */
-  overflow: visible !important; /* Completely nukes outer box scrollbars */
+  
+  /* FIXED UNIFORM HEIGHT STABILIZER */
+  min-height: 480px !important; /* Forces short books to match the tallest books layout */
+  height: auto !important;      /* Keeps behavior identical to your baseline file */
+  overflow: visible !important; 
 }
 
 /* Panel Dimensions Normalization */
 .carousel-wrapper.bioshock .image-panel,
 .carousel-wrapper.bioshock .text-panel {
-  height: auto !important; /* Unlocks fixed limits to allow components to settle */
+  height: auto !important; 
   overflow: visible !important; 
 }
 
@@ -100,7 +103,7 @@
   margin-top: 14px !important;
 }
 
-/* Custom Theming for Store Headers (Physical, Audio, Ebook) */
+/* Custom Theming for Store Headers (Physical Book, Audiobook, Ebook) */
 .carousel-wrapper.bioshock .category-label {
   color: #c39a4f !important; /* Shifts utility white labels to Art Deco Gold */
   font-family: 'Cinzel', 'Copperplate', serif;
@@ -180,6 +183,9 @@
   box-shadow: inset 0 0 40px rgba(0,0,0,0.9) !important;
   margin: 0 auto;
   border-radius: 0px !important;
+  
+  /* UNIFORM HEIGHT STABILIZER FOR STALKER PANEL */
+  min-height: 480px !important;
 }
 
 /* Typography Overrides */
