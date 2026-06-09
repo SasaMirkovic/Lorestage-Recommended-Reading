@@ -292,7 +292,7 @@ const MASTER_BOOK_DIRECTORY = {
       audible: "#", libro: "#", kindle: "#", kobo: "#" 
     }
   },
-   "the-noosphere": {
+  "the-noosphere": {
     title: "The Noosphere",
     author: "Vladimir Vernadsky",
     summary: "Second collection of translated writings by Vladimir Vernadsky, expanding his exploration of how life shapes the Earth’s geosphere and atmosphere through the emergence of intelligence and human thought.",
