@@ -1,4 +1,33 @@
 <style>
+  /* ==========================================================================
+     GLOBAL BASE THEME (CORE STRUCTURAL DEFAULT FALLBACKS ONLY)
+     ========================================================================== */
+  :root {
+    --carousel-bg: #ffffff;
+    --panel-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --text-muted: #70757a;
+    --accent-gold: #946a31;
+    --accent-hover: #1a73e8;
+    --border-color: #dadce0;
+    --divider-style: 1px solid #eaeaea;
+    --card-radius: 8px;
+    --thumb-bg: #12161a;
+    --thumb-border: 2px solid #232930;
+    --thumb-text: #f8f9fa;
+    --thumb-text-muted: #9aa0a6;
+    --thumb-active-border: #e5a93b;
+    --slider-window-bg: transparent;
+    --slider-window-border: none;
+    --text-shadow-style: none;
+    --dot-inactive-opacity: 1;
+    --dot-shadow: none;
+  }
+
+  /* ==========================================================================
+     CORE INTERFACE SYSTEM LAYOUT
+     ========================================================================== */
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
@@ -25,9 +54,10 @@
   .book-counter {
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #70757a;
+    color: var(--text-muted);
+    text-shadow: var(--text-shadow-style);
   }
 
   .indicator-dots {
@@ -42,13 +72,16 @@
     width: 8px;
     height: 8px;
     background-color: #dadce0;
+    opacity: var(--dot-inactive-opacity);
     border-radius: 50%;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, opacity 0.2s;
     flex-shrink: 0;
   }
 
   .dot.active {
-    background-color: #946a31;
+    background-color: var(--accent-gold) !important;
+    opacity: 1 !important;
+    box-shadow: var(--dot-shadow);
   }
 
   .carousel-container {
@@ -72,15 +105,14 @@
   }
 
   .nav-arrow:hover {
-    color: #1a73e8;
+    color: var(--accent-hover);
     transform: scale(1.1);
   }
 
-  /* INTEGRATION: Enforced fixed height framework to eliminate jumping dimensions */
   .carousel-content {
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+    background: var(--carousel-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--panel-shadow);
     padding: 24px;
     width: 100%;
     box-sizing: border-box;
@@ -90,9 +122,9 @@
     align-items: start;
     height: 450px; 
     overflow: hidden;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
   }
 
-  /* INTEGRATION: Anchored image panel box framework boundaries */
   .image-panel {
     display: flex;
     justify-content: center;
@@ -101,7 +133,6 @@
     width: 100%;
   }
 
-  /* INTEGRATION: contain scale ensures total cover visibility without shape warping */
   .carousel-image {
     width: 100%;
     height: 100%;
@@ -115,7 +146,6 @@
     display: block;
   }
 
-  /* INTEGRATION: Height limitation matched with y-axis internal auto scrolling */
   .text-panel {
     width: 100%;
     height: 400px;
@@ -143,13 +173,13 @@
 
   .details-column h2 {
     margin-top: 0;
-    color: #202124;
+    color: var(--text-primary);
     font-size: 1.6rem;
     margin-bottom: 4px;
   }
 
   .author-name {
-    color: #5f6368;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     font-weight: 500;
     margin-bottom: 16px;
@@ -160,13 +190,13 @@
     font-weight: 700;
     letter-spacing: 0.8px;
     text-transform: uppercase;
-    color: #202124;
+    color: var(--text-primary);
     margin-bottom: 6px;
     margin-top: 0;
   }
 
   .details-column p {
-    color: #5f6368;
+    color: var(--text-secondary);
     line-height: 1.45;
     font-size: 0.9rem;
     margin-top: 0;
@@ -176,7 +206,7 @@
   }
 
   .purchase-column {
-    border-left: 1px solid #eaeaea;
+    border-left: var(--divider-style);
     padding-left: 20px;
     display: flex;
     flex-direction: column;
@@ -195,7 +225,7 @@
     font-weight: 700;
     letter-spacing: 0.8px;
     text-transform: uppercase;
-    color: #5f6368;
+    color: var(--text-secondary);
   }
 
   .store-grid-row {
@@ -211,7 +241,7 @@
     justify-content: space-between;
     padding: 8px 10px;
     background: #f8f9fa;
-    border: 1px solid #dadce0;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     color: #3c4043;
     text-decoration: none;
@@ -272,33 +302,40 @@
 
   .disclaimer-banner {
     font-size: 0.72rem;
-    color: #70757a;
+    color: var(--text-secondary);
     text-align: center;
-    background: #f8f9fa;
+    background: rgba(0, 0, 0, 0.05);
     padding: 6px;
     border-radius: 4px;
     margin-top: 4px;
     line-height: 1.3;
   }
 
+  /* ==========================================================================
+     THUMBNAIL NAVIGATION BANNER SLIDER
+     ========================================================================== */
   .thumbnail-slider-window {
     width: 100%;
     overflow-x: auto; 
-    padding: 6px 4px 10px 4px;
+    padding: 10px;
     box-sizing: border-box;
     scrollbar-width: thin; 
-    scrollbar-color: #946a31 #232930;
+    scrollbar-color: var(--accent-gold) var(--thumb-bg);
+    background: var(--slider-window-bg);
+    border: var(--slider-window-border);
+    border-radius: 6px;
+    transition: background-color 0.3s, border 0.3s;
   }
 
   .thumbnail-slider-window::-webkit-scrollbar {
     height: 6px;
   }
   .thumbnail-slider-window::-webkit-scrollbar-track {
-    background: #12161a;
+    background: var(--thumb-bg);
     border-radius: 10px;
   }
   .thumbnail-slider-window::-webkit-scrollbar-thumb {
-    background: #946a31;
+    background: var(--accent-gold);
     border-radius: 10px;
   }
   .thumbnail-slider-window::-webkit-scrollbar-thumb:hover {
@@ -316,25 +353,25 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background: #12161a; 
-    border: 2px solid #232930; 
-    border-radius: 6px;
+    background: var(--thumb-bg); 
+    border: var(--thumb-border); 
+    border-radius: var(--card-radius);
     padding: 6px 10px;
     cursor: pointer;
     user-select: none;
     box-sizing: border-box;
     flex-shrink: 0;
-    transition: border-color 0.2s, background-color 0.2s;
+    transition: border-color 0.2s, background-color 0.2s, border-radius 0.2s;
   }
 
   .thumb-card:hover {
-    background: #191f24;
+    background: rgba(255, 255, 255, 0.05);
   }
 
   .thumb-card.active {
-    border-color: #e5a93b !important; 
-    background: #1c232a;
-    box-shadow: 0 0 8px rgba(229, 169, 59, 0.3); 
+    border-color: var(--thumb-active-border) !important; 
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 8px rgba(229, 169, 59, 0.2); 
   }
 
   .thumb-img {
@@ -352,7 +389,7 @@
   }
 
   .thumb-title {
-    color: #f8f9fa;
+    color: var(--thumb-text);
     font-size: 0.8rem;
     font-weight: 600;
     white-space: nowrap;
@@ -361,11 +398,11 @@
   }
 
   .thumb-card.active .thumb-title {
-    color: #e5a93b;
+    color: var(--accent-gold);
   }
 
   .thumb-author {
-    color: #9aa0a6;
+    color: var(--thumb-text-muted);
     font-size: 0.7rem;
     white-space: nowrap;
     overflow: hidden;
@@ -373,7 +410,9 @@
     margin-top: 1px;
   }
 
-  /* INTEGRATION: Adjusted tablet/mobile stacking responsive rules to handle fixed frameworks */
+  /* ==========================================================================
+     RESPONSIVE LAYOUT OVERRIDES
+     ========================================================================== */
   @media (max-width: 850px) {
     .carousel-content {
       grid-template-columns: 100%;
@@ -392,7 +431,7 @@
     .purchase-column {
       border-left: none;
       padding-left: 0;
-      border-top: 1px solid #eaeaea;
+      border-top: var(--divider-style);
       padding-top: 16px;
     }
     .store-grid-row {
@@ -408,12 +447,12 @@
   </div>
 
   <div class="carousel-container">
-    <button class="nav-arrow prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="nav-arrow prev-btn" onclick="changeSlide(-1)">❮</button>
     <div class="carousel-content">
       <div class="image-panel" id="main-image-viewport"></div>
       <div class="text-panel" id="main-text-viewport"></div>
     </div>
-    <button class="nav-arrow next-btn" onclick="changeSlide(1)">&#10095;</button>
+    <button class="nav-arrow next-btn" onclick="changeSlide(1)">❯</button>
   </div>
 
   <div class="thumbnail-slider-window" id="slider-window">
