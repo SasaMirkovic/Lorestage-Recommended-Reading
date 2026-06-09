@@ -1,5 +1,6 @@
+// carousel-content.js
 window.gameLibraries = {
-  /* -- BIOSHOCK BOOKS -- */
+  
   "bioshock": [
     {
       id: "atlas-shrugged",
@@ -98,87 +99,13 @@ window.gameLibraries = {
       whyMatters: "Logan’s Run is often cited among the works that influenced Ken Levine’s vision of BioShock. Behind the appearance of an idyllic society, we find an authoritarian mousetrap, and Logan’s story helped shape the narrative focus on escape from controlled utopias and their hidden structures of control."
     }
   ],
-  /* -- STALKER BOOKS -- */
+
   "stalker": [
     {
       id: "roadside-picnic",
-      whyMatters: "One of the essential books for understanding the highly abstract narrative of S.T.A.L.K.E.R.. Its importance lies not only in the fundamental concepts it introduced, but in the existential atmosphere which shaped the game, as well as its persistent questions about meaning, knowledge, and understanding."
-    },
-    {
-      id: "the-doomed-city",
-      whyMatters: "Ties between this book and S.T.A.L.K.E.R. are not as obvious as with the Roadside Picnic, but its story is reflected through that of S.T.A.L.K.E.R.’s own doomed city - Limansk. The question of the novel, as well as Limansk itself, shapes the story around C-Consciousness, factions, noosphere and humanity’s struggle in general - is it possible to solve the paradox of chaos (freedom) and totalitarianism (order - duty)?"
-    },
-    {
-      id: "the-biosphere",
-      whyMatters: "Although the concept of the Noosphere is discussed primarily in the second volume, this book serves as a natural introduction to Vernadsky’s ideas. It establishes the groundwork for understanding the appearance of intelligent life and its role in shaping the environment."
-    },
-    {
-      id: "the-noosphere",
-      whyMatters: "One of the two fundamental books for understanding the idea of the Noosphere, a concept central to the story of S.T.A.L.K.E.R.. Although the game shifts it from the field of socio-ecological abstraction toward something material, Vernadsky’s work is fundamentally tied to what would later emerge as the idea of the Anthropocene, i.e., the ecological question of humanity as a planetary force."
-    },
-    {
-      id: "the-phenomenon-of-man",
-      whyMatters: "The second fundamental book for understanding the concept of the Noosphere, and one of the key works for interpreting C-Consciousness. Unlike Vernadsky, Chardin offers a more spiritual and metaphysical understanding of the idea. After becoming self-conscious, does humanity move toward ultimate unity - toward a truly cosmic intelligence?"
-    },
-    {
-      id: "homo-sovieticus",
-      whyMatters: "Fundamental for understanding my favorite chapter of the S.T.A.L.K.E.R. video, titled Dead Souls. Through scattered documents, but primarily through the Monolith faction, we come to understand this process. Yet it leaves us with a fundamental question: can we truly speak about unity and meaning if they do not arise from free will? As said in the video: “Once the colorful lie dissipates and synthetic meaning evaporates, every soul is left alone before the abyss, battered by rain and winds”."
-    },
-    {
-      id: "beyond-planet-earth",
-      whyMatters: "Tsiolkovsky’s philosophical writings on cosmic intelligence were often dismissed as mysticism, but the emergence of computer science, digital transcendence, and singularity theories has reignited interest in his work. In my opinion, C-Consciousness can be understood from this perspective. Like the Fermi Paradox, perhaps the solution is not that the answer is absent, but that both Strelok and we have been looking in the wrong direction."
-    },
-    {
-      id: "selected-works-tsiolkovsky",
-      whyMatters: "These writings are not directly tied to the story of S.T.A.L.K.E.R. and require a deeper scientific background to follow. However, since one part of my analysis revolves around the concept of the Grand Inquisitor, they may help you gain a deeper insight into the mind of a genius. But remember: no matter how brilliant a person may be, ambition can easily overpower the capacity to know. That, in my opinion, is one of the central messages of the original S.T.A.L.K.E.R. trilogy."
-    },
-    {
-      id: "the-great-silence",
-      whyMatters: "At its foundation, Roadside Picnic explores not only the problems of meaning, knowledge, and understanding, but also the question of cosmic intelligence. In that regard, although C-Consciousness is human-made, it poses a similar question and offers a partial answer concerning the possible evolution of intelligent life."
-    },
-    {
-      id: "the-astrobiological-landscape",
-      whyMatters: "As a supplement to The Great Silence, this book will help you wrap your head around the challenges of understanding forms of life beyond our immediate experience. Within S.T.A.L.K.E.R., these questions are explored through the concepts of transcendence and C-Consciousness."
-    },
-    {
-      id: "the-black-swan",
-      whyMatters: "S.T.A.L.K.E.R., among other things, deals with questions of understanding and knowledge. Although we have many stories about the Zone, none of them fully capture what it truly is. Likewise, even though some of the greatest minds worked on C-Consciousness, catastrophes arise at the point where reality exceeds the concepts we have built to contain it."
-    },
-    {
-      id: "superintelligence",
-      whyMatters: "Although not tied to the game directly, C-Consciousness poses questions of power, control, and responsibility of an ultimate mind. How wise is it to entrust the initial transition to a handful of people, and is the choice of a machine as the ultimate intelligence a better or worse outcome?"
-    },
-    {
-      id: "the-brothers-karamazov",
-      whyMatters: "In the context of S.T.A.L.K.E.R., we are mostly interested in the story of the Grand Inquisitor and in the trinity. Through the Inquisitor’s interaction with a captive Christ, Dostoyevsky explores the questions of freedom and humanity’s ability to bear its burden. C-Consciousness can be interpreted through this lens, as an attempt to resolve the chaos of human existence by limiting the very freedom that gives it meaning."
-    },
-    {
-      id: "hyperion",
-      whyMatters: "In the context of S.T.A.L.K.E.R., this book remains relevant due to its exploration of Ultimate Intelligence. The world we encounter in Hyperion prays at the Church of Teilhard, and the questions of the Noosphere and the Omega point echo throughout the story."
-    },
-    {
-      id: "monday-starts-on-saturday",
-      whyMatters: "With the Strugatsky brothers, a recurring theme, expressed in different forms across their works, is the tension between order and chaos. The unknowable bureaucratic structures of The Doomed City take on a distinctly absurd and playful form in this book, transforming into comedic surrealism rather than existential oppression."
-    },
-    {
-      id: "the-snail-on-the-slope",
-      whyMatters: "Chaos and order strike again, as the dangers of the Zone continue to expand while C-Consciousness attempts to manage and contain them from “above”. Although not directly tied to the book, the story of S.T.A.L.K.E.R. is deeply shaped by the way the Strugatsky brothers explored these tensions between order, chaos, limits and morality of control."
-    },
-    {
-      id: "hard-to-be-a-god",
-      whyMatters: "Through this novel, the Strugatsky brothers explore questions of power, authority, and the unpredictability of historical development. Inspired in part by the realities of the USSR, the book remains relevant for S.T.A.L.K.E.R. as it lays the groundwork for thinking about intervention, no matter how superior one actor may be to another, and how easily knowledge becomes an enemy to those who seek control. C-Consciousness is made up of scientists, but that didn’t stop them to take control over the minds of their colleagues once they transcended human existence."
-    },
-    {
-      id: "doctor-zhivago",
-      whyMatters: "Primarily a love story, this novel has little to do with S.T.A.L.K.E.R., but it can provide additional context for understanding the birth of the USSR. Since our video draws parallels between the ambitions and logic of the Soviet project and what we find in the Zone, this book points toward the dream of a bright future from which everything that came before appears as little more than a nightmare. Yet does the story of the Monolith not suggest something more troubling? If the past feels like a dream, perhaps it is because our memories, and even our minds, no longer belong entirely to us."
-    },
-    {
-      id: "hegel-in-a-wired-brain",
-      whyMatters: "Zhizhek challenges the idea that higher intelligence necessarily produces higher understanding. He raises the question which shapes the Zone as well - if consciousness could be unified, optimized, digitized, or uploaded, would it still be consciousness?"
-    },
-    {
-      id: "the-unbearable-lightness-of-being",
-      whyMatters: "As far as S.T.A.L.K.E.R. is concerned, this book should be read because of an idea that underpins both the events of Prague Spring and C-Consciousness. The systems that shaped our history, like those that shape the game's story, were not built by villains, but, as Kundera defines it, by enthusiasts who believed they had found the only road to heaven on Earth. In pursuing that vision, they caused suffering and death, only to discover later that there was no heaven waiting at the end of the road - only the burden of their deeds."
+      whyMatters: "This classic sci-fi novel forms the absolute thematic foundation for the Zone..."
     }
+    // Future STALKER books will go here cleanly!
   ]
+
 };
