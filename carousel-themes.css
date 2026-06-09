@@ -39,16 +39,16 @@
   --card-radius: 4px !important;
 }
 
-/* Header Text Indicators - Enhanced Visibility */
+/* Header Text Indicators */
 .carousel-wrapper.bioshock .book-counter {
-  color: #5bfce5 !important; /* Upgraded to an ultra-bright glowing neon turquoise */
+  color: #5bfce5 !important; /* Ultra-bright glowing neon turquoise */
   font-family: 'Cinzel', 'Copperplate', 'Times New Roman', serif;
   font-size: 0.9rem;
   letter-spacing: 2px;
   margin-bottom: 4px;
 }
 
-/* Target Layout Content Container Custom Fit */
+/* Target Layout Content Container - LOCKED FIXED HEIGHT */
 .carousel-wrapper.bioshock .carousel-content {
   background-color: #031416 !important;
   border: 4px double #c39a4f !important;
@@ -56,27 +56,46 @@
   outline-offset: -8px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.8) !important;
   padding: 24px !important;
-  height: auto !important; /* Forces the box to naturally expand to prevent text clipping */
-  overflow: visible !important; /* Completely nukes outer box scrollbars */
+  
+  /* FIXED HEIGHT SYSTEM FIX: Locks container and hides outer overflowing boxes */
+  height: 460px !important; 
+  box-sizing: border-box !important;
+  overflow: hidden !important; 
 }
 
-/* Panel Dimensions Normalization */
-.carousel-wrapper.bioshock .image-panel,
+/* Panel Dimensions & Internal Scroll Control */
+.carousel-wrapper.bioshock .image-panel {
+  height: 100% !important;
+}
+
 .carousel-wrapper.bioshock .text-panel {
-  height: auto !important; /* Unlocks fixed limits to allow components to settle */
-  overflow: visible !important; 
+  height: 100% !important;
+  overflow-y: auto !important; /* Allows long text to scroll within the locked boundaries */
+  padding-right: 12px !important;
+  box-sizing: border-box !important;
 }
 
-/* Completely kill internal window tracking scrollbars */
-.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar,
-.carousel-wrapper.bioshock .carousel-content::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
+/* STYLISH RAPTURE SCROLLBAR: Replaces the generic white browser bar */
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar {
+  display: block !important;
+  width: 6px !important;
 }
-.carousel-wrapper.bioshock .text-panel,
-.carousel-wrapper.bioshock .carousel-content {
-  scrollbar-width: none !important; /* Firefox layout cleanup */
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-track {
+  background: #021012 !important; /* Deep dark chamber gutter */
+  border-radius: 3px;
+}
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb {
+  background: #c39a4f !important; /* Burnished gold slider key */
+  border-radius: 3px;
+}
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb:hover {
+  background: #e5a93b !important; /* Lights up on pointer hover */
+}
+
+/* Firefox backup scrollbar track */
+.carousel-wrapper.bioshock .text-panel {
+  scrollbar-width: thin !important;
+  scrollbar-color: #c39a4f #021012 !important;
 }
 
 /* Typography & Meta Overrides */
@@ -108,13 +127,13 @@
   letter-spacing: 1px;
 }
 
-/* Navigation Arrow Overrides - Enhanced Contrast */
+/* Navigation Arrow Overrides */
 .carousel-wrapper.bioshock .nav-arrow {
-  color: #e5a93b !important; /* Matches bright active gold */
+  color: #e5a93b !important;
   text-shadow: 0 0 15px rgba(229, 169, 59, 0.5), 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
 }
 .carousel-wrapper.bioshock .nav-arrow:hover {
-  color: #5bfce5 !important; /* Flashes glowing neon turquoise on hover */
+  color: #5bfce5 !important;
 }
 
 /* Inactive Dots turned into Art Deco Diamond Tracking Nodes */
