@@ -30,10 +30,10 @@
 
 .carousel-wrapper.bioshock {
   /* Dynamic Variable Injections */
-  --carousel-bg: #031416 !important;             /* Deep solid sea floor dark teal */
-  --text-primary: #f4ecd8 !important;            /* High-contrast vintage cream for text */
-  --text-secondary: #cbd2c7 !important;          /* Clean parchment silver for body descriptions */
-  --accent-gold: #c39a4f !important;             /* Burnished bronze accent */
+  --carousel-bg: #031416 !important;             
+  --text-primary: #f4ecd8 !important;            
+  --text-secondary: #cbd2c7 !important;          
+  --accent-gold: #c39a4f !important;             
   --border-color: #1a4246 !important;
   --divider-style: 1px solid #1a4246 !important;
   --card-radius: 4px !important;
@@ -41,7 +41,7 @@
 
 /* Header Text Indicators */
 .carousel-wrapper.bioshock .book-counter {
-  color: #5bfce5 !important; /* Ultra-bright glowing neon turquoise */
+  color: #5bfce5 !important; 
   font-family: 'Cinzel', 'Copperplate', 'Times New Roman', serif;
   font-size: 0.9rem;
   letter-spacing: 2px;
@@ -56,8 +56,6 @@
   outline-offset: -8px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.8) !important;
   padding: 24px !important;
-  
-  /* FIXED HEIGHT SYSTEM FIX: Locks container and hides outer overflowing boxes */
   height: 460px !important; 
   box-sizing: border-box !important;
   overflow: hidden !important; 
@@ -70,58 +68,52 @@
 
 .carousel-wrapper.bioshock .text-panel {
   height: 100% !important;
-  overflow-y: auto !important; /* Allows long text to scroll within the locked boundaries */
+  overflow-y: auto !important; 
   padding-right: 12px !important;
   box-sizing: border-box !important;
 }
 
-/* STYLISH RAPTURE SCROLLBAR: Replaces the generic white browser bar */
+/* STYLISH RAPTURE SCROLLBAR */
 .carousel-wrapper.bioshock .text-panel::-webkit-scrollbar {
   display: block !important;
   width: 6px !important;
 }
 .carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-track {
-  background: #021012 !important; /* Deep dark chamber gutter */
+  background: #021012 !important; 
   border-radius: 3px;
 }
 .carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb {
-  background: #c39a4f !important; /* Burnished gold slider key */
+  background: #c39a4f !important; 
   border-radius: 3px;
 }
 .carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb:hover {
-  background: #e5a93b !important; /* Lights up on pointer hover */
-}
-
-/* Firefox backup scrollbar track */
-.carousel-wrapper.bioshock .text-panel {
-  scrollbar-width: thin !important;
-  scrollbar-color: #c39a4f #021012 !important;
+  background: #e5a93b !important; 
 }
 
 /* Typography & Meta Overrides */
 .carousel-wrapper.bioshock h2 {
-  color: #e5a93b !important; /* Bright glowing gold title */
+  color: #e5a93b !important; 
   font-family: 'Cinzel', 'Copperplate', serif;
   font-size: 1.9rem !important;
   margin-bottom: 2px !important;
 }
 
 .carousel-wrapper.bioshock .author-name {
-  color: #eadecc !important; /* Soft linen color for high-readability */
+  color: #eadecc !important; 
   font-size: 1rem !important;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 .carousel-wrapper.bioshock .section-title {
-  color: #49dec9 !important; /* Crisp glowing neon teal subheaders */
+  color: #49dec9 !important; 
   font-family: 'Cinzel', 'Copperplate', serif;
   margin-top: 14px !important;
 }
 
-/* Custom Theming for Store Headers (Physical, Audio, Ebook) */
+/* Custom Theming for Store Headers */
 .carousel-wrapper.bioshock .category-label {
-  color: #c39a4f !important; /* Shifts utility white labels to Art Deco Gold */
+  color: #c39a4f !important; 
   font-family: 'Cinzel', 'Copperplate', serif;
   font-size: 0.75rem !important;
   letter-spacing: 1px;
