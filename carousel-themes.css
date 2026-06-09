@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OUTER ELEMENT CONTRAST & THEME OVERRIDES (BIOSHOCK & STALKER)
+   OUTER ELEMENT CONTRAST & THEME OVERRIDES
    ========================================================================== */
 
 /* --- 1. GLOBAL TEXT & NAV ARROW FIXES --- */
@@ -7,14 +7,14 @@
 .carousel-wrapper.stalker .book-counter {
   font-weight: 700;
   letter-spacing: 1.5px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
 }
 
-/* High-visibility retro layout arrows flanking the console */
+/* High-visibility arrows flanking the console */
 .carousel-wrapper.bioshock .nav-arrow,
 .carousel-wrapper.stalker .nav-arrow {
   font-size: 3.5rem !important;
-  opacity: 0.75;
+  opacity: 0.85;
   transition: opacity 0.2s, transform 0.2s, color 0.2s;
   z-index: 100;
 }
@@ -30,91 +30,127 @@
 
 .carousel-wrapper.bioshock {
   /* Dynamic Variable Injections */
-  --carousel-bg: rgba(2, 16, 18, 0.85) !important; /* Semi-translucent deep sea chamber */
-  --text-primary: #cbd2c7 !important;            /* Muted parchment */
-  --text-secondary: #8a9286 !important;          /* Seafoam descriptor text */
+  --carousel-bg: #031416 !important;             /* Deep solid sea floor dark teal */
+  --text-primary: #f4ecd8 !important;            /* High-contrast vintage cream for text */
+  --text-secondary: #cbd2c7 !important;          /* Clean parchment silver for body descriptions */
   --accent-gold: #c39a4f !important;             /* Burnished bronze accent */
   --border-color: #1a4246 !important;
   --divider-style: 1px solid #1a4246 !important;
   --card-radius: 4px !important;
 }
 
-/* Header Text Indicators */
+/* Header Text Indicators - Enhanced Visibility */
 .carousel-wrapper.bioshock .book-counter {
-  color: #49dec9 !important; /* Vivid Neon Teal */
+  color: #5bfce5 !important; /* Upgraded to an ultra-bright glowing neon turquoise */
   font-family: 'Cinzel', 'Copperplate', 'Times New Roman', serif;
-  font-size: 0.85rem;
-  margin-bottom: 2px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
 }
 
-/* Target Layout Content Fitting Nicely Inside Your Art Deco BG Console */
+/* Target Layout Content Container Custom Fit */
 .carousel-wrapper.bioshock .carousel-content {
-  background-color: rgba(2, 16, 18, 0.88) !important;
-  border: 2px solid #c39a4f !important;
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9), 0 8px 24px rgba(0,0,0,0.7) !important;
-  max-width: 820px; /* Constrains it perfectly inside your image frame width */
-  margin: 0 auto;
-  padding: 20px !important;
+  background-color: #031416 !important;
+  border: 4px double #c39a4f !important;
+  outline: 1px solid #c39a4f !important;
+  outline-offset: -8px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.8) !important;
+  padding: 24px !important;
+  height: auto !important; /* Forces the box to naturally expand to prevent text clipping */
+  overflow: visible !important; /* Completely nukes outer box scrollbars */
 }
 
-/* Dynamic Typography Overrides */
+/* Panel Dimensions Normalization */
+.carousel-wrapper.bioshock .image-panel,
+.carousel-wrapper.bioshock .text-panel {
+  height: auto !important; /* Unlocks fixed limits to allow components to settle */
+  overflow: visible !important; 
+}
+
+/* Completely kill internal window tracking scrollbars */
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar,
+.carousel-wrapper.bioshock .carousel-content::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.carousel-wrapper.bioshock .text-panel,
+.carousel-wrapper.bioshock .carousel-content {
+  scrollbar-width: none !important; /* Firefox layout cleanup */
+}
+
+/* Typography & Meta Overrides */
 .carousel-wrapper.bioshock h2 {
-  color: #c39a4f !important; /* Title goes Gold */
+  color: #e5a93b !important; /* Bright glowing gold title */
   font-family: 'Cinzel', 'Copperplate', serif;
-  font-size: 1.8rem !important;
-}
-.carousel-wrapper.bioshock .section-title {
-  color: #49dec9 !important; /* Subheaders match the glowing neon teal counter */
-  font-family: 'Cinzel', 'Copperplate', serif;
+  font-size: 1.9rem !important;
+  margin-bottom: 2px !important;
 }
 
-/* Navigation Arrow Specific Styles */
+.carousel-wrapper.bioshock .author-name {
+  color: #eadecc !important; /* Soft linen color for high-readability */
+  font-size: 1rem !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.carousel-wrapper.bioshock .section-title {
+  color: #49dec9 !important; /* Crisp glowing neon teal subheaders */
+  font-family: 'Cinzel', 'Copperplate', serif;
+  margin-top: 14px !important;
+}
+
+/* Custom Theming for Store Headers (Physical, Audio, Ebook) */
+.carousel-wrapper.bioshock .category-label {
+  color: #c39a4f !important; /* Shifts utility white labels to Art Deco Gold */
+  font-family: 'Cinzel', 'Copperplate', serif;
+  font-size: 0.75rem !important;
+  letter-spacing: 1px;
+}
+
+/* Navigation Arrow Overrides - Enhanced Contrast */
 .carousel-wrapper.bioshock .nav-arrow {
-  color: #cbd2c7 !important;
-  text-shadow: 0 0 10px rgba(73, 222, 201, 0.4);
+  color: #e5a93b !important; /* Matches bright active gold */
+  text-shadow: 0 0 15px rgba(229, 169, 59, 0.5), 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
 }
 .carousel-wrapper.bioshock .nav-arrow:hover {
-  color: #49dec9 !important;
+  color: #5bfce5 !important; /* Flashes glowing neon turquoise on hover */
 }
 
 /* Inactive Dots turned into Art Deco Diamond Tracking Nodes */
 .carousel-wrapper.bioshock .dot {
-  background-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
   border: 1px solid #c39a4f !important;
   width: 9px;
   height: 9px;
-  border-radius: 0px !important; /* Sharp corners create diamonds */
+  border-radius: 0px !important;
   transform: rotate(45deg);
-  margin: 0 5px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  margin: 0 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
 /* Active Diamond Indicator */
 .carousel-wrapper.bioshock .dot.active {
   background-color: #e5a93b !important;
-  box-shadow: 0 0 10px #e5a93b, 0 0 4px #e5a93b !important;
+  box-shadow: 0 0 12px #e5a93b, 0 0 4px #e5a93b !important;
 }
-
-/* Scrollbar styling for the dark layout panels */
-.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb { background: #c39a4f !important; }
-.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-track { background: #021012 !important; }
 
 /* Translucent Bottom Navigation Window */
 .carousel-wrapper.bioshock .thumbnail-slider-window {
-  background: rgba(10, 25, 28, 0.6) !important;
-  border: 1px solid rgba(195, 154, 79, 0.3) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+  background: rgba(2, 13, 15, 0.85) !important;
+  border: 2px solid #c39a4f !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7) !important;
   border-radius: 6px;
 }
 
 .carousel-wrapper.bioshock .thumb-card {
   border-radius: 3px !important;
-  background: rgba(2, 13, 15, 0.8) !important;
-  border: 1px solid rgba(195, 154, 79, 0.15) !important;
+  background: rgba(10, 25, 28, 0.6) !important;
+  border: 1px solid rgba(195, 154, 79, 0.2) !important;
 }
 .carousel-wrapper.bioshock .thumb-card.active {
   border: 1px solid #e5a93b !important;
-  background: rgba(195, 154, 79, 0.12) !important;
+  background: rgba(195, 154, 79, 0.15) !important;
 }
 
 
@@ -128,21 +164,20 @@
   --accent-gold: #e67e22 !important;
   --border-color: #384148 !important;
   --divider-style: 1px dashed #384148 !important;
-  --card-radius: 0px !important; /* Brutalist layout requires sharp raw corners */
+  --card-radius: 0px !important;
 }
 
 /* Header Text Indicators */
 .carousel-wrapper.stalker .book-counter {
-  color: #e67e22 !important; /* High-visibility Hazard Amber */
+  color: #e67e22 !important;
   font-family: monospace;
 }
 
-/* Main Box fit to ground inside your radioactive console panel layout */
+/* Main Box Layout Fitting */
 .carousel-wrapper.stalker .carousel-content {
   background-color: rgba(20, 22, 24, 0.92) !important;
   border: 3px solid #384148 !important;
   box-shadow: inset 0 0 40px rgba(0,0,0,0.9) !important;
-  max-width: 820px;
   margin: 0 auto;
   border-radius: 0px !important;
 }
@@ -175,7 +210,7 @@
 
 /* Active indicator dot */
 .carousel-wrapper.stalker .dot.active {
-  background-color: #f1c40f !important; /* Bright radioactive yellow */
+  background-color: #f1c40f !important;
   box-shadow: 0 0 8px #f1c40f !important;
 }
 
