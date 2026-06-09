@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OUTER ELEMENT CONTRAST & THEME OVERRIDES
+   OUTER ELEMENT CONTRAST & THEME OVERRIDES (BIOSHOCK & STALKER)
    ========================================================================== */
 
 /* --- 1. GLOBAL TEXT & NAV ARROW FIXES --- */
@@ -30,25 +30,25 @@
 
 .carousel-wrapper.bioshock {
   /* Dynamic Variable Injections */
-  --carousel-bg: #031416 !important;             
-  --text-primary: #f4ecd8 !important;            
-  --text-secondary: #cbd2c7 !important;          
-  --accent-gold: #c39a4f !important;             
+  --carousel-bg: #031416 !important;             /* Deep solid sea floor dark teal */
+  --text-primary: #f4ecd8 !important;            /* High-contrast vintage cream for text */
+  --text-secondary: #cbd2c7 !important;          /* Clean parchment silver for body descriptions */
+  --accent-gold: #c39a4f !important;             /* Burnished bronze accent */
   --border-color: #1a4246 !important;
   --divider-style: 1px solid #1a4246 !important;
   --card-radius: 4px !important;
 }
 
-/* Header Text Indicators */
+/* Header Text Indicators - Enhanced Visibility */
 .carousel-wrapper.bioshock .book-counter {
-  color: #5bfce5 !important; 
+  color: #5bfce5 !important; /* Upgraded to an ultra-bright glowing neon turquoise */
   font-family: 'Cinzel', 'Copperplate', 'Times New Roman', serif;
   font-size: 0.9rem;
   letter-spacing: 2px;
   margin-bottom: 4px;
 }
 
-/* Target Layout Content Container - LOCKED FIXED HEIGHT */
+/* Target Layout Content Container Custom Fit */
 .carousel-wrapper.bioshock .carousel-content {
   background-color: #031416 !important;
   border: 4px double #c39a4f !important;
@@ -56,76 +56,68 @@
   outline-offset: -8px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.8) !important;
   padding: 24px !important;
-  height: 460px !important; 
-  box-sizing: border-box !important;
-  overflow: hidden !important; 
+  
+  /* FIXED UNIFORM HEIGHT STABILIZER */
+  min-height: 480px !important; /* Forces short books to match the tallest books layout */
+  height: auto !important;      /* Keeps behavior identical to your baseline file */
+  overflow: visible !important; 
 }
 
-/* Panel Dimensions & Internal Scroll Control */
-.carousel-wrapper.bioshock .image-panel {
-  height: 100% !important;
-}
-
+/* Panel Dimensions Normalization */
+.carousel-wrapper.bioshock .image-panel,
 .carousel-wrapper.bioshock .text-panel {
-  height: 100% !important;
-  overflow-y: auto !important; 
-  padding-right: 12px !important;
-  box-sizing: border-box !important;
+  height: auto !important; 
+  overflow: visible !important; 
 }
 
-/* STYLISH RAPTURE SCROLLBAR */
-.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar {
-  display: block !important;
-  width: 6px !important;
+/* Completely kill internal window tracking scrollbars */
+.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar,
+.carousel-wrapper.bioshock .carousel-content::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
-.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-track {
-  background: #021012 !important; 
-  border-radius: 3px;
-}
-.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb {
-  background: #c39a4f !important; 
-  border-radius: 3px;
-}
-.carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-thumb:hover {
-  background: #e5a93b !important; 
+.carousel-wrapper.bioshock .text-panel,
+.carousel-wrapper.bioshock .carousel-content {
+  scrollbar-width: none !important; /* Firefox layout cleanup */
 }
 
 /* Typography & Meta Overrides */
 .carousel-wrapper.bioshock h2 {
-  color: #e5a93b !important; 
+  color: #e5a93b !important; /* Bright glowing gold title */
   font-family: 'Cinzel', 'Copperplate', serif;
   font-size: 1.9rem !important;
   margin-bottom: 2px !important;
 }
 
 .carousel-wrapper.bioshock .author-name {
-  color: #eadecc !important; 
+  color: #eadecc !important; /* Soft linen color for high-readability */
   font-size: 1rem !important;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 .carousel-wrapper.bioshock .section-title {
-  color: #49dec9 !important; 
+  color: #49dec9 !important; /* Crisp glowing neon teal subheaders */
   font-family: 'Cinzel', 'Copperplate', serif;
   margin-top: 14px !important;
 }
 
-/* Custom Theming for Store Headers */
+/* Custom Theming for Store Headers (Physical Book, Audiobook, Ebook) */
 .carousel-wrapper.bioshock .category-label {
-  color: #c39a4f !important; 
+  color: #c39a4f !important; /* Shifts utility white labels to Art Deco Gold */
   font-family: 'Cinzel', 'Copperplate', serif;
   font-size: 0.75rem !important;
   letter-spacing: 1px;
 }
 
-/* Navigation Arrow Overrides */
+/* Navigation Arrow Overrides - Enhanced Contrast */
 .carousel-wrapper.bioshock .nav-arrow {
-  color: #e5a93b !important;
+  color: #e5a93b !important; /* Matches bright active gold */
   text-shadow: 0 0 15px rgba(229, 169, 59, 0.5), 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
 }
 .carousel-wrapper.bioshock .nav-arrow:hover {
-  color: #5bfce5 !important;
+  color: #5bfce5 !important; /* Flashes glowing neon turquoise on hover */
 }
 
 /* Inactive Dots turned into Art Deco Diamond Tracking Nodes */
@@ -191,6 +183,9 @@
   box-shadow: inset 0 0 40px rgba(0,0,0,0.9) !important;
   margin: 0 auto;
   border-radius: 0px !important;
+  
+  /* UNIFORM HEIGHT STABILIZER FOR STALKER PANEL */
+  min-height: 480px !important;
 }
 
 /* Typography Overrides */
