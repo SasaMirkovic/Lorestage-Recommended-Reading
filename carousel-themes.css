@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OUTER ELEMENT CONTRAST & THEME OVERRIDES
+   OUTER ELEMENT CONTRAST & THEME OVERRIDES (BIOSHOCK & STALKER)
    ========================================================================== */
 
 /* --- 1. GLOBAL TEXT & NAV ARROW FIXES --- */
@@ -57,27 +57,37 @@
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.8) !important;
   padding: 24px !important;
   
-  /* FIXED UNIFORM HEIGHT STABILIZER */
-  height: 520px !important;         /* Locked uniform height so the box never jumps sizes */
-  box-sizing: border-box !important;/* Standardizes padding measurements inside the fixed box */
-  overflow: hidden !important;      /* Cleans and locks the primary display frame boundaries */
+  /* CRITICAL FIXED HEIGHT OVERRIDES */
+  height: 520px !important;
+  min-height: 520px !important;
+  max-height: 520px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important; /* Strips out accidental layout breaks */
 }
 
-/* Panel Dimensions Normalization */
+/* Panel Dimensions Normalization & Flex Control */
+.carousel-wrapper.bioshock .carousel-main-layout {
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+
 .carousel-wrapper.bioshock .image-panel {
-  height: 100% !important;          /* Keeps your cover artwork filling the locked frame height */
+  height: 100% !important;          
+  max-height: 100% !important;
 }
 
 .carousel-wrapper.bioshock .text-panel {
-  height: 100% !important;          /* Constrains text panel to container height */
-  overflow-y: auto !important;      /* Unlocks vertical scrolling for summary/why-it-matters parts */
-  padding-right: 14px !important;   /* Creates breathing room for the internal text scroll */
+  height: 100% !important;          
+  max-height: 100% !important;
+  overflow-y: auto !important;      /* Unlocks internal scrolling slider */
+  padding-right: 14px !important;   
   box-sizing: border-box !important;
 }
 
 /* THEMED RAPTURE MECHANICAL SCROLLBAR OVERRIDES */
 .carousel-wrapper.bioshock .text-panel::-webkit-scrollbar {
-  display: block !important;        /* Shows the scrollbar on text sections with overflow */
+  display: block !important;        
   width: 6px !important;
 }
 .carousel-wrapper.bioshock .text-panel::-webkit-scrollbar-track {
@@ -92,8 +102,8 @@
   background: #e5a93b !important;   /* Highlighted gold glow on track hover */
 }
 .carousel-wrapper.bioshock .text-panel {
-  scrollbar-width: thin !important;              /* Firefox track sizing support */
-  scrollbar-color: #c39a4f #021012 !important;   /* Firefox track color integration */
+  scrollbar-width: thin !important;              
+  scrollbar-color: #c39a4f #021012 !important;   
 }
 
 /* Typography & Meta Overrides */
@@ -198,10 +208,19 @@
   margin: 0 auto;
   border-radius: 0px !important;
   
-  /* UNIFORM HEIGHT STABILIZER FOR STALKER PANEL */
-  height: 520px !important;         /* Matches BioShock profile box layout height */
+  /* CRITICAL FIXED HEIGHT OVERRIDES */
+  height: 520px !important;
+  min-height: 520px !important;
+  max-height: 520px !important;
   box-sizing: border-box !important;
   overflow: hidden !important;      
+}
+
+/* Panel Dimensions Normalization & Flex Control */
+.carousel-wrapper.stalker .carousel-main-layout {
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
 }
 
 .carousel-wrapper.stalker .image-panel {
@@ -210,6 +229,7 @@
 
 .carousel-wrapper.stalker .text-panel {
   height: 100% !important;
+  max-height: 100% !important;
   overflow-y: auto !important;      /* Unlocks internal vertical scrolling for Zone descriptions */
   padding-right: 14px !important;
   box-sizing: border-box !important;
