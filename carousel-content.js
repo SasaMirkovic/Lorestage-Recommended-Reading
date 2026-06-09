@@ -1,8 +1,6 @@
-<script src="https://cdn.jsdelivr.net/gh/SasaMirkovic/Lorestage-Recommended-Reading@main/books-database.js"></script>
-
-<script>
-  // 2. CHOOSE which books show on THIS page and write the unique context description
-  const pageConfiguration = [
+window.gameLibraries = {
+  
+  "bioshock": [
     {
       id: "atlas-shrugged",
       whyMatters: "This book is essential for understanding the plot of the first BioShock, as the game asks the crucial question every emotionally charged ideological work avoids: what happens the day after the book’s heroes achieve victory?"
@@ -99,47 +97,5 @@
       id: "logans-run",
       whyMatters: "Logan’s Run is often cited among the works that influenced Ken Levine’s vision of BioShock. Behind the appearance of an idyllic society, we find an authoritarian mousetrap, and Logan’s story helped shape the narrative focus on escape from controlled utopias and their hidden structures of control."
     }
-  ];
-
-  // 3. Process and map the data variables securely (with safety checks for missing data)
-  window.bookDatabase = pageConfiguration.map(config => {
-    const masterData = MASTER_BOOK_DIRECTORY[config.id];
-    if (!masterData) {
-      console.error(`Missing book data in database for ID: ${config.id}`);
-      return null;
-    }
-    return {
-      ...masterData,
-      whyMatters: config.whyMatters
-    };
-  }).filter(book => book !== null);
-</script>
-
-<div id="carousel-target"></div>
-
-<script>
-  // 5. Fetch and cleanly inject the visual layout engine
-  fetch('https://cdn.jsdelivr.net/gh/SasaMirkovic/Lorestage-Recommended-Reading@main/carousel-engine.html')
-    .then(response => response.text())
-    .then(htmlString => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(htmlString, 'text/html');
-      
-      // Inject the style rules cleanly into the head
-      const style = doc.querySelector('style');
-      if (style) document.head.appendChild(style);
-      
-      // Inject the structural wrapper framework into your target div
-      const wrapper = doc.querySelector('.carousel-wrapper');
-      if (wrapper) document.getElementById('carousel-target').appendChild(wrapper);
-      
-      // Inject and execute the script logic safely
-      const script = doc.querySelector('script');
-      if (script) {
-        const newScript = document.createElement('script');
-        newScript.textContent = script.textContent;
-        document.body.appendChild(newScript);
-      }
-    })
-    .catch(err => console.error('Error loading carousel engine:', err));
-</script>
+  ]
+};
