@@ -200,11 +200,15 @@
   font-family: monospace;
 }
 
-/* Main Box Layout Fitting */
+/* Main Box Layout Fitting - Terminal Frame Update */
 .carousel-wrapper.stalker .carousel-content {
-  background-color: rgba(20, 22, 24, 0.92) !important;
-  border: 3px solid #384148 !important;
-  box-shadow: inset 0 0 40px rgba(0,0,0,0.9) !important;
+  background-color: rgba(14, 16, 15, 0.94) !important; /* Slightly darker, green-tinted charcoal */
+  border: 2px solid #505c66 !important; /* Heavy sheet steel trim */
+  outline: 1px solid #1c2124 !important;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.9), 
+    inset 0 0 50px rgba(0, 0, 0, 0.95),
+    0 0 15px rgba(230, 126, 34, 0.15) !important; /* Subtle radioactive amber external aura */
   margin: 0 auto;
   border-radius: 0px !important;
   
@@ -213,7 +217,7 @@
   min-height: 520px !important;
   max-height: 520px !important;
   box-sizing: border-box !important;
-  overflow: hidden !important;      
+  overflow: hidden !important;       
 }
 
 /* Panel Dimensions Normalization & Flex Control */
@@ -267,25 +271,43 @@
   font-family: monospace;
 }
 
-/* Nav Arrow Styling overrides */
+/* Nav Arrow Styling overrides - High Visibility Industrial Brackets */
 .carousel-wrapper.stalker .nav-arrow {
-  color: #8a9286 !important;
+  color: #e67e22 !important; /* Switch base color to warning amber */
+  background: rgba(17, 18, 15, 0.75) !important; /* Dark protective bunker backing */
+  border: 1px solid #384148 !important; /* Steel frame */
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0px !important; /* Keep it strictly angular */
+  font-size: 2.2rem !important; /* Tailored size for the box containment */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
 }
+
 .carousel-wrapper.stalker .nav-arrow:hover {
-  color: #e67e22 !important;
+  color: #f1c40f !important; /* Flash bright radiation yellow on hover */
+  border-color: #e67e22 !important; /* Steel glows amber */
+  background: #1a1c18 !important;
+  transform: scale(1.05);
 }
 
-/* Inactive Dots */
+/* Inactive Tracking Points */
 .carousel-wrapper.stalker .dot {
-  background-color: rgba(255, 255, 255, 0.25) !important;
-  border-radius: 50% !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  background-color: #222521 !important;
+  border: 1px solid #384148 !important;
+  border-radius: 0px !important; /* Angular grids, no circles */
+  width: 7px;
+  height: 7px;
+  margin: 0 5px;
 }
 
-/* Active indicator dot */
+/* Active Radiation Spike Indicator */
 .carousel-wrapper.stalker .dot.active {
-  background-color: #f1c40f !important;
-  box-shadow: 0 0 8px #f1c40f !important;
+  background-color: #e67e22 !important; /* Standard Warning Amber */
+  border-color: #f1c40f !important;
+  box-shadow: 0 0 8px #e67e22, 0 0 3px #f1c40f !important;
 }
 
 /* Industrial Bottom Navigation Slider Window */
@@ -295,11 +317,33 @@
   border-radius: 4px;
 }
 
-.carousel-wrapper.stalker .thumb-card {
+/* Weathered Uniform Grid System for EVERY External Store Button & Thumbnail Card */
+.carousel-wrapper.stalker .thumb-card,
+.carousel-wrapper.stalker .button, 
+.carousel-wrapper.stalker a[href*="amazon"],
+.carousel-wrapper.stalker a[href*="bookshop"],
+.carousel-wrapper.stalker a[href*="audible"],
+.carousel-wrapper.stalker a[href*="libro"],
+.carousel-wrapper.stalker a[href*="kindle"],
+.carousel-wrapper.stalker a[href*="kobo"] {
+  background: #161815 !important;
+  color: #cbd2c7 !important; /* Forces text link elements to match vintage industrial grey */
+  border: 1px solid #384148 !important;
   border-radius: 0px !important;
-  background: #11120f !important;
-  border: 1px solid #2d302a !important;
+  transition: all 0.2s ease-in-out;
 }
-.carousel-wrapper.stalker .thumb-card.active {
-  border: 1px solid #e67e22 !important;
+
+/* Master Hover & Active State for All Cards & Links */
+.carousel-wrapper.stalker .thumb-card.active,
+.carousel-wrapper.stalker .button:hover,
+.carousel-wrapper.stalker a[href*="amazon"]:hover,
+.carousel-wrapper.stalker a[href*="bookshop"]:hover,
+.carousel-wrapper.stalker a[href*="audible"]:hover,
+.carousel-wrapper.stalker a[href*="libro"]:hover,
+.carousel-wrapper.stalker a[href*="kindle"]:hover,
+.carousel-wrapper.stalker a[href*="kobo"]:hover {
+  background: #222520 !important;
+  color: #e67e22 !important; /* Flashes text/borders to radioactive amber */
+  border-color: #e67e22 !important;
+  box-shadow: 0 0 6px rgba(230, 126, 34, 0.3) !important;
 }
