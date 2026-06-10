@@ -1,10 +1,11 @@
 /* ==========================================================================
-   OUTER ELEMENT CONTRAST & THEME OVERRIDES (BIOSHOCK & STALKER)
+   OUTER ELEMENT CONTRAST & THEME OVERRIDES
    ========================================================================== */
 
 /* --- 1. GLOBAL TEXT & NAV ARROW FIXES --- */
 .carousel-wrapper.bioshock .book-counter,
-.carousel-wrapper.stalker .book-counter {
+.carousel-wrapper.stalker .book-counter,
+.carousel-wrapper.arthas .book-counter {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
@@ -12,7 +13,8 @@
 
 /* High-visibility arrows flanking the console */
 .carousel-wrapper.bioshock .nav-arrow,
-.carousel-wrapper.stalker .nav-arrow {
+.carousel-wrapper.stalker .nav-arrow,
+.carousel-wrapper.arthas .nav-arrow {
   font-size: 3.5rem !important;
   opacity: 0.85;
   transition: opacity 0.2s, transform 0.2s, color 0.2s;
@@ -20,7 +22,8 @@
 }
 
 .carousel-wrapper.bioshock .nav-arrow:hover,
-.carousel-wrapper.stalker .nav-arrow:hover {
+.carousel-wrapper.stalker .nav-arrow:hover,
+.carousel-wrapper.arthas .nav-arrow:hover {
   opacity: 1;
   transform: scale(1.1);
 }
@@ -318,32 +321,170 @@
 }
 
 /* Weathered Uniform Grid System for EVERY External Store Button & Thumbnail Card */
-.carousel-wrapper.stalker .thumb-card,
-.carousel-wrapper.stalker .button, 
-.carousel-wrapper.stalker a[href*="amazon"],
-.carousel-wrapper.stalker a[href*="bookshop"],
-.carousel-wrapper.stalker a[href*="audible"],
-.carousel-wrapper.stalker a[href*="libro"],
-.carousel-wrapper.stalker a[href*="kindle"],
-.carousel-wrapper.stalker a[href*="kobo"] {
-  background: #161815 !important;
-  color: #cbd2c7 !important; /* Forces text link elements to match vintage industrial grey */
-  border: 1px solid #384148 !important;
+.carousel-wrapper.stalker .thumb-card {
   border-radius: 0px !important;
-  transition: all 0.2s ease-in-out;
+  background: #11120f !important;
+  border: 1px solid #2d302a !important;
 }
 
-/* Master Hover & Active State for All Cards & Links */
-.carousel-wrapper.stalker .thumb-card.active,
-.carousel-wrapper.stalker .button:hover,
-.carousel-wrapper.stalker a[href*="amazon"]:hover,
-.carousel-wrapper.stalker a[href*="bookshop"]:hover,
-.carousel-wrapper.stalker a[href*="audible"]:hover,
-.carousel-wrapper.stalker a[href*="libro"]:hover,
-.carousel-wrapper.stalker a[href*="kindle"]:hover,
-.carousel-wrapper.stalker a[href*="kobo"]:hover {
-  background: #222520 !important;
-  color: #e67e22 !important; /* Flashes text/borders to radioactive amber */
-  border-color: #e67e22 !important;
-  box-shadow: 0 0 6px rgba(230, 126, 34, 0.3) !important;
+.carousel-wrapper.stalker .thumb-card.active {
+  border: 1px solid #e67e22 !important;
+} 
+
+
+/* --- 4. WARCRAFT: ARTHAS THEME (Lordaeron Gold & Frostmourne Ice-Blue) --- */
+
+.carousel-wrapper.arthas {
+  /* Dynamic Variable Injections */
+  --carousel-bg: #09121e !important;             /* Cold, deep Scourge citadel dark blue */
+  --text-primary: #f5eedc !important;            /* Clean royal parchment for headers */
+  --text-secondary: #a3b0c2 !important;          /* Frosted silver-blue for descriptions */
+  --accent-gold: #f39c12 !important;             /* Lordaeron Paladin gold */
+  --border-color: #1b324a !important;            /* Glacial ice shard borders */
+  --divider-style: 1px solid #1b324a !important;
+  --card-radius: 4px !important;                 /* Styled structural corners */
+}
+
+/* Header Text Indicators - Runic Monospace Counter */
+.carousel-wrapper.arthas .book-counter {
+  color: #4deeea !important; /* Glowing Frozen Throne cyan neon */
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2.5px;
+  text-shadow: 0 0 10px rgba(77, 238, 234, 0.4);
+  margin-bottom: 4px;
+}
+
+/* Main Box Layout Fitting - The Frozen Throne Ice Block */
+.carousel-wrapper.arthas .carousel-content {
+  background-color: rgba(6, 13, 23, 0.95) !important;
+  border: 3px double #f39c12 !important; /* Royal Lordaeron trim holding back the frost */
+  box-shadow: 
+    0 12px 36px rgba(0, 0, 0, 0.9), 
+    inset 0 0 50px rgba(16, 42, 67, 0.8),
+    0 0 20px rgba(77, 238, 234, 0.1) !important; /* Ghostly Frostmourne aura */
+  padding: 24px !important;
+  
+  /* CRITICAL FIXED HEIGHT OVERRIDES */
+  height: 520px !important;
+  min-height: 520px !important;
+  max-height: 520px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important; 
+}
+
+/* Panel Dimensions Normalization & Flex Control */
+.carousel-wrapper.arthas .carousel-main-layout {
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+
+.carousel-wrapper.arthas .image-panel {
+  height: 100% !important;          
+}
+
+.carousel-wrapper.arthas .text-panel {
+  height: 100% !important;          
+  max-height: 100% !important;
+  overflow-y: auto !important;      
+  padding-right: 14px !important;   
+  box-sizing: border-box !important;
+}
+
+/* SCOURGE CITADEL GLACIAL SCROLLBAR */
+.carousel-wrapper.arthas .text-panel::-webkit-scrollbar {
+  display: block !important;        
+  width: 6px !important;
+}
+.carousel-wrapper.arthas .text-panel::-webkit-scrollbar-track {
+  background: #040910 !important;   /* Pitch black obsidian track */
+  border-radius: 3px !important;
+}
+.carousel-wrapper.arthas .text-panel::-webkit-scrollbar-thumb {
+  background: #1b324a !important;   /* Frozen iron handle */
+  border-radius: 3px !important;
+}
+.carousel-wrapper.arthas .text-panel::-webkit-scrollbar-thumb:hover {
+  background: #4deeea !important;   /* Glows frozen blue on mouse hover */
+}
+.carousel-wrapper.arthas .text-panel {
+  scrollbar-width: thin !important;              
+  scrollbar-color: #1b324a #040910 !important;   
+}
+
+/* Typography & Meta Overrides */
+.carousel-wrapper.arthas h2 {
+  color: #f39c12 !important; /* Radiant Paladin Gold Title */
+  font-family: 'Cinzel', 'Georgia', serif;
+  font-size: 1.9rem !important;
+  margin-bottom: 2px !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.carousel-wrapper.arthas .author-name {
+  color: #bdcddb !important; /* Pale, spectral silver for the author */
+  font-size: 1rem !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.carousel-wrapper.arthas .section-title {
+  color: #4deeea !important; /* Glowing frost-blue for subheaders ("Why It Matters") */
+  font-family: 'Cinzel', 'Georgia', serif;
+  letter-spacing: 1px;
+  margin-top: 14px !important;
+}
+
+/* Store Link Header Sub-labels */
+.carousel-wrapper.arthas .category-label {
+  color: #a3b0c2 !important; 
+  font-family: monospace;
+  font-size: 0.75rem !important;
+}
+
+/* Navigation Arrow Overrides - Frozen Ice Shards */
+.carousel-wrapper.arthas .nav-arrow {
+  color: #1b324a !important; /* Dark ice color to pop nicely against light backgrounds */
+  text-shadow: 0 0 10px rgba(77, 238, 234, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+.carousel-wrapper.arthas .nav-arrow:hover {
+  color: #4deeea !important; /* Flashes bright runic blue when active */
+  transform: scale(1.1);
+}
+
+/* Navigation Tracking Dots */
+.carousel-wrapper.arthas .dot {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid #1b324a !important;
+  width: 8px;
+  height: 8px;
+  margin: 0 5px;
+}
+
+/* Active Ice Rune tracking Node */
+.carousel-wrapper.arthas .dot.active {
+  background-color: #4deeea !important;
+  box-shadow: 0 0 10px #4deeea, 0 0 3px #4deeea !important;
+}
+
+/* Translucent Bottom Navigation Bar Slider */
+.carousel-wrapper.arthas .thumbnail-slider-window {
+  background: rgba(4, 9, 16, 0.85) !important;
+  border: 2px solid #1b324a !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8) !important;
+  border-radius: 4px;
+}
+
+/* Bottom Gallery Mini Thumb Cards */
+.carousel-wrapper.arthas .thumb-card {
+  border-radius: 2px !important;
+  background: rgba(6, 13, 23, 0.7) !important;
+  border: 1px solid rgba(77, 238, 234, 0.1) !important;
+}
+.carousel-wrapper.arthas .thumb-card.active {
+  border: 1px solid #4deeea !important; /* Glowing frost rim for active card */
+  background: rgba(77, 238, 234, 0.05) !important;
+  box-shadow: 0 0 8px rgba(77, 238, 234, 0.3);
 }
