@@ -5,7 +5,8 @@
 /* --- 1. GLOBAL TEXT & NAV ARROW FIXES --- */
 .carousel-wrapper.bioshock .book-counter,
 .carousel-wrapper.stalker .book-counter,
-.carousel-wrapper.arthas .book-counter {
+.carousel-wrapper.arthas .book-counter,
+.carousel-wrapper.thrall .book-counter {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
@@ -14,7 +15,8 @@
 /* High-visibility arrows flanking the console */
 .carousel-wrapper.bioshock .nav-arrow,
 .carousel-wrapper.stalker .nav-arrow,
-.carousel-wrapper.arthas .nav-arrow {
+.carousel-wrapper.arthas .nav-arrow,
+.carousel-wrapper.thrall .nav-arrow {
   font-size: 3.5rem !important;
   opacity: 0.85;
   transition: opacity 0.2s, transform 0.2s, color 0.2s;
@@ -23,7 +25,8 @@
 
 .carousel-wrapper.bioshock .nav-arrow:hover,
 .carousel-wrapper.stalker .nav-arrow:hover,
-.carousel-wrapper.arthas .nav-arrow:hover {
+.carousel-wrapper.arthas .nav-arrow:hover,
+.carousel-wrapper.thrall .nav-arrow:hover {
   opacity: 1;
   transform: scale(1.1);
 }
@@ -487,4 +490,166 @@
   border: 1px solid #4deeea !important; /* Glowing frost rim for active card */
   background: rgba(77, 238, 234, 0.05) !important;
   box-shadow: 0 0 8px rgba(77, 238, 234, 0.3);
+}
+
+
+/* --- 5. WARCRAFT: THRALL THEME (Horde Red & Shamanistic Elemental Green) --- */
+
+.carousel-wrapper.thrall {
+  /* Dynamic Variable Injections */
+  --carousel-bg: #1c1412 !important;             /* Deep weathered volcanic earth charcoal */
+  --text-primary: #f2e6d0 !important;            /* Clean rough parchment for readability */
+  --text-secondary: #bfae99 !important;          /* Weathered stone grey-brown for body copy */
+  --accent-gold: #b83823 !important;             /* Deep, iconic Horde Crimson */
+  --border-color: #4a3c31 !important;            /* Rugged iron and wood border tones */
+  --divider-style: 1px dashed #4a3c31 !important;
+  --card-radius: 0px !important;                 /* Brutalist, unyielding block cuts */
+}
+
+/* Header Text Indicators - Elemental Shaman Counter */
+.carousel-wrapper.thrall .book-counter {
+  color: #2ecc71 !important; /* Vibrant ancestral spirit/earth-magic green glow */
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2.5px;
+  text-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+  margin-bottom: 4px;
+}
+
+/* Main Box Layout Fitting - Orgrimmar Fortress Iron Frame */
+.carousel-wrapper.thrall .carousel-content {
+  background-color: rgba(24, 18, 15, 0.96) !important;
+  border: 3px solid #b83823 !important; /* Heavy Horde Crimson structural trim */
+  box-shadow: 
+    0 12px 36px rgba(0, 0, 0, 0.95), 
+    inset 0 0 50px rgba(0, 0, 0, 0.9),
+    0 0 15px rgba(184, 56, 35, 0.15) !important; /* Subdued fiery aura */
+  padding: 24px !important;
+  
+  /* CRITICAL FIXED HEIGHT OVERRIDES */
+  height: 520px !important;
+  min-height: 520px !important;
+  max-height: 520px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important; 
+}
+
+/* Panel Dimensions Normalization & Flex Control */
+.carousel-wrapper.thrall .carousel-main-layout {
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+
+.carousel-wrapper.thrall .image-panel {
+  height: 100% !important;          
+}
+
+.carousel-wrapper.thrall .text-panel {
+  height: 100% !important;          
+  max-height: 100% !important;
+  overflow-y: auto !important;      
+  padding-right: 14px !important;   
+  box-sizing: border-box !important;
+}
+
+/* BLACKROCK FOUNDRY INDUSTRIAL SCROLLBAR */
+.carousel-wrapper.thrall .text-panel::-webkit-scrollbar {
+  display: block !important;        
+  width: 6px !important;
+}
+.carousel-wrapper.thrall .text-panel::-webkit-scrollbar-track {
+  background: #110b0a !important;   /* Slag dark underground track channel */
+  border-radius: 0px !important;
+}
+.carousel-wrapper.thrall .text-panel::-webkit-scrollbar-thumb {
+  background: #4a3c31 !important;   /* Rough iron handle */
+  border-radius: 0px !important;
+}
+.carousel-wrapper.thrall .text-panel::-webkit-scrollbar-thumb:hover {
+  background: #b83823 !important;   /* Glows hot crimson forge red on mouse hover */
+}
+.carousel-wrapper.thrall .text-panel {
+  scrollbar-width: thin !important;              
+  scrollbar-color: #4a3c31 #110b0a !important;   
+}
+
+/* Typography & Meta Overrides */
+.carousel-wrapper.thrall h2 {
+  color: #b83823 !important; /* Proud Horde Crimson Title */
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 2rem !important;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 2px !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+}
+
+.carousel-wrapper.thrall .author-name {
+  color: #d1c2ad !important; /* Earthy clay tone for the author */
+  font-size: 1rem !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.carousel-wrapper.thrall .section-title {
+  color: #2ecc71 !important; /* Ancestral green for subheaders ("Why It Matters") */
+  font-family: 'Impact', sans-serif;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  margin-top: 14px !important;
+}
+
+/* Store Link Header Sub-labels */
+.carousel-wrapper.thrall .category-label {
+  color: #bfae99 !important; 
+  font-family: monospace;
+  font-size: 0.75rem !important;
+}
+
+/* Navigation Arrow Overrides - Earthen Slabs */
+.carousel-wrapper.thrall .nav-arrow {
+  color: #4a3c31 !important; /* Dark iron/wood tone to contrast outdoor wallpapers */
+  text-shadow: 0 0 10px rgba(184, 56, 35, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+.carousel-wrapper.thrall .nav-arrow:hover {
+  color: #b83823 !important; /* Ignites to bright Horde Red when hovering */
+  transform: scale(1.1);
+}
+
+/* Navigation Tracking Dots */
+.carousel-wrapper.thrall .dot {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid #4a3c31 !important;
+  width: 8px;
+  height: 8px;
+  border-radius: 0px !important; /* Strictly blocky grid structure */
+  margin: 0 5px;
+}
+
+/* Active Elemental Tracking Node */
+.carousel-wrapper.thrall .dot.active {
+  background-color: #2ecc71 !important;
+  box-shadow: 0 0 10px #2ecc71, 0 0 3px #2ecc71 !important;
+}
+
+/* Translucent Bottom Navigation Bar Slider Window */
+.carousel-wrapper.thrall .thumbnail-slider-window {
+  background: rgba(17, 11, 10, 0.9) !important;
+  border: 2px solid #4a3c31 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85) !important;
+  border-radius: 0px;
+}
+
+/* Bottom Gallery Mini Thumb Cards */
+.carousel-wrapper.thrall .thumb-card {
+  border-radius: 0px !important;
+  background: rgba(24, 18, 15, 0.8) !important;
+  border: 1px solid rgba(74, 60, 49, 0.4) !important;
+}
+.carousel-wrapper.thrall .thumb-card.active {
+  border: 1px solid #b83823 !important; /* Bold crimson frame for the active card */
+  background: rgba(184, 56, 35, 0.05) !important;
+  box-shadow: 0 0 8px rgba(184, 56, 35, 0.4);
 }
