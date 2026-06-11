@@ -411,31 +411,89 @@
   }
 
   /* ==========================================================================
-     RESPONSIVE LAYOUT OVERRIDES
+     RESPONSIVE INTERFACE OVERRIDES (PC, TABLET, PHONE)
      ========================================================================== */
-  @media (max-width: 850px) {
+  
+  /* 1. TABLET VIEWS (Screens smaller than 1024px) */
+  @media screen and (max-width: 1024px) {
     .carousel-content {
-      grid-template-columns: 100%;
-      gap: 20px;
-      height: auto; 
-      overflow: visible;
+      height: auto !important;
+      min-height: 470px !important; /* Fixed baseline floor avoids navigation bouncing */
+      max-height: unset !important;
+      padding: 20px !important;
+    }
+    .image-panel, .text-panel {
+      height: auto !important;
+      max-height: unset !important;
     }
     .text-panel {
-      height: auto;
-      overflow-y: visible;
+      overflow-y: visible !important; /* Drops inner scrollbar for fluid layouts */
+      padding-right: 0 !important;
+    }
+    .nav-arrow {
+      font-size: 1.8rem !important;
+    }
+  }
+
+  /* 2. MID-SIZE BREAKPOINT (Screens smaller than 850px) */
+  @media screen and (max-width: 850px) {
+    .carousel-content {
+      grid-template-columns: 100% !important;
+      gap: 20px !important;
     }
     .description-text.active {
-      grid-template-columns: 100%;
-      gap: 20px;
+      grid-template-columns: 100% !important;
+      gap: 20px !important;
     }
     .purchase-column {
-      border-left: none;
-      padding-left: 0;
-      border-top: var(--divider-style);
-      padding-top: 16px;
+      border-left: none !important;
+      padding-left: 0 !important;
+      border-top: var(--divider-style) !important;
+      padding-top: 16px !important;
+    }
+  }
+
+  /* 3. SMARTPHONE VIEWS (Screens smaller than 768px) */
+  @media screen and (max-width: 768px) {
+    .carousel-wrapper .carousel-main-layout {
+      display: flex !important;
+      flex-direction: column !important;
+      height: auto !important;
+      max-height: unset !important;
+      overflow: visible !important;
+    }
+    .carousel-content {
+      height: auto !important;
+      min-height: 680px !important; /* Anti-bouncing floor when flipping cards */
+      max-height: unset !important;
+      padding: 16px !important;
+    }
+    .image-panel {
+      width: 100% !important;
+      max-width: 180px !important;
+      height: auto !important;
+      margin: 0 auto 10px auto !important;
     }
     .store-grid-row {
-      grid-template-columns: 1fr; 
+      grid-template-columns: 1fr !important; /* Formats store links into a uniform stacked row */
+    }
+    .carousel-wrapper h2 {
+      font-size: 1.4rem !important;
+      text-align: center !important;
+    }
+    .author-name {
+      text-align: center !important;
+      display: block !important;
+      margin-bottom: 12px !important;
+    }
+    .section-title {
+      text-align: center !important;
+    }
+    .nav-arrow {
+      font-size: 1.6rem !important;
+    }
+    .thumbnail-slider-window {
+      margin-top: 10px !important;
     }
   }
 </style>
