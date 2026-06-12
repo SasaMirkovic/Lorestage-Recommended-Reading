@@ -3,28 +3,20 @@
      GLOBAL BASE THEME (CORE STRUCTURAL DEFAULT FALLBACKS ONLY)
      ========================================================================== */
   :root {
-    --carousel-bg: #ffffff;
-    --panel-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
-    --text-primary: #202124;
-    --text-secondary: #5f6368;
-    --text-muted: #70757a;
-    --accent-gold: #946a31;
-    --accent-hover: #1a73e8;
-    --border-color: #dadce0;
-    --divider-style: 1px solid #eaeaea;
-    --card-radius: 8px;
-    --thumb-bg: #12161a;
-    --thumb-border: 2px solid #232930;
-    --thumb-text: #f8f9fa;
-    --thumb-text-muted: #9aa0a6;
-    --thumb-active-border: #e5a93b;
-    --slider-window-bg: transparent;
-    --slider-window-border: none;
-    --text-shadow-style: none;
+    --carousel-bg: #031416;
+    --panel-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    --text-primary: #f4ecd8;
+    --text-secondary: #cbd2c7;
+    --text-muted: #8a9286;
+    --accent-gold: #c39a4f;
+    --accent-hover: #e5a93b;
+    --border-color: #1a4246;
+    --divider-style: 1px solid #1a4246;
+    --card-radius: 4px;
   }
 
   /* ==========================================================================
-     CORE MASTER SYSTEMS STRUCTURAL LAYOUT (MOBILE DESIGNATED)
+     CORE MASTER SYSTEMS STRUCTURAL LAYOUT (MOBILE DESIGNATED STACK)
      ========================================================================== */
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -39,143 +31,97 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    height: auto; /* Allow natural organic growth downwards to eliminate overlaps */
-    gap: 8px;
+    height: auto;
     box-sizing: border-box;
   }
 
-  /* ==========================================================================
-     UNIFIED SYSTEM INNER CONSOLE
-     ========================================================================== */
-  .carousel-container {
+  /* Header Tracker Navigation */
+  .mobile-navigation-bar {
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    position: relative;
-    gap: 4px;
-    width: 100%;
-  }
-
-  .nav-arrow {
-    background: none;
-    border: none;
-    font-size: 1.6rem;
-    cursor: pointer;
-    color: #5f6368;
-    padding: 0 2px;
-    transition: color 0.2s, transform 0.2s;
-    user-select: none;
-    z-index: 10;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-shrink: 0;
+    width: 100%;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
   }
 
-  .nav-arrow:hover {
-    color: var(--accent-hover);
+  .burger-menu-icon {
+    font-size: 1.1rem;
+    color: var(--accent-gold);
+    cursor: pointer;
   }
 
+  .book-counter {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+  }
+
+  /* Uncluttered Core Console Display */
   .carousel-content {
     background: var(--carousel-bg);
     border-radius: var(--card-radius);
     box-shadow: var(--panel-shadow);
-    padding: 10px;
+    padding: 12px;
     width: 100%;
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 52px 1fr; /* Compact micro-rail layout strip */
-    gap: 12px;
-  }
-
-  /* ==========================================================================
-     MICRO PREVIEW TRACK SIDE RAIL
-     ========================================================================== */
-  .thumbnail-slider-window {
-    max-height: 360px; /* Constrains the scrollable thumbnails track box */
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-gold) var(--thumb-bg);
-    background: var(--slider-window-bg);
-    border: var(--slider-window-border);
-    border-radius: 6px;
     display: flex;
     flex-direction: column;
-  }
-
-  .thumbnail-slider-window::-webkit-scrollbar {
-    width: 2px;
-  }
-  .thumbnail-slider-window::-webkit-scrollbar-track {
-    background: var(--thumb-bg);
-  }
-  .thumbnail-slider-window::-webkit-scrollbar-thumb {
-    background: var(--accent-gold);
-    border-radius: 4px;
-  }
-
-  .thumbnail-navigation-track {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-  }
-
-  .thumb-card {
-    width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center; /* Center book items inside micro column */
-    background: var(--thumb-bg);
-    border: var(--thumb-border);
-    border-radius: var(--card-radius);
-    padding: 4px;
-    cursor: pointer;
-    user-select: none;
+  }
+
+  /* Main Front-Facing Book Cover Container */
+  .mobile-cover-viewport {
+    width: 100%;
+    max-width: 240px; /* Perfectly balances vertical height limits on devices */
+    aspect-ratio: 2 / 3;
+    margin: 0 auto 12px auto;
     box-sizing: border-box;
-    flex-shrink: 0;
-    transition: border-color 0.15s, background-color 0.15s;
-  }
-
-  .thumb-card:hover { background: rgba(255, 255, 255, 0.05); }
-
-  .thumb-card.active {
-    border-color: var(--thumb-active-border) !important;
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  .thumb-img {
-    width: 28px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 2px;
-  }
-
-  .thumb-meta {
-    display: none !important; /* Completely strip out text lines to fit mobile rail dimensions safely */
-  }
-
-  /* ==========================================================================
-     CORE DATA MAIN DISPLAY VIEWPORT WINDOW
-     ========================================================================== */
-  .main-display-viewport-frame {
     display: flex;
-    flex-direction: column; /* Vertical stacked orientation flow */
-    gap: 12px;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* Hide the huge main cover image to save massive screen estate on mobile, 
-     as the cover art is already completely visible on the side thumbnails rail */
-  .image-panel {
-    display: none !important;
+  .mobile-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
   }
 
-  .text-panel {
+  /* Diamond Navigation Indicator Row */
+  .mobile-dots-indicator-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
     width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .mobile-dot {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--accent-gold);
+    transform: rotate(45deg);
+    transition: background-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .mobile-dot.active {
+    background-color: var(--accent-hover) !important;
+    box-shadow: 0 0 8px var(--accent-hover);
+  }
+
+  /* Typography Details Block */
+  .main-display-viewport-frame {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .description-text {
@@ -186,39 +132,38 @@
 
   .description-text.active {
     display: flex;
-    flex-direction: column; /* Collapses text and purchase tower into single stacked strip */
-    gap: 14px;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .details-column {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
   }
 
   .details-column h2 {
-    margin-top: 0;
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    margin-bottom: 2px;
+    margin: 0 0 2px 0;
+    color: var(--accent-hover);
+    font-size: 1.3rem;
     line-height: 1.2;
   }
 
   .author-name {
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .section-title {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--text-primary);
+    color: #49dec9; /* Dynamic subheader focus */
     margin-bottom: 4px;
-    margin-top: 6px;
+    margin-top: 8px;
   }
 
   .details-column p {
@@ -232,41 +177,38 @@
   }
 
   /* ==========================================================================
-     PURCHASE ACTION STACK LAYERPANEL
+     PURCHASE ACTION STACK LAYERPANEL (FULL-BLEED BUTTONS)
      ========================================================================== */
   .purchase-column {
-    border-left: none;
-    border-top: var(--divider-style); /* Transform divider into horizontal boundary separator */
-    padding-left: 0;
-    padding-top: 12px;
+    border-top: var(--divider-style);
+    padding-top: 14px;
     display: flex;
-    flex-direction: row; /* Horizontal row mapping distribution matrix */
-    flex-wrap: wrap;
-    gap: 10px;
-    box-sizing: border-box;
+    flex-direction: column;
+    gap: 12px;
     width: 100%;
+    box-sizing: border-box;
   }
 
   .purchase-category {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    flex: 1 1 calc(50% - 5px); /* Perfectly pairs store groupings side-by-side */
-    min-width: 110px;
+    gap: 6px;
+    width: 100%;
   }
 
   .category-label {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--accent-gold);
+    margin-bottom: 2px;
   }
 
   .store-grid-row {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
     width: 100%;
   }
 
@@ -274,99 +216,112 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 8px;
-    background: #f8f9fa;
+    padding: 10px 12px;
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    color: #3c4043;
+    color: #12161a !important;
     text-decoration: none;
     box-sizing: border-box;
+    font-weight: 600;
+    font-size: 0.8rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
 
   .brand-left-zone {
     display: flex;
     align-items: center;
-    gap: 6px;
-    overflow: hidden;
+    gap: 8px;
   }
 
   .brand-logo-img {
-    width: 13px;
-    height: 13px;
+    width: 14px;
+    height: 14px;
     object-fit: contain;
-    flex-shrink: 0;
-  }
-
-  .brand-text-block {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
   }
 
   .brand-main-title {
-    font-size: 0.68rem;
-    font-weight: 600;
     color: #202124;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .icon-arrow {
-    font-size: 0.6rem;
-    color: #bdc1c6;
-    flex-shrink: 0;
+    font-size: 0.75rem;
+    color: #888888;
   }
 
   .disclaimer-banner {
-    font-size: 0.6rem;
-    color: var(--text-secondary);
+    font-size: 0.65rem;
+    color: var(--text-muted);
     text-align: center;
-    background: rgba(0, 0, 0, 0.04);
-    padding: 5px;
-    border-radius: 4px;
-    width: 100%; /* Spans full width underneath store pairs blocks */
+    padding: 4px;
+    width: 100%;
     box-sizing: border-box;
-    line-height: 1.15;
     margin-top: 4px;
   }
 </style>
 
 <div class="carousel-wrapper">
-  <div class="carousel-container">
-    <button class="nav-arrow prev-btn" onclick="changeSlide(-1)">❮</button>
-    
-    <div class="carousel-content">
-      <div class="thumbnail-slider-window" id="slider-window">
-        <div class="thumbnail-navigation-track" id="thumb-track"></div>
+  <div class="mobile-navigation-bar">
+    <div class="burger-menu-icon">☰</div>
+    <div class="book-counter" id="mobile-counter-display">BOOK 1 OF 24</div>
+    <div class="mobile-dot active" style="margin:0; border-color:transparent;"></div>
+  </div>
+  
+  <div class="carousel-content">
+    <div class="mobile-cover-viewport" id="cover-viewport-node">
       </div>
 
-      <div class="main-display-viewport-frame">
-        <div class="text-panel" id="main-text-viewport"></div>
-      </div>
+    <div class="mobile-dots-indicator-row" id="dynamic-dots-track"></div>
+
+    <div class="main-display-viewport-frame">
+      <div class="text-panel" id="main-text-viewport"></div>
     </div>
-
-    <button class="nav-arrow next-btn" onclick="changeSlide(1)">❯</button>
   </div>
 </div>
 
 <script>
   let currentSlide = 0;
-  let txtViewport, thumbTrack, sliderWindow;
+  let txtViewport, coverViewport, dotsTrack, counterDisplay;
 
   function initializeCarouselDOM() {
     txtViewport = document.getElementById('main-text-viewport');
-    thumbTrack = document.getElementById('thumb-track');
-    sliderWindow = document.getElementById('slider-window');
+    coverViewport = document.getElementById('cover-viewport-node');
+    dotsTrack = document.getElementById('dynamic-dots-track');
+    counterDisplay = document.getElementById('mobile-counter-display');
 
     txtViewport.innerHTML = '';
-    thumbTrack.innerHTML = '';
+    coverViewport.innerHTML = '';
+    dotsTrack.innerHTML = '';
 
     if (!window.bookDatabase || window.bookDatabase.length === 0) {
       return;
     }
 
+    // Build the permanent structural single-cover frame asset
+    const mainImgElement = document.createElement('img');
+    mainImgElement.id = 'mobile-core-cover';
+    mainImgElement.className = 'mobile-main-img';
+    mainImgElement.src = window.bookDatabase[0].cover;
+    mainImgElement.alt = "Book Cover Frame";
+    
+    // Wire up standard touch swipe gestures for mobile access optimization
+    let touchStartX = 0;
+    let touchEndX = 0;
+    mainImgElement.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, false);
+    mainImgElement.addEventListener('touchend', e => { 
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipeGesture();
+    }, false);
+
+    function handleSwipeGesture() {
+      if (touchEndX < touchStartX - 50) changeSlide(1);  // Swiped Left
+      if (touchEndX > touchStartX + 50) changeSlide(-1); // Swiped Right
+    }
+
+    coverViewport.appendChild(mainImgElement);
+
     window.bookDatabase.forEach((book, idx) => {
+      // 1. Append textual information cards
       const textBlock = document.createElement('div');
       textBlock.className = `description-text ${idx === 0 ? 'active' : ''}`;
       textBlock.innerHTML = `
@@ -385,13 +340,13 @@
               <a href="${book.links.amazon || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon">
-                  <div class="brand-text-block"><span class="brand-main-title">Amazon</span></div>
+                  <span class="brand-main-title">Amazon</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.bookshop || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://cdn.prod.website-files.com/6267f35934aa8b1795cf1a9f/63d1aa1cfa703d3dbec99f92_Indie-BoundB-p-500.png" alt="Bookshop">
-                  <div class="brand-text-block"><span class="brand-main-title">Bookshop</span></div>
+                  <span class="brand-main-title">Bookshop</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
@@ -402,13 +357,13 @@
               <a href="${book.links.audible || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://www.audible.com/favicon.ico" alt="Audible">
-                  <div class="brand-text-block"><span class="brand-main-title">Audible</span></div>
+                  <span class="brand-main-title">Audible</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.libro || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
-                  <img class="brand-logo-img" src="https://play-lh.googleusercontent.com/112ykr4YU-5DmErxanxd888hMMegxD_hL5g4EskcDuyAMr8lKZ4oxpK68SgQrO7Co-M" alt="Libro.fm">
-                  <div class="brand-text-block"><span class="brand-main-title">Libro.fm</span></div>
+                  <img class="brand-logo-img" src="https://libro.fm/favicon.ico" onerror="this.src='https://cdn-icons-png.flaticon.com/128/3400/3400493.png'" alt="Libro.fm">
+                  <span class="brand-main-title">Libro.fm</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
@@ -419,53 +374,54 @@
               <a href="${book.links.kindle || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Kindle">
-                  <div class="brand-text-block"><span class="brand-main-title">Kindle</span></div>
+                  <span class="brand-main-title">Kindle</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.kobo || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
-                  <img class="brand-logo-img" src="https://kobowritinglife.zendesk.com/hc/en-us/article_attachments/360091438051" alt="Kobo">
-                  <div class="brand-text-block"><span class="brand-main-title">Kobo</span></div>
+                  <img class="brand-logo-img" src="https://www.kobo.com/favicon.ico" onerror="this.src='https://cdn-icons-png.flaticon.com/128/2942/2942928.png'" alt="Kobo">
+                  <span class="brand-main-title">Kobo</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
           </div>
-          <div class="disclaimer-banner">Links support the channel!</div>
+          <div class="disclaimer-banner">Links support the channel!!</div>
         </div>
       `;
       txtViewport.appendChild(textBlock);
 
-      const thumb = document.createElement('div');
-      thumb.className = `thumb-card ${idx === 0 ? 'active' : ''}`;
-      thumb.onclick = () => jumpToSlide(idx);
-      thumb.innerHTML = `
-        <img class="thumb-img" src="${book.cover}" alt="Thumb ${idx + 1}">
-      `;
-      thumbTrack.appendChild(thumb);
+      // 2. Generate matching Diamond Node Array trackers
+      const dotNode = document.createElement('div');
+      dotNode.className = `mobile-dot ${idx === 0 ? 'active' : ''}`;
+      dotNode.onclick = () => jumpToSlide(idx);
+      dotsTrack.appendChild(dotNode);
     });
-  }
-
-  function adjustThumbnailScrollPosition() {
-    const thumbs = document.querySelectorAll('.thumb-card');
-    if (thumbs.length === 0 || !sliderWindow) return;
-    const currentThumb = thumbs[currentSlide];
-    const windowHeight = sliderWindow.offsetHeight;
-    const targetOffset = currentThumb.offsetTop - (windowHeight / 2) + (currentThumb.offsetHeight / 2);
-    sliderWindow.scrollTo({ top: targetOffset, behavior: 'smooth' });
+    
+    updateInterfaceElements();
   }
 
   function updateInterfaceElements() {
     const texts = document.querySelectorAll('.description-text');
-    const thumbs = document.querySelectorAll('.thumb-card');
+    const dots = document.querySelectorAll('.mobile-dot');
+    const targetCoverImg = document.getElementById('mobile-core-cover');
 
+    // Sync Active Text & Diamond Node states
     texts.forEach((txt, idx) => txt.classList.toggle('active', idx === currentSlide));
-    thumbs.forEach((tmb, idx) => tmb.classList.toggle('active', idx === currentSlide));
+    dots.forEach((dt, idx) => dt.classList.toggle('active', idx === currentSlide));
 
-    adjustThumbnailScrollPosition();
+    // Dynamic Engine Swapping for Core Frame Cover Target
+    if (targetCoverImg && window.bookDatabase[currentSlide]) {
+      targetCoverImg.src = window.bookDatabase[currentSlide].cover;
+    }
+
+    // Update Counter Banner Track 
+    if (counterDisplay && window.bookDatabase) {
+      counterDisplay.textContent = `BOOK ${currentSlide + 1} OF ${window.bookDatabase.length}`;
+    }
   }
 
   function changeSlide(direction) {
-    if (!window.bookDatabase) return;
+    if (!window.bookDatabase || window.bookDatabase.length === 0) return;
     currentSlide = (currentSlide + direction + window.bookDatabase.length) % window.bookDatabase.length;
     updateInterfaceElements();
   }
@@ -475,5 +431,6 @@
     updateInterfaceElements();
   }
 
+  // Self-boot assembly core layer logic
   initializeCarouselDOM();
 </script>
