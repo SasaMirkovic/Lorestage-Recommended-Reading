@@ -426,8 +426,6 @@
     text-overflow: ellipsis;
   }
 
-  .brand-sub-action { display: none; } /* Clear sub text rows to pass height limits safely */
-
   .icon-arrow {
     font-size: 0.65rem;
     color: #bdc1c6;
@@ -443,85 +441,6 @@
     border-radius: 4px;
     margin-top: auto; /* Always stay pinned to the very base floor */
     line-height: 1.15;
-  }
-
-  /* ==========================================================================
-     DYNAMIC FLUID MASTER BREAKPOINTS OVERHAUL SYSTEM
-     ========================================================================== */
-
-  /* 1. MEDIUM TABLET SCALING SYSTEM ZONE */
-  @media screen and (max-width: 960px) {
-    .carousel-content {
-      grid-template-columns: 120px 1fr; /* Shrink rail slice footprints */
-      gap: 10px;
-      padding: 10px;
-    }
-    .main-display-viewport-frame {
-      grid-template-columns: 30% 1fr;
-      gap: 10px;
-    }
-    .description-text.active {
-      grid-template-columns: 1fr 165px; /* Squeeze down button layout profiles */
-      gap: 10px;
-    }
-    .details-column h2 { font-size: 1.2rem; }
-  }
-
-  /* 2. COMPACT PORTRAIT PORT ENGINE VIEWPORT LAYER */
-  @media screen and (max-width: 768px) {
-    .carousel-content {
-      grid-template-columns: 90px 1fr; /* Compact structural configuration */
-      padding: 8px;
-    }
-    .main-display-viewport-frame {
-      grid-template-columns: 100%; /* Drop image panels to give core text absolute layout focus */
-    }
-    .image-panel { display: none !important; }
-    .description-text.active {
-      grid-template-columns: 1fr 150px;
-      gap: 8px;
-    }
-    .purchase-column {
-      padding-left: 8px;
-    }
-  }
-
-  /* 3. FLUID SMARTPHONE BOUNDARY SYSTEM LAYER */
-  @media screen and (max-width: 600px) {
-    body { padding: 4px; }
-    .carousel-wrapper { height: calc(100vh - 8px); }
-    .top-indicator-panel { display: none !important; } /* Clear header panels to maximize viewport real estate */
-    
-    .carousel-content {
-      grid-template-columns: 65px 1fr; /* Ultra-compact micro icon layout strip */
-      gap: 6px;
-      padding: 6px;
-    }
-    .thumb-meta { display: none !important; } /* Drop mini meta descriptions inside small mobile rail track icons */
-    .thumb-card { justify-content: center; padding: 4px; }
-    .thumb-img { width: 26px; height: 38px; }
-
-    .description-text.active {
-      grid-template-columns: 100%; /* Drop secondary grids to collapse buttons into a single row strip */
-      grid-template-rows: 1fr auto;
-      gap: 8px;
-    }
-    .purchase-column {
-      border-left: none !important;
-      padding-left: 0 !important;
-      border-top: var(--divider-style) !important;
-      padding-top: 8px !important;
-      flex-direction: row !important; /* Row configuration chain array links setup */
-      flex-wrap: wrap;
-      height: auto;
-      overflow: visible;
-    }
-    .purchase-category {
-      flex: 1 1 45%; /* Convert link sections into dynamic side-by-side box groups */
-      min-width: 100px;
-    }
-    .disclaimer-banner { width: 100%; margin-top: 4px; }
-    .nav-arrow { font-size: 1.5rem; padding: 0; }
   }
 </style>
 
