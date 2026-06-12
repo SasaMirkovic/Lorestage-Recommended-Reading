@@ -1,7 +1,7 @@
 // External Game Presentation Meta-Database
 window.GAME_PRESENTATION_DIRECTORY = {
   stalker: {
-    title: "S.T.A.L.K.E.R. - Original Trilogy",
+    title: "S.T.A.L.K.E.R.",
     quote: '"What awaits you in the heart of the Zone is not what you seek, but what you truly are."',
     videoUrl: "https://www.youtube-nocookie.com/embed/Q_B8ewvhyjQ",
     description: "Step into the highly atmospheric post-apocalyptic exclusion zone. Our video analysis strips down the psychological philosophy, the thematic weights of survival, and the eerie underlying sci-fi folklore that makes this universe an immortal classic.",
@@ -25,7 +25,7 @@ window.GAME_PRESENTATION_DIRECTORY = {
     themeClass: "bioshock"
   },
   arthas: {
-    title: "Arthas in WarCraft 3",
+    title: "Arthas",
     quote: '"Succeeding you, Father! ... This kingdom shall fall, and from the ashes shall arise a new order."',
     videoUrl: "https://www.youtube-nocookie.com/embed/Q_B8ewvhyjQ?start=20", 
     description: "Deconstructing one of the greatest narrative tragedies in real-time strategy history. Follow the Shakespearean corruption of Prince Arthas Menethil as his righteous obsession spirals into total annihilation.",
