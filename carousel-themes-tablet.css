@@ -1,6 +1,6 @@
 /* ==========================================================================
    OUTER ELEMENT CONTRAST & THEME OVERRIDES (TABLET OPTIMIZED SIZE)
-   ========================================================================== */
+   ========================================================================= */
 
 /* --- 1. GLOBAL TEXT & NAV ARROW FIXES --- */
 .carousel-wrapper.bioshock .book-counter,
@@ -8,8 +8,8 @@
 .carousel-wrapper.arthas .book-counter,
 .carousel-wrapper.thrall .book-counter {
   font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 0.75rem !important; /* Scaled down down from desktop */
+  letter-spacing: 1.5px;
+  font-size: 0.8rem !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
 }
 
@@ -17,162 +17,279 @@
 .carousel-wrapper.stalker .nav-arrow,
 .carousel-wrapper.arthas .nav-arrow,
 .carousel-wrapper.thrall .nav-arrow {
-  font-size: 1.6rem !important; /* Compact arrows to prevent layout pushing */
+  font-size: 1.5rem !important; /* Matches redesigned horizontal track scale */
   opacity: 0.85;
   z-index: 100;
 }
 
-/* --- 2. BIOSHOCK THEME (Rapture Sea-TeAL & Art Deco Gold) --- */
+/* --- 2. BIOSHOCK THEME (Rapture Sea-Teal & Art Deco Gold) --- */
 .carousel-wrapper.bioshock {
-  --carousel-bg: #031416 !important;
-  --text-primary: #f4ecd8 !important;
-  --text-secondary: #cbd2c7 !important;
-  --accent-gold: #c39a4f !important;
-  --border-color: #1a4246 !important;
-  --divider-style: 1px solid #1a4246 !important;
-  --card-radius: 4px !important;
+  --carousel-bg: #031416;
+  --text-primary: #f4ecd8;
+  --text-secondary: #cbd2c7;
+  --text-muted: #8a9286;
+  --accent-gold: #c39a4f;
+  --accent-hover: #e5a93b;
+  --border-color: #1a4246;
+  --divider-style: 1px solid #1a4246;
+  --card-radius: 4px;
+  --thumb-bg: #021012;
+  --thumb-border: 1px solid #1a4246;
+  --thumb-active-border: #e5a93b;
 }
 
 .carousel-wrapper.bioshock .book-counter {
   color: #5bfce5 !important;
   font-family: 'Cinzel', 'Copperplate', serif;
-  font-size: 0.75rem !important;
+}
+
+.carousel-wrapper.bioshock .burger-menu-icon {
+  color: var(--accent-gold) !important;
 }
 
 .carousel-wrapper.bioshock .carousel-content {
-  background-color: #031416 !important;
-  border: 3px double #c39a4f !important;
-  outline: 1px solid #c39a4f !important;
+  background-color: var(--carousel-bg) !important;
+  border: 3px double var(--accent-gold) !important;
+  outline: 1px solid var(--accent-gold) !important;
   outline-offset: -6px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8) !important;
-  padding: 10px !important; /* Drastically reduced padding */
-  height: 100% !important;
-  box-sizing: border-box !important;
+  padding: 16px !important;
 }
 
-/* Compact Ultra-Thin Scrollbars to maximize readable area */
-.carousel-wrapper.bioshock .details-column::-webkit-scrollbar,
-.carousel-wrapper.bioshock .thumbnail-slider-window::-webkit-scrollbar {
+/* Compact Ultra-Thin Scrollbars for Details & Slider Windows */
+.carousel-wrapper.bioshock .details-column::-webkit-scrollbar {
   display: block !important;        
   width: 4px !important;
 }
-.carousel-wrapper.bioshock .details-column::-webkit-scrollbar-track,
-.carousel-wrapper.bioshock .thumbnail-slider-window::-webkit-scrollbar-track {
+.carousel-wrapper.bioshock .details-column::-webkit-scrollbar-track {
   background: #021012 !important;
 }
-.carousel-wrapper.bioshock .details-column::-webkit-scrollbar-thumb,
-.carousel-wrapper.bioshock .thumbnail-slider-window::-webkit-scrollbar-thumb {
-  background: #c39a4f !important;
+.carousel-wrapper.bioshock .details-column::-webkit-scrollbar-thumb {
+  background: var(--accent-gold) !important;
+  border-radius: 4px;
 }
 
 .carousel-wrapper.bioshock h2 {
-  color: #e5a93b !important;
+  color: var(--accent-hover) !important;
   font-family: 'Cinzel', 'Copperplate', serif;
-  font-size: 1.25rem !important; /* Tighter heading size */
+  font-size: 1.4rem !important;
   line-height: 1.2 !important;
-  margin-bottom: 4px !important;
+  margin-bottom: 2px !important;
 }
 
 .carousel-wrapper.bioshock .author-name {
   color: #eadecc !important;
-  font-size: 0.8rem !important; /* Scaled down text */
+  font-size: 0.9rem !important;
 }
 
 .carousel-wrapper.bioshock .section-title {
-  color: #49dec9 !important;
+  color: #49dec9 !important; /* Bioluminescent Sea-Teal */
   font-family: 'Cinzel', 'Copperplate', serif;
-  font-size: 0.85rem !important;
-  margin-top: 8px !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 1px;
+  margin-top: 10px !important;
   margin-bottom: 4px !important;
 }
 
 .carousel-wrapper.bioshock .details-column p {
-  font-size: 0.8rem !important; /* Smaller body text for clean fits */
-  line-height: 1.4 !important;
-}
-
-.carousel-wrapper.bioshock .dot {
-  width: 6px;
-  height: 6px;
-  margin: 0 3px;
+  font-size: 0.82rem !important;
+  line-height: 1.42 !important;
 }
 
 .carousel-wrapper.bioshock .thumbnail-slider-window {
   background: rgba(2, 13, 15, 0.9) !important;
-  border: 1px solid #c39a4f !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 4px;
 }
 
 
-/* --- 3. S.T.A.L.K.E.R. THEME (Industrial Terminal Size Fix) --- */
+/* --- 3. S.T.A.L.K.E.R. THEME (Industrial Terminal Environment) --- */
 .carousel-wrapper.stalker {
-  --carousel-bg: rgba(24, 25, 21, 0.9) !important;
-  --text-primary: #cbd2c7 !important;
-  --text-secondary: #8a9286 !important;
-  --accent-gold: #e67e22 !important;
+  --carousel-bg: #0e100f;
+  --text-primary: #9be9a8; /* Green phosphor terminal text */
+  --text-secondary: #8492a6;
+  --text-muted: #4e5a65;
+  --accent-gold: #e67e22; /* Radiation warning orange */
+  --accent-hover: #ffca28;
+  --border-color: #2c353d;
+  --divider-style: 1px solid #2c353d;
+  --card-radius: 2px;
+  --thumb-bg: #070808;
+  --thumb-border: 1px solid #2c353d;
+  --thumb-active-border: #e67e22;
+}
+
+.carousel-wrapper.stalker .book-counter {
+  color: var(--text-primary) !important;
+  font-family: 'Courier New', monospace;
+}
+
+.carousel-wrapper.stalker .burger-menu-icon {
+  color: var(--accent-gold) !important;
 }
 
 .carousel-wrapper.stalker .carousel-content {
-  background-color: rgba(14, 16, 15, 0.94) !important; 
+  background-color: var(--carousel-bg) !important; 
   border: 2px solid #505c66 !important;
-  padding: 10px !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85) !important;
+  padding: 16px !important;
+}
+
+.carousel-wrapper.stalker .details-column::-webkit-scrollbar-thumb {
+  background: var(--text-muted) !important;
 }
 
 .carousel-wrapper.stalker h2 {
   font-family: 'Courier New', monospace;
-  font-size: 1.15rem !important;
+  color: var(--text-primary) !important;
+  font-size: 1.3rem !important;
   line-height: 1.2 !important;
+  text-transform: uppercase;
+}
+
+.carousel-wrapper.stalker .author-name {
+  font-family: 'Courier New', monospace;
+  color: var(--accent-gold) !important;
+  font-size: 0.9rem !important;
+}
+
+.carousel-wrapper.stalker .section-title {
+  font-family: 'Courier New', monospace;
+  color: var(--accent-gold) !important;
+  font-size: 0.75rem !important;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 2px;
+  margin-top: 12px !important;
 }
 
 .carousel-wrapper.stalker .details-column p {
+  font-family: 'Courier New', monospace;
   font-size: 0.8rem !important;
-  line-height: 1.35 !important;
+  line-height: 1.38 !important;
+  color: #cbd5e1 !important;
 }
 
 
-/* --- 4. WARCRAFT: ARTHAS THEME (Glacial Micro Frame) --- */
+/* --- 4. WARCRAFT: ARTHAS THEME (Glacial Shard Citadel Layout) --- */
 .carousel-wrapper.arthas {
-  --carousel-bg: #09121e !important;
-  --text-primary: #f5eedc !important;
-  --text-secondary: #a3b0c2 !important;
+  --carousel-bg: #060d17;
+  --text-primary: #e2f1ff; /* Frosted white */
+  --text-secondary: #a3b8cc;
+  --text-muted: #4a5d6e;
+  --accent-gold: #f39c12; /* Soul glow runes */
+  --accent-hover: #ffb13b;
+  --border-color: #1a2a3a;
+  --divider-style: 1px solid #1a2a3a;
+  --card-radius: 4px;
+  --thumb-bg: #03070d;
+  --thumb-border: 1px solid #1a2a3a;
+  --thumb-active-border: #f39c12;
+}
+
+.carousel-wrapper.arthas .book-counter {
+  color: var(--text-primary) !important;
+  font-family: 'Cinzel', serif;
+}
+
+.carousel-wrapper.arthas .burger-menu-icon {
+  color: var(--accent-gold) !important;
 }
 
 .carousel-wrapper.arthas .carousel-content {
-  background-color: rgba(6, 13, 23, 0.95) !important;
-  border: 2px double #f39c12 !important;
-  padding: 10px !important;
+  background-color: var(--carousel-bg) !important;
+  border: 2px double var(--accent-gold) !important;
+  box-shadow: 0 0 20px rgba(243, 156, 18, 0.15) !important;
+  padding: 16px !important;
+}
+
+.carousel-wrapper.arthas .details-column::-webkit-scrollbar-thumb {
+  background: var(--text-muted) !important;
 }
 
 .carousel-wrapper.arthas h2 {
   font-family: 'Cinzel', serif;
-  font-size: 1.2rem !important;
+  color: var(--text-primary) !important;
+  font-size: 1.35rem !important;
+  text-shadow: 0 0 6px rgba(163, 184, 204, 0.3);
+}
+
+.carousel-wrapper.arthas .author-name {
+  color: #7fa4c7 !important;
+  font-size: 0.9rem !important;
+  font-style: italic;
+}
+
+.carousel-wrapper.arthas .section-title {
+  color: var(--accent-gold) !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 1.2px;
+  margin-top: 12px !important;
 }
 
 .carousel-wrapper.arthas .details-column p {
-  font-size: 0.8rem !important;
-  line-height: 1.4 !important;
+  font-size: 0.82rem !important;
+  line-height: 1.42 !important;
 }
 
 
-/* --- 5. WARCRAFT: THRALL THEME (Iron Brutalist Micro Frame) --- */
+/* --- 5. WARCRAFT: THRALL THEME (Iron Brutalist Volcanic Slag Layout) --- */
 .carousel-wrapper.thrall {
-  --carousel-bg: #1c1412 !important;
-  --text-primary: #f2e6d0 !important;
-  --text-secondary: #bfae99 !important;
+  --carousel-bg: #18120f;
+  --text-primary: #fbeee6;
+  --text-secondary: #ccafa3;
+  --text-muted: #5e4338;
+  --accent-gold: #b83823; /* Horde crimson red */
+  --accent-hover: #e04f36;
+  --border-color: #381f15;
+  --divider-style: 1px solid #381f15;
+  --card-radius: 4px;
+  --thumb-bg: #0c0908;
+  --thumb-border: 1px solid #381f15;
+  --thumb-active-border: #b83823;
+}
+
+.carousel-wrapper.thrall .book-counter {
+  color: var(--text-primary) !important;
+  font-family: 'Impact', sans-serif;
+}
+
+.carousel-wrapper.thrall .burger-menu-icon {
+  color: var(--accent-gold) !important;
 }
 
 .carousel-wrapper.thrall .carousel-content {
-  background-color: rgba(24, 18, 15, 0.96) !important;
-  border: 2px solid #b83823 !important;
-  padding: 10px !important;
+  background-color: var(--carousel-bg) !important;
+  border: 2px solid var(--accent-gold) !important;
+  box-shadow: 0 6px 18px rgba(184, 56, 35, 0.25) !important;
+  padding: 16px !important;
+}
+
+.carousel-wrapper.thrall .details-column::-webkit-scrollbar-thumb {
+  background: var(--text-muted) !important;
 }
 
 .carousel-wrapper.thrall h2 {
   font-family: 'Impact', sans-serif;
-  font-size: 1.3rem !important;
+  color: var(--text-primary) !important;
+  font-size: 1.4rem !important;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.carousel-wrapper.thrall .author-name {
+  color: var(--accent-hover) !important;
+  font-size: 0.9rem !important;
+  font-weight: bold;
+}
+
+.carousel-wrapper.thrall .section-title {
+  color: #f39c12; /* Volcanic Gold accents */
+  font-size: 0.72rem !important;
+  letter-spacing: 0.8px;
+  margin-top: 12px !important;
 }
 
 .carousel-wrapper.thrall .details-column p {
-  font-size: 0.8rem !important;
-  line-height: 1.35 !important;
+  font-size: 0.82rem !important;
+  line-height: 1.42 !important;
 }
