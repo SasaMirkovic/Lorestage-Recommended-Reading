@@ -3,37 +3,29 @@
      GLOBAL BASE THEME (CORE STRUCTURAL DEFAULT FALLBACKS ONLY)
      ========================================================================== */
   :root {
-    --carousel-bg: #ffffff;
-    --panel-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
-    --text-primary: #202124;
-    --text-secondary: #5f6368;
-    --text-muted: #70757a;
-    --accent-gold: #946a31;
-    --accent-hover: #1a73e8;
-    --border-color: #dadce0;
-    --divider-style: 1px solid #eaeaea;
-    --card-radius: 8px;
+    --carousel-bg: #031416;
+    --panel-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    --text-primary: #f4ecd8;
+    --text-secondary: #cbd2c7;
+    --text-muted: #8a9286;
+    --accent-gold: #c39a4f;
+    --accent-hover: #e5a93b;
+    --border-color: #1a4246;
+    --divider-style: 1px solid #1a4246;
+    --card-radius: 4px;
     --thumb-bg: #12161a;
-    --thumb-border: 2px solid #232930;
-    --thumb-text: #f8f9fa;
-    --thumb-text-muted: #9aa0a6;
+    --thumb-border: 1px solid #232930;
     --thumb-active-border: #e5a93b;
-    --slider-window-bg: transparent;
-    --slider-window-border: none;
-    --text-shadow-style: none;
-    --dot-inactive-opacity: 1;
-    --dot-shadow: none;
   }
 
   /* ==========================================================================
-     CORE MASTER SYSTEMS STRUCTURAL LAYOUT (TABLET DESIGNATED)
+     CORE MASTER SYSTEMS STRUCTURAL LAYOUT (TABLET TWO-COLUMN DESIGN)
      ========================================================================== */
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
     padding: 10px;
     background-color: transparent;
-    overflow: hidden; /* Hard cut outer frame body bleed scrollbars */
     box-sizing: border-box;
   }
 
@@ -42,340 +34,246 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 20px); /* Strict element container lock down boundary */
-    gap: 10px;
+    height: auto;
+    gap: 8px;
     box-sizing: border-box;
-    justify-content: flex-start;
   }
 
+  /* Top Control Center Indicator Block */
   .top-indicator-panel {
-    text-align: center;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-shrink: 0;
-    padding: 2px 0;
+    width: 100%;
+    padding: 4px 8px;
+    box-sizing: border-box;
+  }
+
+  .burger-menu-icon {
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    cursor: pointer;
   }
 
   .book-counter {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--text-muted);
-    text-shadow: var(--text-shadow-style);
-    white-space: nowrap;
+    color: var(--text-primary);
   }
 
-  .indicator-dots {
-    display: flex;
-    gap: 6px;
-    max-width: 60%;
-    overflow-x: auto;
-    padding: 4px 0;
-  }
-  .indicator-dots::-webkit-scrollbar { display: none; }
-
-  .dot {
-    width: 7px;
-    height: 7px;
-    background-color: #dadce0;
-    opacity: var(--dot-inactive-opacity);
-    border-radius: 50%;
-    transition: background-color 0.2s, opacity 0.2s;
-    flex-shrink: 0;
-  }
-
-  .dot.active {
-    background-color: var(--accent-gold) !important;
-    opacity: 1 !important;
-    box-shadow: var(--dot-shadow);
+  /* Main Dynamic Two-Column Layout Framework Grid */
+  .carousel-content {
+    background: var(--carousel-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--panel-shadow);
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 42% 1fr; /* Left visual panel / Right metadata content */
+    gap: 20px;
   }
 
   /* ==========================================================================
-     TRI-COLUMN UNIFIED SYSTEM INNER CONSOLE
+     LEFT SIDE: STATIC HERO CONTAINER + LOWER SLIDEOVER CARDS
      ========================================================================== */
-  .carousel-container {
+  .visual-media-panel {
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    position: relative;
-    gap: 8px;
-    flex-grow: 1;
-    min-height: 0;
+    flex-direction: column;
+    gap: 12px;
     width: 100%;
+  }
+
+  .tablet-cover-frame {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .tablet-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  }
+
+  /* Lower Integrated Horizontal Slider Track Container Layout Blueprint */
+  .tablet-slider-navigation-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 4px;
   }
 
   .nav-arrow {
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    color: #5f6368;
+    color: var(--accent-gold);
     padding: 0 4px;
-    transition: color 0.2s, transform 0.2s;
+    transition: color 0.2s;
     user-select: none;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
   }
 
   .nav-arrow:hover {
     color: var(--accent-hover);
-    transform: scale(1.15);
   }
 
-  /* Core Side-by-side Layout Integration Map Grid - Optimized Footprint */
-  .carousel-content {
-    background: var(--carousel-bg);
-    border-radius: var(--card-radius);
-    box-shadow: var(--panel-shadow);
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 120px 1fr; /* Optimized tablet rail slice footprint */
-    gap: 10px;
-    overflow: hidden;
-    min-height: 0;
-    flex-grow: 1;
-  }
-
-  /* ==========================================================================
-     VERTICAL SIDE PREVIEW TRACK BANNER RAIL
-     ========================================================================== */
   .thumbnail-slider-window {
-    height: 100%;
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 4px;
+    flex-grow: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
     box-sizing: border-box;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-gold) var(--thumb-bg);
-    background: var(--slider-window-bg);
-    border: var(--slider-window-border);
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
+    scrollbar-width: none; /* Hide scrollbar for seamless track design */
+    padding: 4px 0;
   }
-
+  
   .thumbnail-slider-window::-webkit-scrollbar {
-    width: 3px;
-  }
-  .thumbnail-slider-window::-webkit-scrollbar-track {
-    background: var(--thumb-bg);
-  }
-  .thumbnail-slider-window::-webkit-scrollbar-thumb {
-    background: var(--accent-gold);
-    border-radius: 4px;
+    display: none;
   }
 
   .thumbnail-navigation-track {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
+    display: inline-flex;
+    gap: 6px;
   }
 
   .thumb-card {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    display: inline-block;
+    width: 36px;
+    height: 52px;
     background: var(--thumb-bg);
     border: var(--thumb-border);
-    border-radius: var(--card-radius);
-    padding: 6px;
+    border-radius: 4px;
+    padding: 2px;
     cursor: pointer;
-    user-select: none;
     box-sizing: border-box;
-    flex-shrink: 0;
-    transition: border-color 0.15s, background-color 0.15s;
+    transition: border-color 0.15s;
   }
-
-  .thumb-card:hover { background: rgba(255, 255, 255, 0.05); }
 
   .thumb-card.active {
     border-color: var(--thumb-active-border) !important;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .thumb-img {
-    width: 22px;
-    height: 32px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 2px;
   }
 
-  .thumb-meta {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .thumb-title {
-    color: var(--thumb-text);
-    font-size: 0.68rem;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .thumb-card.active .thumb-title { color: var(--accent-gold); }
-
-  .thumb-author {
-    color: var(--thumb-text-muted);
-    font-size: 0.58rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   /* ==========================================================================
-     CORE DATA MAIN DISPLAY VIEWPORT WINDOW
+     RIGHT SIDE: TEXT DISPLAY CONTAINER & ACTION MATRIX
      ========================================================================== */
   .main-display-viewport-frame {
-    display: grid;
-    grid-template-columns: 30% 1fr; /* Adjusted cover box ratio logic for tablet scales */
-    gap: 10px;
     width: 100%;
-    height: 100%;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .image-panel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .carousel-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    display: none;
-  }
-
-  .carousel-image.active { display: block; }
-
-  .text-panel {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    overflow: hidden;
+    min-width: 0; /* Protects grid layouts from breaking on flex-child string overflows */
   }
 
   .description-text {
     display: none;
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
   }
 
   .description-text.active {
-    display: grid;
-    grid-template-columns: 1fr 165px; /* Squeeze down button column profile width */
-    gap: 10px;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .details-column {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    max-height: 280px; /* Locked down scroll container window */
     overflow-y: auto;
-    padding-right: 4px;
-    height: 100%;
+    padding-right: 6px;
     box-sizing: border-box;
   }
 
-  .details-column::-webkit-scrollbar { width: 4px; }
-  .details-column::-webkit-scrollbar-track { background: transparent; }
+  .details-column::-webkit-scrollbar {
+    width: 4px;
+  }
+  .details-column::-webkit-scrollbar-track {
+    background: transparent;
+  }
   .details-column::-webkit-scrollbar-thumb {
-    background: var(--accent-gold, #dadce0);
+    background: var(--accent-gold);
     border-radius: 4px;
   }
 
   .details-column h2 {
-    margin-top: 0;
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    margin-bottom: 2px;
-    line-height: 1.15;
+    margin: 0 0 2px 0;
+    color: var(--accent-hover);
+    font-size: 1.4rem;
+    line-height: 1.2;
   }
 
   .author-name {
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .section-title {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--text-primary);
+    color: #49dec9;
     margin-bottom: 4px;
-    margin-top: 0;
+    margin-top: 10px;
   }
 
   .details-column p {
     color: var(--text-secondary);
-    line-height: 1.35;
-    font-size: 0.8rem;
+    line-height: 1.42;
+    font-size: 0.82rem;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     white-space: normal;
     word-break: break-word;
   }
 
-  /* ==========================================================================
-     PURCHASE ACTION TOWER LAYERPANEL
-     ========================================================================== */
+  /* Integrated Purchase Area Blocks spanning full layout dimensions safely */
   .purchase-column {
-    border-left: var(--divider-style);
-    padding-left: 10px;
+    border-top: var(--divider-style);
+    padding-top: 14px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    height: 100%;
+    gap: 12px;
+    width: 100%;
   }
-  .purchase-column::-webkit-scrollbar { display: none; }
 
   .purchase-category {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    width: 100%;
   }
 
   .category-label {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--accent-gold);
   }
 
   .store-grid-row {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two parallel horizontal button pairs across tablet viewports */
+    gap: 8px;
     width: 100%;
   }
 
@@ -383,121 +281,99 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 6px;
-    background: #f8f9fa;
+    padding: 8px 12px;
+    background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    color: #3c4043;
+    color: #12161a !important;
     text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
     box-sizing: border-box;
   }
 
   .brand-left-zone {
     display: flex;
     align-items: center;
-    gap: 4px;
-    overflow: hidden;
+    gap: 6px;
   }
 
   .brand-logo-img {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     object-fit: contain;
-    flex-shrink: 0;
-  }
-
-  .brand-text-block {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .brand-main-title {
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: #202124;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .icon-arrow {
-    font-size: 0.6rem;
-    color: #bdc1c6;
-    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: #888888;
   }
 
   .disclaimer-banner {
-    font-size: 0.58rem;
-    color: var(--text-secondary);
+    font-size: 0.62rem;
+    color: var(--text-muted);
     text-align: center;
-    background: rgba(0, 0, 0, 0.04);
-    padding: 4px;
-    border-radius: 4px;
-    margin-top: auto;
-    line-height: 1.15;
+    width: 100%;
+    margin-top: 2px;
   }
 </style>
 
 <div class="carousel-wrapper">
   <div class="top-indicator-panel">
-    <div class="book-counter" id="slide-counter">Loading...</div>
-    <div class="indicator-dots" id="dots-container"></div>
-  </div>
+    <div class="burger-menu-icon">☰</div>
+    <div class="book-counter" id="tablet-counter-display">Loading...</div>
+    <div style="width:20px;"></div> </div>
 
-  <div class="carousel-container">
-    <button class="nav-arrow prev-btn" onclick="changeSlide(-1)">❮</button>
-    
-    <div class="carousel-content">
-      <div class="thumbnail-slider-window" id="slider-window">
-        <div class="thumbnail-navigation-track" id="thumb-track"></div>
-      </div>
-
-      <div class="main-display-viewport-frame">
-        <div class="image-panel" id="main-image-viewport"></div>
-        <div class="text-panel" id="main-text-viewport"></div>
+  <div class="carousel-content">
+    <div class="visual-media-panel">
+      <div class="tablet-cover-frame" id="tablet-cover-viewport">
+        </div>
+      
+      <div class="tablet-slider-navigation-row">
+        <button class="nav-arrow" onclick="changeSlide(-1)">❮</button>
+        <div class="thumbnail-slider-window" id="slider-window">
+          <div class="thumbnail-navigation-track" id="thumb-track"></div>
+        </div>
+        <button class="nav-arrow" onclick="changeSlide(1)">❯</button>
       </div>
     </div>
 
-    <button class="nav-arrow next-btn" onclick="changeSlide(1)">❯</button>
+    <div class="main-display-viewport-frame">
+      <div class="text-panel" id="main-text-viewport"></div>
+    </div>
   </div>
 </div>
 
 <script>
   let currentSlide = 0;
-  let imgViewport, txtViewport, thumbTrack, sliderWindow, dotsContainer, counterText;
+  let txtViewport, coverViewport, thumbTrack, sliderWindow, counterDisplay;
 
   function initializeCarouselDOM() {
-    imgViewport = document.getElementById('main-image-viewport');
     txtViewport = document.getElementById('main-text-viewport');
+    coverViewport = document.getElementById('tablet-cover-viewport');
     thumbTrack = document.getElementById('thumb-track');
     sliderWindow = document.getElementById('slider-window');
-    dotsContainer = document.getElementById('dots-container');
-    counterText = document.getElementById('slide-counter');
+    counterDisplay = document.getElementById('tablet-counter-display');
 
-    imgViewport.innerHTML = '';
     txtViewport.innerHTML = '';
+    coverViewport.innerHTML = '';
     thumbTrack.innerHTML = '';
-    if(dotsContainer) dotsContainer.innerHTML = '';
 
     if (!window.bookDatabase || window.bookDatabase.length === 0) {
-      counterText.innerText = "No books configured for this page.";
+      if(counterDisplay) counterDisplay.innerText = "NO DATA CONFIGURED.";
       return;
     }
 
+    // Build standalone static image node item framework element
+    const mainImgElement = document.createElement('img');
+    mainImgElement.id = 'tablet-core-cover';
+    mainImgElement.className = 'tablet-main-img';
+    mainImgElement.src = window.bookDatabase[0].cover;
+    mainImgElement.alt = "Core Cover Viewport Frame";
+    coverViewport.appendChild(mainImgElement);
+
     window.bookDatabase.forEach((book, idx) => {
-      const img = document.createElement('img');
-      img.className = `carousel-image ${idx === 0 ? 'active' : ''}`;
-      img.src = book.cover;
-      img.alt = book.title;
-      imgViewport.appendChild(img);
-
-      if(dotsContainer) {
-        const dot = document.createElement('div');
-        dot.className = `dot ${idx === 0 ? 'active' : ''}`;
-        dotsContainer.appendChild(dot);
-      }
-
+      // 1. Structural layout mapping for textual descriptive cards
       const textBlock = document.createElement('div');
       textBlock.className = `description-text ${idx === 0 ? 'active' : ''}`;
       textBlock.innerHTML = `
@@ -516,13 +392,13 @@
               <a href="${book.links.amazon || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon">
-                  <div class="brand-text-block"><span class="brand-main-title">Amazon</span></div>
+                  <span class="brand-main-title">Amazon</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.bookshop || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://cdn.prod.website-files.com/6267f35934aa8b1795cf1a9f/63d1aa1cfa703d3dbec99f92_Indie-BoundB-p-500.png" alt="Bookshop">
-                  <div class="brand-text-block"><span class="brand-main-title">Bookshop</span></div>
+                  <span class="brand-main-title">Bookshop</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
@@ -533,13 +409,13 @@
               <a href="${book.links.audible || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://www.audible.com/favicon.ico" alt="Audible">
-                  <div class="brand-text-block"><span class="brand-main-title">Audible</span></div>
+                  <span class="brand-main-title">Audible</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.libro || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
-                  <img class="brand-logo-img" src="https://play-lh.googleusercontent.com/112ykr4YU-5DmErxanxd888hMMegxD_hL5g4EskcDuyAMr8lKZ4oxpK68SgQrO7Co-M" alt="Libro.fm">
-                  <div class="brand-text-block"><span class="brand-main-title">Libro.fm</span></div>
+                  <img class="brand-logo-img" src="https://libro.fm/favicon.ico" onerror="this.src='https://cdn-icons-png.flaticon.com/128/3400/3400493.png'" alt="Libro.fm">
+                  <span class="brand-main-title">Libro.fm</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
@@ -550,13 +426,13 @@
               <a href="${book.links.kindle || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Kindle">
-                  <div class="brand-text-block"><span class="brand-main-title">Kindle</span></div>
+                  <span class="brand-main-title">Kindle</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.kobo || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
-                  <img class="brand-logo-img" src="https://kobowritinglife.zendesk.com/hc/en-us/article_attachments/360091438051" alt="Kobo">
-                  <div class="brand-text-block"><span class="brand-main-title">Kobo</span></div>
+                  <img class="brand-logo-img" src="https://www.kobo.com/favicon.ico" onerror="this.src='https://cdn-icons-png.flaticon.com/128/2942/2942928.png'" alt="Kobo">
+                  <span class="brand-main-title">Kobo</span>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
@@ -566,48 +442,54 @@
       `;
       txtViewport.appendChild(textBlock);
 
+      // 2. Build the horizontal bottom slide-track card options
       const thumb = document.createElement('div');
       thumb.className = `thumb-card ${idx === 0 ? 'active' : ''}`;
       thumb.onclick = () => jumpToSlide(idx);
       thumb.innerHTML = `
         <img class="thumb-img" src="${book.cover}" alt="Thumb ${idx + 1}">
-        <div class="thumb-meta">
-          <span class="thumb-title">${idx + 1}. ${book.title}</span>
-          <span class="thumb-author">${book.author}</span>
-        </div>
       `;
       thumbTrack.appendChild(thumb);
     });
 
-    counterText.innerText = `Book 1 of ${window.bookDatabase.length}`;
+    updateInterfaceElements();
   }
 
   function adjustThumbnailScrollPosition() {
     const thumbs = document.querySelectorAll('.thumb-card');
     if (thumbs.length === 0 || !sliderWindow) return;
+    
     const currentThumb = thumbs[currentSlide];
-    const windowHeight = sliderWindow.offsetHeight;
-    const targetOffset = currentThumb.offsetTop - (windowHeight / 2) + (currentThumb.offsetHeight / 2);
-    sliderWindow.scrollTo({ top: targetOffset, behavior: 'smooth' });
+    const windowWidth = sliderWindow.offsetWidth;
+    
+    // Smoothly scroll horizontal sliding panel row to keep active cover targeted center frame
+    const targetOffset = currentThumb.offsetLeft - (windowWidth / 2) + (currentThumb.offsetWidth / 2);
+    sliderWindow.scrollTo({ left: targetOffset, behavior: 'smooth' });
   }
 
   function updateInterfaceElements() {
-    const images = document.querySelectorAll('.carousel-image');
     const texts = document.querySelectorAll('.description-text');
     const thumbs = document.querySelectorAll('.thumb-card');
-    const dots = document.querySelectorAll('.dot');
+    const targetCoverImg = document.getElementById('tablet-core-cover');
 
-    images.forEach((img, idx) => img.classList.toggle('active', idx === currentSlide));
     texts.forEach((txt, idx) => txt.classList.toggle('active', idx === currentSlide));
     thumbs.forEach((tmb, idx) => tmb.classList.toggle('active', idx === currentSlide));
-    dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentSlide));
 
-    counterText.innerText = `Book ${currentSlide + 1} of ${window.bookDatabase.length}`;
+    // Dynamic Image File Swapping Matrix Routing
+    if (targetCoverImg && window.bookDatabase[currentSlide]) {
+      targetCoverImg.src = window.bookDatabase[currentSlide].cover;
+    }
+
+    // Update Master Heading Tracker Frame Elements
+    if (counterDisplay && window.bookDatabase) {
+      counterDisplay.textContent = `BOOK ${currentSlide + 1} OF ${window.bookDatabase.length}`;
+    }
+
     adjustThumbnailScrollPosition();
   }
 
   function changeSlide(direction) {
-    if (!window.bookDatabase) return;
+    if (!window.bookDatabase || window.bookDatabase.length === 0) return;
     currentSlide = (currentSlide + direction + window.bookDatabase.length) % window.bookDatabase.length;
     updateInterfaceElements();
   }
@@ -617,5 +499,6 @@
     updateInterfaceElements();
   }
 
+  // Initialization Boot Process Layer Trigger
   initializeCarouselDOM();
 </script>
