@@ -26,34 +26,37 @@
   }
 
   /* ==========================================================================
-     CORE INTERFACE SYSTEM LAYOUT
+     CORE MASTER SYSTEMS STRUCTURAL LAYOUT
      ========================================================================== */
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
-    padding: 8px;
+    padding: 10px;
     background-color: transparent;
-    overflow: hidden; /* Clears outer body scrollbars completely */
+    overflow: hidden; /* Hard cut outer frame body bleed scrollbars */
+    box-sizing: border-box;
   }
 
   .carousel-wrapper {
-    max-width: 1050px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    height: calc(100vh - 16px); /* Locks entire engine wrapper inside layout viewport */
-    justify-content: space-between;
+    height: calc(100vh - 20px); /* Strict element container lock down boundary */
+    gap: 10px;
     box-sizing: border-box;
+    justify-content: flex-start;
   }
 
   .top-indicator-panel {
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+    gap: 16px;
     flex-shrink: 0;
+    padding: 2px 0;
   }
 
   .book-counter {
@@ -63,22 +66,21 @@
     text-transform: uppercase;
     color: var(--text-muted);
     text-shadow: var(--text-shadow-style);
+    white-space: nowrap;
   }
 
   .indicator-dots {
     display: flex;
     gap: 6px;
-    max-width: 100%;
+    max-width: 60%;
     overflow-x: auto;
-    padding: 2px 0;
+    padding: 4px 0;
   }
-  
-  /* Clean up default scrollbar track styling inside indicator dots if they scroll */
   .indicator-dots::-webkit-scrollbar { display: none; }
 
   .dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     background-color: #dadce0;
     opacity: var(--dot-inactive-opacity);
     border-radius: 50%;
@@ -92,58 +94,170 @@
     box-shadow: var(--dot-shadow);
   }
 
+  /* ==========================================================================
+     TRI-COLUMN UNIFIED SYSTEM INNER CONSOLE
+     ========================================================================== */
   .carousel-container {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    align-items: stretch;
     justify-content: center;
     position: relative;
     gap: 8px;
     flex-grow: 1;
-    min-height: 0; /* Important structural flexbox layout override */
+    min-height: 0; /* Clear baseline breakdown thresholds */
+    width: 100%;
   }
 
   .nav-arrow {
     background: none;
     border: none;
-    font-size: 2.5rem;
+    font-size: 2rem;
     cursor: pointer;
     color: #5f6368;
-    padding: 5px;
-    transition: color 0.2s, transform 0.2s, opacity 0.2s;
+    padding: 0 4px;
+    transition: color 0.2s, transform 0.2s;
     user-select: none;
     z-index: 10;
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
   }
 
   .nav-arrow:hover {
     color: var(--accent-hover);
-    transform: scale(1.1);
+    transform: scale(1.15);
   }
 
+  /* Core Side-by-side Layout Integration Map Grid */
   .carousel-content {
     background: var(--carousel-bg);
     border-radius: var(--card-radius);
     box-shadow: var(--panel-shadow);
-    padding: 20px;
+    padding: 16px;
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 24% minmax(0, 76%); 
-    gap: 20px;
-    align-items: center;
+    grid-template-columns: 145px 1fr; /* Rigid clean rail space mapping setup */
+    gap: 16px;
     overflow: hidden;
     min-height: 0;
-    transition: background-color 0.3s ease, border-radius 0.3s ease;
+    flex-grow: 1;
+  }
+
+  /* ==========================================================================
+     VERTICAL SIDE PREVIEW TRACK BANNER RAIL
+     ========================================================================== */
+  .thumbnail-slider-window {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto; /* Vertically roll track natively */
+    overflow-x: hidden;
+    padding-right: 4px;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-gold) var(--thumb-bg);
+    background: var(--slider-window-bg);
+    border: var(--slider-window-border);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .thumbnail-slider-window::-webkit-scrollbar {
+    width: 3px;
+  }
+  .thumbnail-slider-window::-webkit-scrollbar-track {
+    background: var(--thumb-bg);
+  }
+  .thumbnail-slider-window::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 4px;
+  }
+
+  .thumbnail-navigation-track {
+    display: flex;
+    flex-direction: column; /* Row rotation pivot drop */
+    gap: 8px;
+    width: 100%;
+  }
+
+  .thumb-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--thumb-bg);
+    border: var(--thumb-border);
+    border-radius: var(--card-radius);
+    padding: 6px;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+
+  .thumb-card:hover { background: rgba(255, 255, 255, 0.05); }
+
+  .thumb-card.active {
+    border-color: var(--thumb-active-border) !important;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .thumb-img {
+    width: 22px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  .thumb-meta {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .thumb-title {
+    color: var(--thumb-text);
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .thumb-card.active .thumb-title { color: var(--accent-gold); }
+
+  .thumb-author {
+    color: var(--thumb-text-muted);
+    font-size: 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ==========================================================================
+     CORE DATA MAIN DISPLAY VIEWPORT WINDOW
+     ========================================================================== */
+  .main-display-viewport-frame {
+    display: grid;
+    grid-template-columns: 32% 1fr; /* Fixed cover box ratio mapping logic */
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .image-panel {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; 
+    height: 100%;
     width: 100%;
     min-height: 0;
+    overflow: hidden;
   }
 
   .carousel-image {
@@ -155,65 +269,62 @@
     display: none;
   }
 
-  .carousel-image.active {
-    display: block;
-  }
+  .carousel-image.active { display: block; }
 
   .text-panel {
     width: 100%;
     height: 100%;
-    overflow-y: auto;
-    padding-right: 6px;
-    box-sizing: border-box;
     min-height: 0;
-  }
-
-  /* Custom elegant internal text pane scrollbar styling */
-  .text-panel::-webkit-scrollbar {
-    width: 5px;
-  }
-  .text-panel::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .text-panel::-webkit-scrollbar-thumb {
-    background: var(--accent-gold, #dadce0);
-    border-radius: 10px;
+    overflow: hidden;
   }
 
   .description-text {
     display: none;
     width: 100%;
+    height: 100%;
     box-sizing: border-box;
   }
 
   .description-text.active {
     display: grid;
-    grid-template-columns: 52% minmax(0, 48%);
-    gap: 20px;
+    grid-template-columns: 1fr 200px; /* Text flow versus standalone link tower layout */
+    gap: 16px;
+    height: 100%;
   }
 
   .details-column {
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    padding-right: 6px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .details-column::-webkit-scrollbar { width: 4px; }
+  .details-column::-webkit-scrollbar-track { background: transparent; }
+  .details-column::-webkit-scrollbar-thumb {
+    background: var(--accent-gold, #dadce0);
+    border-radius: 4px;
   }
 
   .details-column h2 {
     margin-top: 0;
     color: var(--text-primary);
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     margin-bottom: 2px;
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
   .author-name {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .section-title {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.8px;
     text-transform: uppercase;
@@ -224,22 +335,28 @@
 
   .details-column p {
     color: var(--text-secondary);
-    line-height: 1.4;
-    font-size: 0.85rem;
+    line-height: 1.35;
+    font-size: 0.82rem;
     margin-top: 0;
     margin-bottom: 12px;
     white-space: normal;
     word-break: break-word;
   }
 
+  /* ==========================================================================
+     PURCHASE ACTION TOWER LAYERPANEL
+     ========================================================================== */
   .purchase-column {
     border-left: var(--divider-style);
-    padding-left: 16px;
+    padding-left: 14px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     box-sizing: border-box;
+    overflow-y: auto;
+    height: 100%;
   }
+  .purchase-column::-webkit-scrollbar { display: none; }
 
   .purchase-category {
     display: flex;
@@ -248,7 +365,7 @@
   }
 
   .category-label {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.8px;
     text-transform: uppercase;
@@ -256,9 +373,9 @@
   }
 
   .store-grid-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
+    display: flex;
+    flex-direction: column; /* Enforce tight standalone stack link chains */
+    gap: 4px;
     width: 100%;
   }
 
@@ -266,31 +383,30 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 8px;
+    padding: 5px 8px;
     background: #f8f9fa;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     color: #3c4043;
     text-decoration: none;
     box-sizing: border-box;
-    transition: background-color 0.15s, border-color 0.15s;
+    transition: background-color 0.15s;
   }
 
   .store-link:hover {
     background: #f1f3f4;
-    border-color: #bdc1c6;
   }
 
   .brand-left-zone {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     overflow: hidden;
   }
 
   .brand-logo-img {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     object-fit: contain;
     flex-shrink: 0;
   }
@@ -302,7 +418,7 @@
   }
 
   .brand-main-title {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: #202124;
     white-space: nowrap;
@@ -310,205 +426,102 @@
     text-overflow: ellipsis;
   }
 
-  .brand-sub-action {
-    font-size: 0.62rem;
-    color: #70757a;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: 1px;
-  }
+  .brand-sub-action { display: none; } /* Clear sub text rows to pass height limits safely */
 
   .icon-arrow {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #bdc1c6;
-    font-weight: bold;
     flex-shrink: 0;
-    margin-left: 2px;
   }
 
   .disclaimer-banner {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     color: var(--text-secondary);
     text-align: center;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.04);
     padding: 4px;
     border-radius: 4px;
-    margin-top: 2px;
-    line-height: 1.2;
+    margin-top: auto; /* Always stay pinned to the very base floor */
+    line-height: 1.15;
   }
 
   /* ==========================================================================
-     THUMBNAIL NAVIGATION BANNER SLIDER
-     ========================================================================== */
-  .thumbnail-slider-window {
-    width: 100%;
-    overflow-x: auto; 
-    padding: 6px;
-    box-sizing: border-box;
-    scrollbar-width: thin; 
-    scrollbar-color: var(--accent-gold) var(--thumb-bg);
-    background: var(--slider-window-bg);
-    border: var(--slider-window-border);
-    border-radius: 6px;
-    flex-shrink: 0;
-    transition: background-color 0.3s, border 0.3s;
-  }
-
-  .thumbnail-slider-window::-webkit-scrollbar {
-    height: 4px;
-  }
-  .thumbnail-slider-window::-webkit-scrollbar-track {
-    background: var(--thumb-bg);
-    border-radius: 10px;
-  }
-  .thumbnail-slider-window::-webkit-scrollbar-thumb {
-    background: var(--accent-gold);
-    border-radius: 10px;
-  }
-
-  .thumbnail-navigation-track {
-    display: flex;
-    gap: 8px;
-    width: max-content; 
-  }
-
-  .thumb-card {
-    width: 160px; 
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--thumb-bg); 
-    border: var(--thumb-border); 
-    border-radius: var(--card-radius);
-    padding: 4px 8px;
-    cursor: pointer;
-    user-select: none;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    transition: border-color 0.2s, background-color 0.2s, border-radius 0.2s;
-  }
-
-  .thumb-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .thumb-card.active {
-    border-color: var(--thumb-active-border) !important; 
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 6px rgba(229, 169, 59, 0.2); 
-  }
-
-  .thumb-img {
-    width: 24px;
-    height: 36px;
-    object-fit: cover;
-    border-radius: 2px;
-    background: #232930;
-  }
-
-  .thumb-meta {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .thumb-title {
-    color: var(--thumb-text);
-    font-size: 0.75rem;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .thumb-card.active .thumb-title {
-    color: var(--accent-gold);
-  }
-
-  .thumb-author {
-    color: var(--thumb-text-muted);
-    font-size: 0.65rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: 1px;
-  }
-
-  /* ==========================================================================
-     DYNAMIC RESPONSIVE BREAKPOINTS (TABLET & SMARTPHONE OVERHAUL)
+     DYNAMIC FLUID MASTER BREAKPOINTS OVERHAUL SYSTEM
      ========================================================================== */
 
-  /* 1. TABLET COHESION MODE (Screens smaller than 1024px) */
-  @media screen and (max-width: 1024px) {
-    body {
-      padding: 4px;
-    }
-    .carousel-wrapper {
-      height: calc(100vh - 8px);
-      gap: 8px;
-    }
+  /* 1. MEDIUM TABLET SCALING SYSTEM ZONE */
+  @media screen and (max-width: 960px) {
     .carousel-content {
-      padding: 14px;
-      gap: 14px;
-      grid-template-columns: 22% minmax(0, 78%);
+      grid-template-columns: 120px 1fr; /* Shrink rail slice footprints */
+      gap: 10px;
+      padding: 10px;
+    }
+    .main-display-viewport-frame {
+      grid-template-columns: 30% 1fr;
+      gap: 10px;
     }
     .description-text.active {
-      gap: 14px;
+      grid-template-columns: 1fr 165px; /* Squeeze down button layout profiles */
+      gap: 10px;
+    }
+    .details-column h2 { font-size: 1.2rem; }
+  }
+
+  /* 2. COMPACT PORTRAIT PORT ENGINE VIEWPORT LAYER */
+  @media screen and (max-width: 768px) {
+    .carousel-content {
+      grid-template-columns: 90px 1fr; /* Compact structural configuration */
+      padding: 8px;
+    }
+    .main-display-viewport-frame {
+      grid-template-columns: 100%; /* Drop image panels to give core text absolute layout focus */
+    }
+    .image-panel { display: none !important; }
+    .description-text.active {
+      grid-template-columns: 1fr 150px;
+      gap: 8px;
     }
     .purchase-column {
-      padding-left: 12px;
-      gap: 8px;
-    }
-    .details-column h2 {
-      font-size: 1.3rem;
-    }
-    .nav-arrow {
-      font-size: 2.2rem;
-    }
-    .thumb-card {
-      width: 145px;
+      padding-left: 8px;
     }
   }
 
-  /* 2. RESPONSIVE COLLAPSE ZONE (Screens smaller than 850px) */
-  @media screen and (max-width: 850px) {
+  /* 3. FLUID SMARTPHONE BOUNDARY SYSTEM LAYER */
+  @media screen and (max-width: 600px) {
+    body { padding: 4px; }
+    .carousel-wrapper { height: calc(100vh - 8px); }
+    .top-indicator-panel { display: none !important; } /* Clear header panels to maximize viewport real estate */
+    
     .carousel-content {
-      grid-template-columns: 100% !important;
-      align-items: start !important;
+      grid-template-columns: 65px 1fr; /* Ultra-compact micro icon layout strip */
+      gap: 6px;
+      padding: 6px;
     }
-    .image-panel {
-      display: none !important; /* Drops duplicate large center covers if space completely runs out */
-    }
-    .text-panel {
-      padding-right: 0 !important;
-    }
-    .description-text.active {
-      grid-template-columns: 55% minmax(0, 45%) !important;
-    }
-  }
+    .thumb-meta { display: none !important; } /* Drop mini meta descriptions inside small mobile rail track icons */
+    .thumb-card { justify-content: center; padding: 4px; }
+    .thumb-img { width: 26px; height: 38px; }
 
-  /* 3. SMARTPHONE CRADLE LAYER (Screens smaller than 640px) */
-  @media screen and (max-width: 640px) {
     .description-text.active {
-      grid-template-columns: 100% !important;
-      gap: 12px !important;
+      grid-template-columns: 100%; /* Drop secondary grids to collapse buttons into a single row strip */
+      grid-template-rows: 1fr auto;
+      gap: 8px;
     }
     .purchase-column {
       border-left: none !important;
       padding-left: 0 !important;
       border-top: var(--divider-style) !important;
-      padding-top: 12px !important;
+      padding-top: 8px !important;
+      flex-direction: row !important; /* Row configuration chain array links setup */
+      flex-wrap: wrap;
+      height: auto;
+      overflow: visible;
     }
-    .store-grid-row {
-      grid-template-columns: 1fr !important; /* Single column stack buttons for tight screens */
+    .purchase-category {
+      flex: 1 1 45%; /* Convert link sections into dynamic side-by-side box groups */
+      min-width: 100px;
     }
-    .details-column h2, .author-name, .section-title {
-      text-align: center !important;
-    }
-    .nav-arrow {
-      font-size: 1.8rem;
-    }
+    .disclaimer-banner { width: 100%; margin-top: 4px; }
+    .nav-arrow { font-size: 1.5rem; padding: 0; }
   }
 </style>
 
@@ -520,15 +533,19 @@
 
   <div class="carousel-container">
     <button class="nav-arrow prev-btn" onclick="changeSlide(-1)">❮</button>
+    
     <div class="carousel-content">
-      <div class="image-panel" id="main-image-viewport"></div>
-      <div class="text-panel" id="main-text-viewport"></div>
-    </div>
-    <button class="nav-arrow next-btn" onclick="changeSlide(1)">❯</button>
-  </div>
+      <div class="thumbnail-slider-window" id="slider-window">
+        <div class="thumbnail-navigation-track" id="thumb-track"></div>
+      </div>
 
-  <div class="thumbnail-slider-window" id="slider-window">
-    <div class="thumbnail-navigation-track" id="thumb-track"></div>
+      <div class="main-display-viewport-frame">
+        <div class="image-panel" id="main-image-viewport"></div>
+        <div class="text-panel" id="main-text-viewport"></div>
+      </div>
+    </div>
+
+    <button class="nav-arrow next-btn" onclick="changeSlide(1)">❯</button>
   </div>
 </div>
 
@@ -547,7 +564,7 @@
     imgViewport.innerHTML = '';
     txtViewport.innerHTML = '';
     thumbTrack.innerHTML = '';
-    dotsContainer.innerHTML = '';
+    if(dotsContainer) dotsContainer.innerHTML = '';
 
     if (!window.bookDatabase || window.bookDatabase.length === 0) {
       counterText.innerText = "No books configured for this page.";
@@ -561,9 +578,11 @@
       img.alt = book.title;
       imgViewport.appendChild(img);
 
-      const dot = document.createElement('div');
-      dot.className = `dot ${idx === 0 ? 'active' : ''}`;
-      dotsContainer.appendChild(dot);
+      if(dotsContainer) {
+        const dot = document.createElement('div');
+        dot.className = `dot ${idx === 0 ? 'active' : ''}`;
+        dotsContainer.appendChild(dot);
+      }
 
       const textBlock = document.createElement('div');
       textBlock.className = `description-text ${idx === 0 ? 'active' : ''}`;
@@ -578,35 +597,35 @@
         </div>
         <div class="purchase-column">
           <div class="purchase-category">
-            <span class="category-label">Physical Book</span>
+            <span class="category-label">Physical</span>
             <div class="store-grid-row">
               <a href="${book.links.amazon || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon">
-                  <div class="brand-text-block"><span class="brand-main-title">Amazon</span><span class="brand-sub-action">View Link</span></div>
+                  <div class="brand-text-block"><span class="brand-main-title">Amazon</span></div>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.bookshop || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://cdn.prod.website-files.com/6267f35934aa8b1795cf1a9f/63d1aa1cfa703d3dbec99f92_Indie-BoundB-p-500.png" alt="Bookshop">
-                  <div class="brand-text-block"><span class="brand-main-title">Bookshop</span><span class="brand-sub-action">Independent</span></div>
+                  <div class="brand-text-block"><span class="brand-main-title">Bookshop</span></div>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
           </div>
           <div class="purchase-category">
-            <span class="category-label">Audiobook</span>
+            <span class="category-label">Audio</span>
             <div class="store-grid-row">
               <a href="${book.links.audible || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://www.audible.com/favicon.ico" alt="Audible">
-                  <div class="brand-text-block"><span class="brand-main-title">Audible</span><span class="brand-sub-action">Listen Here</span></div>
+                  <div class="brand-text-block"><span class="brand-main-title">Audible</span></div>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.libro || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://play-lh.googleusercontent.com/112ykr4YU-5DmErxanxd888hMMegxD_hL5g4EskcDuyAMr8lKZ4oxpK68SgQrO7Co-M" alt="Libro.fm">
-                  <div class="brand-text-block"><span class="brand-main-title">Libro.fm</span><span class="brand-sub-action">Local Stores</span></div>
+                  <div class="brand-text-block"><span class="brand-main-title">Libro.fm</span></div>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
@@ -617,18 +636,18 @@
               <a href="${book.links.kindle || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Kindle">
-                  <div class="brand-text-block"><span class="brand-main-title">Kindle</span><span class="brand-sub-action">Digital Copy</span></div>
+                  <div class="brand-text-block"><span class="brand-main-title">Kindle</span></div>
                 </div><span class="icon-arrow">↗</span>
               </a>
               <a href="${book.links.kobo || '#'}" target="_blank" class="store-link">
                 <div class="brand-left-zone">
                   <img class="brand-logo-img" src="https://kobowritinglife.zendesk.com/hc/en-us/article_attachments/360091438051" alt="Kobo">
-                  <div class="brand-text-block"><span class="brand-main-title">Kobo</span><span class="brand-sub-action">eReader</span></div>
+                  <div class="brand-text-block"><span class="brand-main-title">Kobo</span></div>
                 </div><span class="icon-arrow">↗</span>
               </a>
             </div>
           </div>
-          <div class="disclaimer-banner">Using links supports the channel at no extra cost to you!</div>
+          <div class="disclaimer-banner">Links support the channel!</div>
         </div>
       `;
       txtViewport.appendChild(textBlock);
@@ -653,9 +672,9 @@
     const thumbs = document.querySelectorAll('.thumb-card');
     if (thumbs.length === 0 || !sliderWindow) return;
     const currentThumb = thumbs[currentSlide];
-    const windowWidth = sliderWindow.offsetWidth;
-    const targetOffset = currentThumb.offsetLeft - (windowWidth / 2) + (currentThumb.offsetWidth / 2);
-    sliderWindow.scrollTo({ left: targetOffset, behavior: 'smooth' });
+    const windowHeight = sliderWindow.offsetHeight;
+    const targetOffset = currentThumb.offsetTop - (windowHeight / 2) + (currentThumb.offsetHeight / 2);
+    sliderWindow.scrollTo({ top: targetOffset, behavior: 'smooth' });
   }
 
   function updateInterfaceElements() {
