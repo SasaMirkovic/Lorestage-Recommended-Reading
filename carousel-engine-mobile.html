@@ -1,0 +1,479 @@
+<style>
+  /* ==========================================================================
+     GLOBAL BASE THEME (CORE STRUCTURAL DEFAULT FALLBACKS ONLY)
+     ========================================================================== */
+  :root {
+    --carousel-bg: #ffffff;
+    --panel-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+    --text-primary: #202124;
+    --text-secondary: #5f6368;
+    --text-muted: #70757a;
+    --accent-gold: #946a31;
+    --accent-hover: #1a73e8;
+    --border-color: #dadce0;
+    --divider-style: 1px solid #eaeaea;
+    --card-radius: 8px;
+    --thumb-bg: #12161a;
+    --thumb-border: 2px solid #232930;
+    --thumb-text: #f8f9fa;
+    --thumb-text-muted: #9aa0a6;
+    --thumb-active-border: #e5a93b;
+    --slider-window-bg: transparent;
+    --slider-window-border: none;
+    --text-shadow-style: none;
+  }
+
+  /* ==========================================================================
+     CORE MASTER SYSTEMS STRUCTURAL LAYOUT (MOBILE DESIGNATED)
+     ========================================================================== */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 6px;
+    background-color: transparent;
+    box-sizing: border-box;
+  }
+
+  .carousel-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow natural organic growth downwards to eliminate overlaps */
+    gap: 8px;
+    box-sizing: border-box;
+  }
+
+  /* ==========================================================================
+     UNIFIED SYSTEM INNER CONSOLE
+     ========================================================================== */
+  .carousel-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    position: relative;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .nav-arrow {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #5f6368;
+    padding: 0 2px;
+    transition: color 0.2s, transform 0.2s;
+    user-select: none;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .nav-arrow:hover {
+    color: var(--accent-hover);
+  }
+
+  .carousel-content {
+    background: var(--carousel-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--panel-shadow);
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 52px 1fr; /* Compact micro-rail layout strip */
+    gap: 12px;
+  }
+
+  /* ==========================================================================
+     MICRO PREVIEW TRACK SIDE RAIL
+     ========================================================================== */
+  .thumbnail-slider-window {
+    max-height: 360px; /* Constrains the scrollable thumbnails track box */
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-gold) var(--thumb-bg);
+    background: var(--slider-window-bg);
+    border: var(--slider-window-border);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .thumbnail-slider-window::-webkit-scrollbar {
+    width: 2px;
+  }
+  .thumbnail-slider-window::-webkit-scrollbar-track {
+    background: var(--thumb-bg);
+  }
+  .thumbnail-slider-window::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 4px;
+  }
+
+  .thumbnail-navigation-track {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .thumb-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center book items inside micro column */
+    background: var(--thumb-bg);
+    border: var(--thumb-border);
+    border-radius: var(--card-radius);
+    padding: 4px;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+
+  .thumb-card:hover { background: rgba(255, 255, 255, 0.05); }
+
+  .thumb-card.active {
+    border-color: var(--thumb-active-border) !important;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .thumb-img {
+    width: 28px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  .thumb-meta {
+    display: none !important; /* Completely strip out text lines to fit mobile rail dimensions safely */
+  }
+
+  /* ==========================================================================
+     CORE DATA MAIN DISPLAY VIEWPORT WINDOW
+     ========================================================================== */
+  .main-display-viewport-frame {
+    display: flex;
+    flex-direction: column; /* Vertical stacked orientation flow */
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* Hide the huge main cover image to save massive screen estate on mobile, 
+     as the cover art is already completely visible on the side thumbnails rail */
+  .image-panel {
+    display: none !important;
+  }
+
+  .text-panel {
+    width: 100%;
+  }
+
+  .description-text {
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .description-text.active {
+    display: flex;
+    flex-direction: column; /* Collapses text and purchase tower into single stacked strip */
+    gap: 14px;
+  }
+
+  .details-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .details-column h2 {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  .author-name {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    margin-top: 6px;
+  }
+
+  .details-column p {
+    color: var(--text-secondary);
+    line-height: 1.4;
+    font-size: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* ==========================================================================
+     PURCHASE ACTION STACK LAYERPANEL
+     ========================================================================== */
+  .purchase-column {
+    border-left: none;
+    border-top: var(--divider-style); /* Transform divider into horizontal boundary separator */
+    padding-left: 0;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: row; /* Horizontal row mapping distribution matrix */
+    flex-wrap: wrap;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .purchase-category {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1 1 calc(50% - 5px); /* Perfectly pairs store groupings side-by-side */
+    min-width: 110px;
+  }
+
+  .category-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .store-grid-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .store-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 8px;
+    background: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: #3c4043;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  .brand-left-zone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow: hidden;
+  }
+
+  .brand-logo-img {
+    width: 13px;
+    height: 13px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .brand-text-block {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .brand-main-title {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #202124;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .icon-arrow {
+    font-size: 0.6rem;
+    color: #bdc1c6;
+    flex-shrink: 0;
+  }
+
+  .disclaimer-banner {
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.04);
+    padding: 5px;
+    border-radius: 4px;
+    width: 100%; /* Spans full width underneath store pairs blocks */
+    box-sizing: border-box;
+    line-height: 1.15;
+    margin-top: 4px;
+  }
+</style>
+
+<div class="carousel-wrapper">
+  <div class="carousel-container">
+    <button class="nav-arrow prev-btn" onclick="changeSlide(-1)">❮</button>
+    
+    <div class="carousel-content">
+      <div class="thumbnail-slider-window" id="slider-window">
+        <div class="thumbnail-navigation-track" id="thumb-track"></div>
+      </div>
+
+      <div class="main-display-viewport-frame">
+        <div class="text-panel" id="main-text-viewport"></div>
+      </div>
+    </div>
+
+    <button class="nav-arrow next-btn" onclick="changeSlide(1)">❯</button>
+  </div>
+</div>
+
+<script>
+  let currentSlide = 0;
+  let txtViewport, thumbTrack, sliderWindow;
+
+  function initializeCarouselDOM() {
+    txtViewport = document.getElementById('main-text-viewport');
+    thumbTrack = document.getElementById('thumb-track');
+    sliderWindow = document.getElementById('slider-window');
+
+    txtViewport.innerHTML = '';
+    thumbTrack.innerHTML = '';
+
+    if (!window.bookDatabase || window.bookDatabase.length === 0) {
+      return;
+    }
+
+    window.bookDatabase.forEach((book, idx) => {
+      const textBlock = document.createElement('div');
+      textBlock.className = `description-text ${idx === 0 ? 'active' : ''}`;
+      textBlock.innerHTML = `
+        <div class="details-column">
+          <h2>${book.title}</h2>
+          <div class="author-name">${book.author}</div>
+          <h3 class="section-title">Summary</h3>
+          <p>${book.summary}</p>
+          <h3 class="section-title">Why it matters</h3>
+          <p>${book.whyMatters}</p>
+        </div>
+        <div class="purchase-column">
+          <div class="purchase-category">
+            <span class="category-label">Physical</span>
+            <div class="store-grid-row">
+              <a href="${book.links.amazon || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon">
+                  <div class="brand-text-block"><span class="brand-main-title">Amazon</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+              <a href="${book.links.bookshop || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://cdn.prod.website-files.com/6267f35934aa8b1795cf1a9f/63d1aa1cfa703d3dbec99f92_Indie-BoundB-p-500.png" alt="Bookshop">
+                  <div class="brand-text-block"><span class="brand-main-title">Bookshop</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="purchase-category">
+            <span class="category-label">Audio</span>
+            <div class="store-grid-row">
+              <a href="${book.links.audible || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://www.audible.com/favicon.ico" alt="Audible">
+                  <div class="brand-text-block"><span class="brand-main-title">Audible</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+              <a href="${book.links.libro || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://play-lh.googleusercontent.com/112ykr4YU-5DmErxanxd888hMMegxD_hL5g4EskcDuyAMr8lKZ4oxpK68SgQrO7Co-M" alt="Libro.fm">
+                  <div class="brand-text-block"><span class="brand-main-title">Libro.fm</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="purchase-category">
+            <span class="category-label">Ebook</span>
+            <div class="store-grid-row">
+              <a href="${book.links.kindle || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Kindle">
+                  <div class="brand-text-block"><span class="brand-main-title">Kindle</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+              <a href="${book.links.kobo || '#'}" target="_blank" class="store-link">
+                <div class="brand-left-zone">
+                  <img class="brand-logo-img" src="https://kobowritinglife.zendesk.com/hc/en-us/article_attachments/360091438051" alt="Kobo">
+                  <div class="brand-text-block"><span class="brand-main-title">Kobo</span></div>
+                </div><span class="icon-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+          <div class="disclaimer-banner">Links support the channel!</div>
+        </div>
+      `;
+      txtViewport.appendChild(textBlock);
+
+      const thumb = document.createElement('div');
+      thumb.className = `thumb-card ${idx === 0 ? 'active' : ''}`;
+      thumb.onclick = () => jumpToSlide(idx);
+      thumb.innerHTML = `
+        <img class="thumb-img" src="${book.cover}" alt="Thumb ${idx + 1}">
+      `;
+      thumbTrack.appendChild(thumb);
+    });
+  }
+
+  function adjustThumbnailScrollPosition() {
+    const thumbs = document.querySelectorAll('.thumb-card');
+    if (thumbs.length === 0 || !sliderWindow) return;
+    const currentThumb = thumbs[currentSlide];
+    const windowHeight = sliderWindow.offsetHeight;
+    const targetOffset = currentThumb.offsetTop - (windowHeight / 2) + (currentThumb.offsetHeight / 2);
+    sliderWindow.scrollTo({ top: targetOffset, behavior: 'smooth' });
+  }
+
+  function updateInterfaceElements() {
+    const texts = document.querySelectorAll('.description-text');
+    const thumbs = document.querySelectorAll('.thumb-card');
+
+    texts.forEach((txt, idx) => txt.classList.toggle('active', idx === currentSlide));
+    thumbs.forEach((tmb, idx) => tmb.classList.toggle('active', idx === currentSlide));
+
+    adjustThumbnailScrollPosition();
+  }
+
+  function changeSlide(direction) {
+    if (!window.bookDatabase) return;
+    currentSlide = (currentSlide + direction + window.bookDatabase.length) % window.bookDatabase.length;
+    updateInterfaceElements();
+  }
+
+  function jumpToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateInterfaceElements();
+  }
+
+  initializeCarouselDOM();
+</script>
