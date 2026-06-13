@@ -10,7 +10,7 @@ window.GAME_PRESENTATION_DIRECTORY = {
     buyUrl: "https://www.gog.com/en/game/stalker_shadow_of_chernobyl",
     dedicatedPageUrl: "stalker-page.html",
     navBg: "#1c2213",
-    logo: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/logo/logo-lorestage.png",
+    logo: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/logo/logo-lorestage-stalker.png",
     bannerImg: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/banner/stalker-banner.png",
     themeClass: "stalker"
   },
@@ -24,7 +24,7 @@ window.GAME_PRESENTATION_DIRECTORY = {
     buyUrl: "https://www.gog.com/en/game/bioshock_remastered",
     dedicatedPageUrl: "bioshock-page.html",
     navBg: "#0a1c24",
-    logo: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/logo/logo-lorestage.png",
+    logo: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/logo/logo-lorestage-bioshock.png",
     bannerImg: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/banner/bioshock-banner.png",
     themeClass: "bioshock"
   },
@@ -38,7 +38,7 @@ window.GAME_PRESENTATION_DIRECTORY = {
     buyUrl: "https://us.shop.battle.net/en-us/product/warcraft-iii-reforged",
     dedicatedPageUrl: "warcraft-page.html",
     navBg: "#21110b",
-    logo: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/logo/logo-lorestage.png",
+    logo: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/logo/logo-lorestage-arthas.png",
     bannerImg: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/banner/arthas-banner.png",
     themeClass: "arthas"
   },
@@ -52,7 +52,7 @@ window.GAME_PRESENTATION_DIRECTORY = {
     buyUrl: "https://us.shop.battle.net/en-us/product/warcraft-iii-reforged",
     dedicatedPageUrl: "thrall-page.html",
     navBg: "#29120c", // Savage Horde deep clay rust tone
-    logo: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/logo/logo-lorestage.png",
+    logo: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/logo/logo-lorestage-thrall.png",
     bannerImg: "https://cdn.jsdelivr.net/gh/SasaMirkovic/lorestage-gaming-website@main/assets/banner/thrall-banner.png",
     themeClass: "thrall"
   }
